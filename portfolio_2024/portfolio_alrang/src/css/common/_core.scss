@@ -1,0 +1,31 @@
+// portfolio 코어 scss
+
+// 폰트셋팅
+// 텍스트 기본 폰트: 프리텐다드
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+    // font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+// 메인 타이틀 폰트 : gilda-display-regular
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Diphylleia&family=Gilda+Display&family=Lustria&family=Noto+Sans+KR&display=swap');
+  
+.gilda-display-regular {
+    font-family: "Gilda Display", serif;
+    // font-weight: 400;
+    // font-style: normal;
+  }
+  
+
+//폰트 기본셋팅
+.title{
+    
+    font-family: "Gilda Display", serif;
+}
+.text{
+   font-family: "Pretendard Variable";
+}
+
+.under-line-w{
+    display: block;
+    width: 100%;
+    border-bottom: .1rem solid #fff;
+}

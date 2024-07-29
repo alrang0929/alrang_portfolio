@@ -3,7 +3,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '../src/css/index.scss';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+//page
 import Main from './components/pages/Main';
+import WorksDetail from './components/pages/WorksDetail';
+import WorksList from './components/pages/WorksList';
+import Layout from './components/layout/Layout';
 ///////////////import area
 
 export default function MainComponent(){
@@ -14,6 +19,9 @@ export default function MainComponent(){
        <Routes>
        <Route path="/" element={<Layout />}>
         <Route index element={<Main/>}/>
+        <Route path="/WorksList" element={<WorksList/>}/>
+        <Route path="/WorksDetail" element={<WorksDetail/>}/>
+
        </Route>
        </Routes>
        </BrowserRouter>

@@ -1,0 +1,158 @@
+//Main.scss
+
+/***************************** 1.메인 비쥬얼 영역 *****************************/
+#main-visual-area {
+    position: relative;
+    //BG설정
+    background: url(./../../public/images/main_bg.jpg);
+    background-size: cover;
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    height: 100vh;
+
+    .text-wrap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+
+        text-align: center;
+        margin: 0 auto;
+        color: #fff;
+        .title {
+            letter-spacing: -0.2rem;
+            line-height: 9rem;
+            font-size: 7.2rem;
+            font-weight: 200;
+        }
+        .text-box {
+            margin-top: 0.9rem;
+
+            .text {
+                line-height: 1.4rem;
+                display: block;
+                font-size: 0.9rem;
+                font-weight: 200;
+            }
+        }
+    }
+
+    .scroll-down {
+        position: absolute;
+        left: 50%;
+        bottom: 6%;
+        translate: -50% -50%;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 400;
+    }
+} //main-visual-area
+
+/*****************************  2. 프로필 영역 *****************************/
+#profile-area {
+    
+    .cont-wrap {
+        background: #000;
+        .imgbx {
+            margin: 0 auto;
+            margin-bottom: 7.5rem;
+            top: 7%;
+            width: 20.9rem;
+            img {
+                width: 100%;
+            }
+            
+        }
+        .text-wrap {
+            max-width: 50rem;
+            margin: 0 auto;
+            margin-bottom: 7.5rem;
+            text-align: left;
+            color: #fff;
+            h4{
+                margin-bottom: 2rem;
+            }
+            .text{
+                font-size: 0.94rem;
+                font-weight: 200;
+            }
+        }//text-wrap
+        .skil-list-wrap{
+            .aa{
+                margin: 0 auto;
+                
+                max-width: 50rem;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        padding-bottom: 7.5rem;
+    }//cont-wrap
+}//profile-area
+
+/***************************** 3. CONTACT US  *****************************/
+#contact-area{
+    background: #000;
+    .text-box{
+        max-width: 50rem;
+        padding-bottom: 3rem;
+        margin: 0 auto;
+        text-align: center;
+        .title{
+            color: #E8AF7D;
+            font-size: 1.5rem;
+            font-weight: 200;
+            padding-bottom: 3rem;
+        }
+        .email{
+            display: block;
+            color: #E8AF7D;
+            font-size: 4rem;
+            padding-bottom: 3rem;
+        }
+        .text{
+            display: block;
+            margin: 0 auto;
+            max-width: 35rem;
+            
+            line-height: 1.4rem;
+            font-weight: 200;
+            color: #fff;
+            font-size: 0.94rem;
+            padding-bottom: 3rem;
+        }
+    }
+    a{
+        display: block;
+        font-size: 2rem;
+        color: #fff;
+        transition: .2s;
+        text-align: center;
+        padding-bottom: 3rem;
+
+        &:hover{
+            color: #E8AF7D;
+        }
+    }
+
+}
+
+/***************************** 미디어쿼리*****************************/
+@media (max-width: 746px) {
+    #main-visual-area {
+        background-size: cover;
+        background-position: 60% 50%;
+        .text-wrap {
+            h2 {
+                line-height: 5.7rem;
+                font-size: 5.4rem;
+            }
+            .text-box {
+                margin-top: 2.9rem;
+            }
+        }
+    }
+}
