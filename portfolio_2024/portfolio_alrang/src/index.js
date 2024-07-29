@@ -1,15 +1,22 @@
 ///portfolio - index
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-
+import '../src/css/index.scss';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Main from './components/pages/Main';
 ///////////////import area
 
 export default function MainComponent(){
 
   return(
     <>
-      <MainComponent />
+       <BrowserRouter basename={process.env.PUBLIC_URL}>
+       <Routes>
+       <Route path="/" element={<Layout />}>
+        <Route index element={<Main/>}/>
+       </Route>
+       </Routes>
+       </BrowserRouter>
     </>
   );
 }
