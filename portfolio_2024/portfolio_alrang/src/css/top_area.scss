@@ -1,0 +1,17 @@
+//portfoil pj - topArea scss
+
+
+body{
+
+    position: relative;
+}
+#gnb-area{
+    height: 6.25rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    button{
+        width: 100px;
+        z-index: 999;
+    }
+}

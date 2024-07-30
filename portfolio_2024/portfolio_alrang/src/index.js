@@ -19,7 +19,7 @@ export default function MainComponent(){
        <Routes>
        <Route path="/" element={<Layout />}>
         <Route index element={<Main/>}/>
-        <Route path="/WorksList" element={<WorksList/>}/>
+        <Route path="/Works" element={<WorksList/>}/>
         <Route path="/WorksDetail" element={<WorksDetail/>}/>
 
        </Route>
