@@ -20,6 +20,7 @@ function Main() {
                 </div>
                 {/* 2)스크롤 다운 : 아이콘, 텍스트*/}
                 <div className="scroll-down">
+                    <div className="ani-bar"></div>
                     <span>SCROLL DOWN </span>
                 </div>
             </section>
@@ -28,7 +29,7 @@ function Main() {
                 {/* 1) 이미지 박스 */}
                 <div className="cont-wrap">
                 <div className="imgbx">
-                    <img src="/images/main_img.jpg" alt="메인 이미지" />
+                    <img src={process.env.PUBLIC_URL+"/images/main_img.jpg"} alt="메인 이미지" />
                 </div>
                 {/* 2) 자기소개 : 타이틀, 텍스트 */}
                 <div className="text-wrap">
@@ -39,7 +40,7 @@ function Main() {
                 <div className="skil-list-wrap">
                     {/* 임시 삽입 */}
                     <div className="aa">
-                        <img src="/images/Frame 11.png" alt="" />
+                        <img src={process.env.PUBLIC_URL+"/images/Frame 11.png"} alt="" />
                     </div>
                 </div>
                 </div>

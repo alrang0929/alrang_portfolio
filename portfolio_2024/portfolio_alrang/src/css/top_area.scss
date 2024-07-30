@@ -1,17 +1,44 @@
 //portfoil pj - topArea scss
 
+#gnb-area {
+  z-index: 999;
+  position: absolute;
+  right: 0;
+  top: 0;
 
-body{
+  height: 6.25rem;
 
-    position: relative;
-}
-#gnb-area{
-    height: 6.25rem;
-    position: absolute;
-    right: 0;
-    top: 0;
-    button{
-        width: 100px;
-        z-index: 999;
+  nav {
+    padding: 2.25rem;
+    button {
+      cursor: pointer;
+      z-index: 1;
+      position: relative; //after 부모요소
+      overflow: hidden; // after넘침 요소 가리기
+
+      width: 7.25rem;
+      padding: 0.83rem 1rem;
+      border-radius: 1.25rem;
+      border: transparent;
+      background: #fff;
+
+      &::after {
+        content: "";
+        position: absolute;
+        //버튼 텍스트 글자 가려서 뒤로 보냄
+        z-index: -1;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #e8af7d;
+
+        transition: 0.2s ease-in-out;
+      }
+
+      &:hover::after {
+        left: 0;
+      }
     }
+  }
 }
