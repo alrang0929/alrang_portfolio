@@ -1,14 +1,21 @@
 //portfolio pj - TopArea 컴포넌트
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../../css/top_area.scss";
 ///////////////////import area//////////////////
 
 
 function TopArea(props) {
+    //상태관리변수
+    //1. 홈이동 상태관리
+    const [isHome, setIsHome] = useState(false);
+
     const navigate = useNavigate();
     const goLink = ()=>{
-        navigate("/Works");
+        //클릭시 isHome 상태 반전
+        setIsHome(!isHome);
+        //isHome이 true냐? works, false냐? root
+        navigate(isHome?"/Works" :"/");
     };
 
     ///// 화면 랜더링 구역///////////////////
@@ -17,7 +24,7 @@ function TopArea(props) {
             <header id='gnb-area'>
                 <nav>
                     <button onClick={goLink}>
-                        Works
+                    {isHome ? "Works" :"Home"}
                     </button>
                 </nav>
             </header>
