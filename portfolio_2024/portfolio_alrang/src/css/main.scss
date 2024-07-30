@@ -50,9 +50,9 @@
     color: #fff;
     font-size: 0.7rem;
     font-weight: 400;
-    span{
-        display: block;
-        padding: 2rem;
+    span {
+      display: block;
+      padding: 2rem;
     }
     .ani-bar {
       position: relative;
@@ -147,13 +147,18 @@
       padding-bottom: 3rem;
     }
     .email {
-      display: block;
+      //   display: block;
+      word-break: break-all; /* 긴 단어를 줄바꿈 */
+      word-wrap: break-word; /* 긴 단어를 줄바꿈 */
+      overflow-wrap: break-word; /* 긴 단어를 줄바꿈 */
+
       color: $fontPointColor;
+      line-height: 1;
       font-size: 4rem;
       padding-bottom: 3rem;
     }
     .text {
-      display: block;
+      //   display: block;
       margin: 0 auto;
       max-width: 35rem;
 
@@ -180,6 +185,19 @@
 
 /***************************** 미디어쿼리*****************************/
 @media (max-width: 746px) {
+
+  #main-visual-area .text-wrap .title{
+    font-size: 6.2rem;
+    line-height: 1;
+  }
+  #profile-area{
+    .cont-wrap{
+      .text-wrap{
+        max-width: 26rem; 
+      }
+    }
+  }
+
   #main-visual-area {
     background-size: cover;
     background-position: 60% 50%;
@@ -192,5 +210,26 @@
         margin-top: 2.9rem;
       }
     }
+  } //main-visual-area
+  #contact-area {
+    .email {
+      font-size: 1.7rem;
+    }
   }
-}
+} //746px 끝////////////////
+@media (max-width: 500px) {
+  #contact-area {
+    .text-box {
+      .text {
+        max-width: 20rem;
+      }
+    }
+  }//contact-area
+
+  #contact-area{
+    .text-box {
+      max-width: 23rem;
+    }
+  }
+
+} //320px 끝////////////////

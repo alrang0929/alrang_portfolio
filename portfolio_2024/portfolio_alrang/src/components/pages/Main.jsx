@@ -50,12 +50,12 @@ function Main() {
                 {/* 1)텍스트박스 : 타이틀, 이메일, 텍스트, 밑줄 요소 */}
                 <div className="text-box">
                 <h3 className='title'>CONTACT US</h3>
-                <span className="email gilda-display-regular">
+                <div className="email gilda-display-regular">
                 duudaa0939@gmail.com
-                </span>
-                <span className='text'>
+                </div>
+                <div className='text'>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                </span>
+                </div>
                 <span className="under-line-w"></span>
                 </div>
                 {/* 2) 포트폴리오 이동 링크 */}
