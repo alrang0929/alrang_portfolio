@@ -17,21 +17,24 @@ const worksData = [
         title: '아모레퍼시픽 UI/UX Recover',
         category: 'UX / UI desing, fe Development',
         info: '2024.04.15^React, jQuery, SCSS, HTML5',
-        isrc: '/images/Rectangle_27.jpg'
+        isrc: {bg:"/images/amr_bg.jpg",ipage:""},
+        url: {pdf: "", page:""},
     },
     {
         idx: 2,
         title: '슬밋 UI/UX Recover',
         category: 'UX / UI desing, fe Development',
-        info: '2024.07.28^React, jQuery, SCSS, HTML5',
-        isrc: '/images/Rectangle_27.jpg'
+        info: '2024.07.28^React^jQuery, SCSS, HTML5',
+        isrc: {bg:"/images/sm_bg.jpg",ipage:""},
+        url: {pdf: "", page:""},
     },
     {
         idx: 3,
         title: 'STAR WARS 팀 프로잭트',
         category: 'UX / UI desing, fe Development',
         info: '2024.04.22^React, jQuery, SCSS, HTML5',
-        isrc: '/images/Rectangle_27.jpg'
+        isrc: {bg:"/images/starwars_bg.jpg",ipage:""},
+        url: {pdf: "", page:""},
     },
 ]
 

@@ -5,19 +5,14 @@
 body {
     background-color: #000;
     position: relative;
-    // overflow: hidden;
 }
 
 #works-list-area {
-    background: url(../../public/images/matthew-henry-3lL_Nlvpl08-unsplash.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    transition: background-image 0.3s ease;
-
-    &::before{
-        content: "WORKS LIST";
+    overflow-x: hidden;
+    position: relative;
+    height: 100vh;
+    .txt{
+        z-index: 1;
         font-family: "Gilda Display", serif;
         color: #fff;
         font-size: 2.1rem;
@@ -25,104 +20,55 @@ body {
         top: 50%;
         left: 11%;
         translate: -50% -50%;
-    
     }
+    .bg-box{
+        // z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: url(../../public/images/matthew-henry-3lL_Nlvpl08-unsplash.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    //    filter: blur(20px);
+        transition: background-image 0.3s ease, backdrop-filter .3s ease;
+    }
+
+
     .ani-bar {
+        z-index: 9;
         position: relative;
         overflow: hidden;
         margin: 0 auto;
-        
-        top: 50%;
-        left: -19%;
+
+        top: 54%;
+        left: -28%;
         translate: -50% -50%;
 
         width: 12rem;
-        height: .1rem;
+        height: 0.1rem;
         background: #ffffff40;
         &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 10%;
-          opacity: 0;
-          width: 40rem;
-          height: .1rem;
-          background: #ffffff;
-          animation: ani-bar 2.6s linear infinite;
-          @keyframes ani-bar {
-            0% {
-              opacity: 0;
-              left: 0%;
-            }
-            75% {
-              opacity: 1;
-              left: 80%;
-            }
-            100% {
-              opacity: 0;
-              left: 100%;
-            }
-          }
-        }
-      }
-    position: relative;
-    height: 100vh;
-   
-
-    height: 100vh;
-    ul {
-        z-index: 1;
-        display: flex;
-        gap: 1.25rem;
-        position: absolute;
-        top: 50%;
-        left: 90%;
-        translate: -50% -50%;
-        
-        li {
-            position: relative;
-            cursor: pointer;
-            background: url(../../public/images/Rectangle_27.jpg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 40.88rem;
-            height: 40.88rem;
-
-            .info-text-wrap {
-                width: 80%;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                translate: -50% -50%;
-                .title {
-                    font-size: 3rem;
-                    color: #fff;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 10%;
+            opacity: 0;
+            width: 40rem;
+            height: 0.1rem;
+            background: #ffffff;
+            animation: ani-bar 2.6s linear infinite;
+            @keyframes ani-bar {
+                0% {
+                    opacity: 0;
+                    left: 0%;
                 }
-                .category-wrap {
-                    color: #fff;
-                    font-size: 1.14rem;
-                    font-weight: 200;
-                    padding-bottom: 1rem;
+                75% {
+                    opacity: 1;
+                    left: 80%;
                 }
-                .info {
-                    font-size: 0.6rem;
-                    display: flex;
-                    gap: 1.25rem;
-                    .info-wrap {
-                        display: flex;
-                        gap: 0.8rem;
-
-                        .tit {
-                            letter-spacing: 0.1rem;
-                            font-weight: 600;
-                            color: #fff;
-                        }
-                        .cont-text {
-                            font-weight: 200;
-                            color: #fff;
-                        }
-                    }
+                100% {
+                    opacity: 0;
+                    left: 100%;
                 }
             }
         }
