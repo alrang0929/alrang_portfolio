@@ -13,8 +13,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Pagination } from 'swiper/modules';
 
-export default function WorksSwiper() {
-    const [mainBg, setMainBg] = useState(null);
+export default function WorksSwiper({mainBg, setMainBg}) {
+
     //마우스가 올라가면? 메인 BG를 li BG로 설정
     const handleMouseEnter = (listBg) => {
         setMainBg(listBg);

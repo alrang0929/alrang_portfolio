@@ -16,9 +16,9 @@ function WorksList() {
         <main id="works-list-area" >
             <div className="txt">WORKS LIST</div>
             <div className="ani-bar"></div>
-            <div className="bg-box" style={{ backgroundImage: mainBg }}>
-            <WorksSwiper/>
-            </div>
+            {/* 1. 리스트 컴포넌트 */}
+            <WorksSwiper mainBg={mainBg} setMainBg={setMainBg}/>
+            <div className="bg-box" style={{ backgroundImage: mainBg }}></div>
         </main>
     );
 }
