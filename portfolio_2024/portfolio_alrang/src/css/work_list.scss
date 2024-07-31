@@ -71,6 +71,7 @@ body {
 
     height: 100vh;
     ul {
+        z-index: 1;
         display: flex;
         gap: 1.25rem;
         position: absolute;
