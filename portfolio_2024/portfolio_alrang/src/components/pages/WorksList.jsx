@@ -31,7 +31,7 @@ function WorksList(props) {
            <ul>
             {/* 테스트 리스트 */}
             <li
-            onMouseEnter={()=>handleMouseEnter(`url('/images/Rectangle_27.jpg')`)}
+            onMouseEnter={()=>handleMouseEnter(`url(${process.env.PUBLIC_URL}'/images/Rectangle_27.jpg')`)}
             onMouseLeave={handleMouseLeave}
             onClick={goLink}
             >
