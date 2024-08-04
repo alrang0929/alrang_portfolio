@@ -17,7 +17,7 @@ const worksData = [
         title: '아모레퍼시픽 UI/UX Recover',
         category: 'UX / UI desing, fe Development',
         info: '2024.04.15^React, jQuery, SCSS, HTML5',
-        isrc: {bg:"/images/amr_bg.jpg",ipage:""},
+        isrc: {bg:"/images/amr_bg.jpg",ipage:"/images/amr_pg.png"},
         url: {pdf: "", page:""},
     },
     {
@@ -25,7 +25,7 @@ const worksData = [
         title: '슬밋 UI/UX Recover',
         category: 'UX / UI desing, fe Development',
         info: '2024.07.28^React^jQuery, SCSS, HTML5',
-        isrc: {bg:"/images/sm_bg.jpg",ipage:""},
+        isrc: {bg:"/images/sm_bg.jpg",ipage:"/images/seulmit_pg.png"},
         url: {pdf: "https://drive.google.com/file/d/1lTuTRm9JZ9qt6WGas2uKq6mgFRPUvaXX/view?usp=sharing", page:""},
     },
     {

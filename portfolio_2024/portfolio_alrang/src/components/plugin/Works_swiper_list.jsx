@@ -67,12 +67,12 @@ export default function WorksSwiper({ mainBg, setMainBg }) {
                         const categoryData = v.category.split("^");
                         //click핸들에 클릭시 데이터값 받는 함수도 추가
                         const handleClick = () => {
-                            setSelProjectData(v); // 선택된 li의 데이터 설정
+                            myCon.setSelProjectData(v); // 선택된 li의 데이터 설정
                             goLink();
                         };
 
-                        console.log("infoData", infoData[0]);
-                        console.log("v.isrc.bg", v.isrc.bg);
+                        // console.log("infoData", infoData[0]);
+                        // console.log("v.isrc.bg", v.isrc.bg);
                         return (
                             <SwiperSlide key={i}>
                                 <li

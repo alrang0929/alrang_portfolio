@@ -1,0 +1,54 @@
+#works-detail{
+    .img-wrap{
+        width: 50vw;
+        img{
+            width: 100%;
+        }
+    }
+    .fixedbox{
+        position: fixed;
+        width: 50vw;
+        
+        .info-text-wrap {
+            max-width: 80%;
+            position: relative;
+            padding-top: 50px;
+            left: 106%;
+            
+            .title {
+                word-break: break-all; /* 긴 단어를 줄바꿈 */
+                word-wrap: break-word; /* 긴 단어를 줄바꿈 */
+                overflow-wrap: break-word; /* 긴 단어를 줄바꿈 */
+                font-size: 2.5rem;
+                line-height: 1;
+                margin-bottom: 1rem;
+                letter-spacing: -0.1rem;
+                color: #fff;
+            }
+            .category-wrap {
+                color: #fff;
+                font-size: 1.14rem;
+                font-weight: 200;
+                padding-bottom: 1rem;
+            }
+            .info {
+                font-size: 0.6rem;
+                display: flex;
+                gap: 1.25rem;
+                .info-wrap {
+                    display: flex;
+                    gap: 0.8rem;
+                    .tit {
+                        letter-spacing: 0.1rem;
+                        font-weight: 600;
+                        color: #fff;
+                    }
+                    .cont-text {
+                        font-weight: 200;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
