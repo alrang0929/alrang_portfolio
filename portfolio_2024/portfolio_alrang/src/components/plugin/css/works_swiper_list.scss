@@ -1,11 +1,11 @@
 .swiper {
     width: 80%;
     z-index: 1;
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    translate: -50% -50%;
+    // display: flex;
+    // position: absolute;
+    // top: 50%;
+    // left: 70%;
+    // translate: -50% -50%;
     
     li {
         position: relative;
@@ -13,12 +13,10 @@
         &:hover + #works-list-area {
             backdrop-filter: blur(100px);
         }
-
        
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        width: 40.88rem;
         height: 40.88rem;
 
         .info-text-wrap {

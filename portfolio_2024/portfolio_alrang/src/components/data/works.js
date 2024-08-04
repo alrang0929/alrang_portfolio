@@ -26,7 +26,7 @@ const worksData = [
         category: 'UX / UI desing, fe Development',
         info: '2024.07.28^React^jQuery, SCSS, HTML5',
         isrc: {bg:"/images/sm_bg.jpg",ipage:""},
-        url: {pdf: "", page:""},
+        url: {pdf: "https://drive.google.com/file/d/1lTuTRm9JZ9qt6WGas2uKq6mgFRPUvaXX/view?usp=sharing", page:""},
     },
     {
         idx: 3,
@@ -34,7 +34,7 @@ const worksData = [
         category: 'UX / UI desing, fe Development',
         info: '2024.04.22^React, jQuery, SCSS, HTML5',
         isrc: {bg:"/images/starwars_bg.jpg",ipage:""},
-        url: {pdf: "", page:""},
+        url: {pdf: "https://drive.google.com/file/d/1J0x0dtpHVRxKqZ03WT9dPgYAteJ_-fqg/view?usp=sharing", page:""},
     },
 ]
 

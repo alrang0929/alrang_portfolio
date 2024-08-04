@@ -1,19 +1,23 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination'
+import "swiper/css";
+import "swiper/css/pagination";
 import "./css/works_swiper_list.scss";
 
 //data
 import worksData from "../data/works";
 import { useNavigate } from "react-router-dom";
 
-import { Pagination } from 'swiper/modules';
+import { Pagination } from "swiper/modules";
+import { SelectCon } from "../pages/SelectCon";
 
-export default function WorksSwiper({mainBg, setMainBg}) {
+export default function WorksSwiper({ mainBg, setMainBg }) {
+    //1. mainBg 호버시 데이터 변경을 위해 기본 셋팅해놓은 배경값
+    //2. setMainBg 호버시 변경되는 배경 이미지 주소
+    const myCon = useContext(SelectCon);
 
     //마우스가 올라가면? 메인 BG를 li BG로 설정
     const handleMouseEnter = (listBg) => {
@@ -28,21 +32,45 @@ export default function WorksSwiper({mainBg, setMainBg}) {
         navigate("/WorksDetail");
     };
     /////////코드리턴구역////////////
-  return (
-    <>
-      <Swiper
-        slidesPerView={'2'}
-        spaceBetween={50}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        {
+    return (
+        <>
+            <Swiper
+                slidesPerView={2}
+                spaceBetween={50}
+                // pagination={{
+                //   clickable: true,
+                // }}
+                modules={[Pagination]}
+                //반응형 처리
+                direction={"horizontal"}
+                breakpoints={{
+                    1900: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+
+                    1620: {
+                        // direction: 'vertical',
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1600: {
+                        slidesPerView: 1,
+                        spaceBetween: 40,
+                    },
+                }}
+                className="mySwiper"
+            >
+                {
                     worksData.map((v, i) => {
                         const infoData = v.info.split("^");
                         const categoryData = v.category.split("^");
+                        //click핸들에 클릭시 데이터값 받는 함수도 추가
+                        const handleClick = () => {
+                            setSelProjectData(v); // 선택된 li의 데이터 설정
+                            goLink();
+                        };
+
                         console.log("infoData", infoData[0]);
                         console.log("v.isrc.bg", v.isrc.bg);
                         return (
@@ -54,9 +82,10 @@ export default function WorksSwiper({mainBg, setMainBg}) {
                                     onMouseEnter={() =>
                                         handleMouseEnter(
                                             `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
-                                        )}
+                                        )
+                                    }
                                     onMouseLeave={handleMouseLeave}
-                                    onClick={goLink}
+                                    onClick={handleClick}
                                 >
                                     <div className="info-text-wrap">
                                         <h3 className="title">{v.title}</h3>
@@ -86,7 +115,7 @@ export default function WorksSwiper({mainBg, setMainBg}) {
                         ); //li반환
                     }) //map
                 }
-      </Swiper>
-    </>
-  );
+            </Swiper>
+        </>
+    );
 }

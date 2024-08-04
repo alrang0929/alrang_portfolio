@@ -11,28 +11,37 @@ body {
     overflow: hidden;
     position: relative;
     height: 100vh;
-    .txt{
-        z-index: 1;
-        font-family: "Gilda Display", serif;
-        color: #fff;
-        font-size: 2.1rem;
-        position: absolute;
-        top: 50%;
-        left: 11%;
-        translate: -50% -50%;
+
+    //flex 설정
+    align-items: center;
+    // flex-direction: row;
+
+    .text-object-wrap {
+        width: 20vw;
+        padding-left: 40px;
+        flex-direction: column;
+        .txt {
+            z-index: 1;
+            font-family: "Gilda Display", serif;
+            color: #fff;
+            font-size: 2.1rem;
+        }
     }
-    .bg-box{
-        // z-index: -1;
+    .bg-box {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        background: url(../../public/images/matthew-henry-3lL_Nlvpl08-unsplash.jpg);
+        background: url(../../public/images/works_bg.jpg);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-       filter: blur(20px);
-        transition: background-image 0.3s ease, backdrop-filter .3s ease;
+        opacity: 0.3;
+        filter: blur(20px);
+        transition: background-image 0.3s ease, backdrop-filter 0.3s ease;
     }
-
 
     .ani-bar {
         z-index: 9;
@@ -70,6 +79,24 @@ body {
                     opacity: 0;
                     left: 100%;
                 }
+            }
+        }
+    }
+}
+
+/////////미디어쿼리/////////////////////////////////////
+@media (max-width: 1300px) {
+    #works-list-area {
+        flex-direction: column;
+        .text-object-wrap {
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            .txt {
+                font-size: 5rem;
+                 }
+            .ani-bar {
+                display: none;
             }
         }
     }

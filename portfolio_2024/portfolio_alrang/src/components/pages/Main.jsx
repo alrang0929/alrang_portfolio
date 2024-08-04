@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import "../../css/main.scss";
 ///////////////////import area//////////////////
 function Main() {
+
+    ///코드 리턴구역 /////////////////////////////////////////////////////////
     return (
         <main id="main-area">
             {/* 1. 메인 비쥬얼 영역 */}
