@@ -1,6 +1,6 @@
 //portfolio pj - TopArea 컴포넌트
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "../../css/top_area.scss";
 ///////////////////import area//////////////////
 
@@ -23,7 +23,11 @@ function TopArea(props) {
         <>
             <header id='gnb-area'>
                 <nav>
-                    <button onClick={goLink}>
+                    {
+                        !isHome &&
+                        <Link to="/Works">WORKS</Link>
+                    }
+                    <button className='fill-button' onClick={goLink}>
                     {isHome ? "Works" :"Home"}
                     </button>
                 </nav>

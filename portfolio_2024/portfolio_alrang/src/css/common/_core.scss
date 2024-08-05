@@ -1,28 +1,116 @@
 // portfolio 코어 scss
 
+// 마우스 숨기기
+body{
+    cursor: none; 
+}
+.flowmouse{
+z-index: 9999999;
+position: fixed;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background-color: #fff;
+scale: 1;
+transition: scale .2s linear;
+pointer-events: none;
+}
+.flowmouse.on{
+   background-color: #E8AF7D;
+   scale: 5;
+}
+
 // 폰트셋팅
 // 텍스트 기본 폰트: 프리텐다드
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-    // font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+// font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 
 // 메인 타이틀 폰트 : gilda-display-regular
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Diphylleia&family=Gilda+Display&family=Lustria&family=Noto+Sans+KR&display=swap');
-  
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Diphylleia&family=Gilda+Display&family=Lustria&family=Noto+Sans+KR&display=swap");
+
 .gilda-display-regular {
     font-family: "Gilda Display", serif;
     // font-weight: 400;
     // font-style: normal;
-  }
-  
+}
 
 //폰트 기본셋팅
 
-.text{
-   font-family: "Pretendard Variable";
+.text {
+    font-family: "Pretendard Variable";
 }
 
-.under-line-w{
+.under-line-w {
     display: block;
     width: 100%;
-    border-bottom: .1rem solid #fff;
+    border-bottom: 0.1rem solid #fff;
 }
+
+// 버튼 기본셋팅
+
+//1. 채워진 버튼
+.fill-button {
+    cursor: pointer;
+    z-index: 1;
+    position: relative; //after 부모요소
+    overflow: hidden; // after넘침 요소 가리기
+
+    width: 7.25rem;
+    padding: 0.83rem 1rem;
+    border-radius: 1.25rem;
+    border: transparent;
+    background: #fff;
+
+    &::after {
+        content: "";
+        position: absolute;
+        //버튼 텍스트 글자 가려서 뒤로 보냄
+        z-index: -1;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #e8af7d;
+
+        transition: 0.2s ease-in-out;
+    }
+
+    &:hover::after {
+        left: 0;
+    }
+}//fill-button 
+
+//2. 채워진 버튼
+.line-button {
+    cursor: pointer;
+    z-index: 1;
+    position: relative; //after 부모요소
+    overflow: hidden; // after넘침 요소 가리기
+
+    width: 7.25rem;
+    padding: 0.83rem 1rem;
+    border-radius: 1.25rem;
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+    transition: color 0.3s ease-in-out;
+
+    &::after {
+        content: "";
+        position: absolute;
+        //버튼 텍스트 글자 가려서 뒤로 보냄
+        z-index: -1;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+
+        transition: 0.2s ease-in-out;
+    }
+
+    &:hover {color: #000;}
+    &:hover::after {
+        left: 0;
+    }
+}//fill-button 
