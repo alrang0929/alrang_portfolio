@@ -1,13 +1,13 @@
 #works-detail{
     .img-wrap{
-        width: 50vw;
+        z-index: 1;
+        width: 62vw;
         transition: .2s linear;
         img{
             width: 100%;
         }
         &:hover{
-            width: 70vw;
-            z-index: 1;
+            width: 80vw;
             filter:drop-shadow(10px 10px 20px #000);
         }
         &:hover .info-text-wrap{
@@ -16,12 +16,12 @@
     }
     .fixedbox{
         position: fixed;
-        width: 50vw;
+        width: 62vw;
         
         .info-text-wrap {
-            max-width: 80%;
+            max-width: 49%;
             position: relative;
-            padding-top: 13vh;
+            padding-top: 21vh;
             left: 106%;
             
             .title {
