@@ -5,10 +5,10 @@ import "../../css/top_area.scss";
 ///////////////////import area//////////////////
 
 
-function TopArea(props) {
+function TopArea() {
     //상태관리변수
     //1. 홈이동 상태관리
-    const [isHome, setIsHome] = useState(false);
+    const [isHome, setIsHome] = useState(true);
 
     const navigate = useNavigate();
     const goLink = ()=>{

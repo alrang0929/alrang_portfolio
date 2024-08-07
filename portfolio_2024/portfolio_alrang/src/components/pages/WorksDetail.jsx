@@ -16,7 +16,6 @@ function WorksDetail() {
     // 화면 리랜더링 구역/////////////////////////////////////
     useEffect(() => {
         setPdData(selData.selProjectData); // selData 변경될 때 마다 pdData 업데이트
-        console.log("pdData.url.pdf",pdData.url.pdf);
     }, [selData]);
     ///low code////////////////////////////////////
     // const pdData = selData.selProjectData;
@@ -56,20 +55,26 @@ function WorksDetail() {
                     <div className="text-wrap">{pdData.text}</div>
                     {/* 5. 버튼 박스(pdf다운, view demo) */}
                     <div className="button-wrap fxbox">
-                        <a href={pdData.url.pdf}
-                        target="_blank"
-                        rel="noopener noreferrer">
+                        <a
+                            href={pdData.url.pdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <button className="line-button fxbox">
                                 <div className="icon-box icon-file"></div>
                                 <span>view gide pdf</span>
                             </button>
                         </a>
-                        <button className="fill-button fxbox">
-                        <div className="icon-box icon-page"></div>
-                            <span>
-                            view demo
-                            </span>
+                        <a
+                            href={pdData.url.page}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button className="fill-button fxbox">
+                                <div className="icon-box icon-page"></div>
+                                <span>view demo</span>
                             </button>
+                        </a>
                     </div>
                 </div>
             </div>
