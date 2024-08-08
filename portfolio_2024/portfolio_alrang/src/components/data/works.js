@@ -15,7 +15,7 @@ const worksData = [
     {
         idx: 1,
         title: '아모레퍼시픽 UI/UX Recover',
-        category: 'UX / UI desing, fe Development',
+        category: 'UX / UI design, fe Development',
         info: '2024.04.15^React, jQuery, SCSS, HTML5',
         text:`아모레퍼시픽의 기존 사이트를 트랜드에 맞게 ui와 ux를 리디자인 했다.
 cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장을 택했으며
@@ -27,7 +27,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
     {
         idx: 2,
         title: '슬밋 UI/UX Recover',
-        category: 'UX / UI desing, fe Development',
+        category: 'UX / UI design, fe Development',
         info: '2024.07.28^React^jQuery, SCSS, HTML5',
         text:`리액트SPA환경에서 작업한 프로젝트,
 리액트의 강점인 대량의 데이터처리, 데이터 재활용에 중점을 두고
@@ -38,7 +38,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
     {
         idx: 3,
         title: 'STAR WARS 팀 프로잭트 서브페이지 BAD BATCH',
-        category: 'UX / UI desing, fe Development',
+        category: 'UX / UI design, fe Development',
         info: '2024.04.22^React, jQuery, SCSS, HTML5',
         text:`팀프로잭트이니 만큼 공통소스 설계에 중점을 뒀다.
 공통으로 사용되는 소스로는 [컬러(포인트, 텍스트, 디사블) / 폰트(타이틀, 서브타이틀, 텍스트) / 버튼 디자인(노말, 엑티브, 디사블), 하단 타 서브타이틀 이동 배너 컴포넌트]가 있으며

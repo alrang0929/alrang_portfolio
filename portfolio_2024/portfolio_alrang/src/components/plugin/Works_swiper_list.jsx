@@ -35,7 +35,7 @@ export default function WorksSwiper({ mainBg, setMainBg }) {
     return (
         <>
             <Swiper
-                slidesPerView={2}
+                // slidesPerView={2}
                 spaceBetween={50}
                 // pagination={{
                 //   clickable: true,
@@ -43,30 +43,23 @@ export default function WorksSwiper({ mainBg, setMainBg }) {
                 modules={[Pagination]}
                 //반응형 처리
                 direction={"horizontal"}
+                // slidesPerView={'auto'} 
                 breakpoints={{
-                    1900: {
+                    500: {
+                        slidesPerView: 1,
+                        // spaceBetween: 40,
+                      },
+                    1600: {
                         slidesPerView: 2,
-                        spaceBetween: 40,
                     },
 
                     1620: {
-                        // direction: 'vertical',
                         slidesPerView: 2,
-                        spaceBetween: 40,
-                    },
-                    1600: {
-                        slidesPerView: 1,
-                        spaceBetween: 40,
-                    },
-                    500: {
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                    },
-                    2100: {
-                        slidesPerView: 1,
-                        spaceBetween: 0,
                     },
 
+                    1900: {
+                        slidesPerView: 2,
+                    },
                 }}
                 className="mySwiper"
             >

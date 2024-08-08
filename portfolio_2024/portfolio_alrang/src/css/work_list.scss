@@ -85,18 +85,30 @@ body {
 }
 
 /////////미디어쿼리/////////////////////////////////////
-@media (max-width: 1300px) {
+@media screen and (max-width: 1300px) {
     #works-list-area {
         flex-direction: column;
         .text-object-wrap {
             width: 100%;
-            padding: 40px;
+            padding: 20px;
+            margin-top: 4.975rem;
             text-align: center;
             .txt {
-                font-size: 5rem;
-                 }
+                font-size: 3rem;
+            }
             .ani-bar {
                 display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 590px) {
+    #works-list-area {
+        flex-direction: column;
+        .text-object-wrap {
+            padding-top: 5rem;
+            .txt {
+                font-size: 3rem;
             }
         }
     }

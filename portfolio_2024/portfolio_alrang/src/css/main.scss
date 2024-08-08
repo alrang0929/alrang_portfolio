@@ -97,10 +97,12 @@
 #profile-area {
   
   .cont-wrap {
+    opacity: 0;
+    margin-top: 44rem;
     background: #000;
     .imgbx {
-      margin: 0 auto;
-      margin-bottom: 7.5rem;
+      margin: 70px auto;
+      // margin-bottom: 7.5rem;
       top: 7%;
       width: 20.9rem;
       img {
@@ -139,7 +141,7 @@
 #contact-area {
   background: #000;
   .text-box {
-    max-width: 50rem;
+    max-width: 80%;
     padding-bottom: 3rem;
     margin: 0 auto;
     text-align: center;
@@ -221,7 +223,7 @@
     }
   }
 } //746px 끝////////////////
-@media (max-width: 500px) {
+@media screen and (max-width: 500px) {
   #contact-area {
     .text-box {
       .text {
