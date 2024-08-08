@@ -61,7 +61,7 @@ function Main() {
                 <span className="under-line-w"></span>
                 </div>
                 {/* 2) 포트폴리오 이동 링크 */}
-                <Link to="/WorksList" className='gilda-display-regular'>Works more view</Link>
+                <Link to="/Works" className='gilda-display-regular'>Works more view</Link>
             </section>
         </main>
     );

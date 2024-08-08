@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "../../css/work_list.scss";
 //data
 import WorksSwiper from "../plugin/Works_swiper_list";
-import { SelectCon } from "./SelectCon";
 ///import area///////////////////////////////////
 
 function WorksList() {

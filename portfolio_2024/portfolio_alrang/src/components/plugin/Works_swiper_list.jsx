@@ -58,6 +58,15 @@ export default function WorksSwiper({ mainBg, setMainBg }) {
                         slidesPerView: 1,
                         spaceBetween: 40,
                     },
+                    500: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                    2100: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+
                 }}
                 className="mySwiper"
             >
