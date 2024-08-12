@@ -65,6 +65,7 @@
         .button-wrap {
             margin-top: 40px;
             align-items: center;
+
             button {
                 width: 11.65rem;
                 margin-right: 20px;
@@ -106,12 +107,24 @@
             .info-text-wrap {
                 max-width: 100%;
                 position: static;
-                margin-top: 3.1rem;
-                padding: 4rem;
+                margin-top: 4.1rem;
+                padding: 1.8rem;
             }
+        }
+        .info-text-wrap .text-wrap{
+            font-size: 0.9rem;
         }
         .button-wrap {
             flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            a{
+                width: 100%;
+                margin-top: 10px;
+                button{
+                    width: 100% !important;
+                }
+            }
         }
         .img-wrap{
             width: 100%;

@@ -94,6 +94,7 @@
 
 /*****************************  2. 프로필 영역 *****************************/
 #profile-area {
+  padding: 20px;
   .profile-wrap {
     opacity: 0;
     margin-top: 44rem;
@@ -126,7 +127,7 @@
   .skil-list-wrap {
     padding-bottom: 7.5rem;
     margin: 0 auto;
-    width: 50rem;
+    // width: 50rem;
     .title{
       color: #fff;
       margin-bottom: 2rem;
@@ -142,7 +143,7 @@
         align-items: center;
         padding: 5px 20px;
         gap: 0.5rem;
-        width: calc(100% / 7);
+        width: calc(100% / 3);
         color: #fff;
 
         font-size: 0.8rem;
