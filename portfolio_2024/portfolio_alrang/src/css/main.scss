@@ -89,16 +89,15 @@
       display: block;
       padding: 2rem;
     }
-    
   }
 } //main-visual-area
 
 /*****************************  2. 프로필 영역 *****************************/
 #profile-area {
-  
-  .cont-wrap {
+  .profile-wrap {
     opacity: 0;
     margin-top: 44rem;
+    
     background: #000;
     .imgbx {
       margin: 70px auto;
@@ -123,18 +122,39 @@
         font-weight: 200;
       }
     } //text-wrap
-    .skil-list-wrap {
-      .aa {
-        margin: 0 auto;
+  } //cont-wrap
+  .skil-list-wrap {
+    padding-bottom: 7.5rem;
+    margin: 0 auto;
+    width: 50rem;
+    .title{
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+    .skil-list {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 0.4rem;
 
-        max-width: 50rem;
-        img {
-          width: 100%;
+      li {
+        background-color: #252525;
+        border-radius: 25px;
+        align-items: center;
+        padding: 5px 20px;
+        gap: 0.5rem;
+        width: calc(100% / 7);
+        color: #fff;
+
+        font-size: 0.8rem;
+        .icon-box {
+          width: 1.75rem;
+          img {
+            width: 100%;
+          }
         }
       }
     }
-    padding-bottom: 7.5rem;
-  } //cont-wrap
+  }
 } //profile-area
 
 /***************************** 3. CONTACT US  *****************************/
@@ -190,19 +210,17 @@
 
 /***************************** 미디어쿼리*****************************/
 @media (max-width: 746px) {
-
-  #main-visual-area .text-wrap .title{
+  #main-visual-area .text-wrap .title {
     font-size: 5.2rem;
     line-height: 1;
   }
-  #profile-area{
-    .cont-wrap{
-      .text-wrap{
+  #profile-area {
+    .cont-wrap {
+      .text-wrap {
         max-width: 18rem;
       }
     }
   }
-  
 
   #main-visual-area {
     background-size: cover;
@@ -230,12 +248,11 @@
         max-width: 20rem;
       }
     }
-  }//contact-area
+  } //contact-area
 
-  #contact-area{
+  #contact-area {
     .text-box {
       max-width: 19rem;
     }
   }
-
 } //500px 끝////////////////

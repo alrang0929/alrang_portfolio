@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 //css
 import "../../css/main.scss";
+//data
+import {skilList} from "../data/skil"; 
+
 ///////////////////import area//////////////////
 function Main() {
 
@@ -17,7 +20,7 @@ function Main() {
         // 스크롤 위치 도달시 애니
         const handleScroll =()=>{
             //대상선정
-            const aniObject = $("#profile-area .cont-wrap");
+            const aniObject = $("#profile-area .profile-wrap");
             //윈도우, 스크롤 영역 변수
             const scrollTop = $(window).scrollTop();
             const windowHeight = $(window).height();
@@ -66,7 +69,7 @@ function Main() {
             {/* 2. 프로필 영역 */}
             <section id="profile-area">
                 {/* 1) 이미지 박스 */}
-                <div className="cont-wrap">
+                <div className="profile-wrap">
                     <div className="imgbx">
                         <img
                             src={
@@ -81,18 +84,27 @@ function Main() {
                             About Me
                         </h4>
                         <span className="text">
-                        웹이 좋아 웹디자이너로 입문하게 되었는데 언제부턴가 시각적인 것들 뿐만 아니라 그 뒤에 있는 개발자의 영역이 궁금해졌습니다. 그래서 같이 프로잭트를 진행하던 프론트앤드의 뒤를 기웃거리며 호기심을 하나 둘 채워가다 프론트엔드 개발자에 도전하게 되었습니다.
+                        웹이 좋아 시작하게된 웹디자이너, 언제부턴가 시각적인 것들 뿐만 아니라 그 뒤에 있는 개발자의 영역이 궁금해졌습니다. 그래서 같이 프로잭트를 진행하던 프론트앤드의 뒤를 기웃거리며 호기심을 하나 둘 채워가다 프론트엔드 개발자에 도전하게 되었습니다.
                         디자인 기획 경험을 통해 프로젝트 전반에 대한 이해도가 높으며, 팀원들과 함께 문제를 분석하고 해결하는 능력을 갖추고 있다고 생각합니다. 이러한 강점은 디자이너, 클라이언트들과 소통과 협업을 할 때 좋은 시너지를 가져올 것이라고 자신합니다.
                         </span>
                     </div>
                     {/* 3) 스킬트리 : [타이틀, 게이지] * n*/}
-                    <div className="skil-list-wrap">
-                        {/* 임시 삽입 */}
-                        <div className="skil-list">
-                           
-                        </div>
-                    </div>
                 </div>
+                    <div className="skil-list-wrap">
+                    <h4 className="title gilda-display-regular">
+                            About Skil
+                        </h4>
+                        <ul className="skil-list fxbox">
+                           {skilList.map((v,i)=>
+                            <li key={i} className="fxbox">
+                                <div className="icon-box">
+                               <img src={process.env.PUBLIC_URL +v.isrc} alt="" />
+                                </div>
+                                <span className="icon-text">{v.skillName}</span>
+                            </li>
+                           )}
+                        </ul>
+                    </div>
             </section>
             {/* 3. CONTACT US */}
             <section id="contact-area">
