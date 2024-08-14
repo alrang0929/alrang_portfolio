@@ -1,0 +1,22 @@
+[메인페이지]
+
+img는 절대위치로 진행
+
+<main>
+    <호버시 등장하는 이미지 div>
+    <이미지 사이즈svg>
+    <프로젝트 리스트 호버시 등장하는 이미지 wrap>
+        <ul flex>
+            <li>
+    <프로젝트 리스트 div>
+        <타이틀 div>
+        <ul>
+            <li>
+                <a 해당 works로 이동>
+                    <img>
+섹션 구성
+<section>
+    <ul>
+        <li>
+            <a>
+                div or img
