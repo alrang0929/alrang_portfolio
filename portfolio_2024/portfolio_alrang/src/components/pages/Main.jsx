@@ -14,6 +14,9 @@ function Main() {
   const titleWrapRef = useRef(null);
   // 2. li 가로값 저장을 위한 참조변수
   const liRef = useRef(null);
+  // 3. 슬라이더 기능 구현을 위한 참조변수
+  const sliderBtnRef = useRef(null);
+  const slideListRef = useRef(null);
   // [상태관리변수]//////////////////////////////////
   // 1. 리스트 넓이값을 알기위한 상태변수
   const [liWidth, setLiWidth] = useState(0);
@@ -30,79 +33,130 @@ function Main() {
   //화면 랜더링 구역/////////////////////////////////////////////////
   // 한번만 실행
   useEffect(() => {
+    //ul 감싸고 있는 박스의 whith 값을 구하기 위함
     if (liRef.current) {
       setLiWidth(liRef.current.offsetWidth);
     }
+
+    //슬라이더 기능구현
+    // 대상선정
+    const $sliderBtns = $(sliderBtnRef.current).find("li"); // jQuery 객체로 변환
+    const $slideList = $(slideListRef.current);
+    // const inner = $(".show-works-box ul li");
+
+    $sliderBtns.each((idx, ele) => {
+      $(ele).on("mouseenter", () => {
+        $slideList.css({
+          left: -100 * idx + "%",
+        });
+      }); //on
+    }); //each
+
+    return () => {
+      $sliderBtns.off("click"); //컴포넌트 언마운트시 핸들러 제거
+    };
   }, []);
 
   //images 의존성
   useEffect(() => {
-    // li의 가로값 구하기
-    // 타이틀 상단 랜덤 이미지 등장
-    const handleSlideMove = () => {
-      // 대상선정
-      const slideBox = $(".show-works-box");
-      const slider = $(".show-works-box ul");
-      const inner = $(".show-works-box ul li");
-      console.log("slider", slider, "\n inner", inner, "\n slideBox", slideBox);
-    };
+    let randomImage;
+    // let intervalId;
+    let animationFrameId; // requestAnimationFrame ID 저장할 변수 추가
+    let isMouseOverTitleWrap = false; //나타내는 상태 변수 추가
+    let latestMouseEvent = null; // 마지막 mousemove 이벤트 저장할 변수 추가
 
     const handleMouseMove = (event) => {
       if (titleWrapRef.current && titleWrapRef.current.contains(event.target)) {
+        isMouseOverTitleWrap = true;
+        latestMouseEvent = event; // 마지막 이벤트 저장
+      } else {
+        isMouseOverTitleWrap = false;
+      }
+    }; //handleMouseMove
+
+    const createRandomImage = () => {
+      if (isMouseOverTitleWrap && latestMouseEvent) {
         // 이미지 배열에서 랜덤 이미지 선택
-        const randomImage = new Image();
+        randomImage = new Image();
         randomImage.src = `/images/random_img/random_0${
           Math.floor(Math.random() * 4) + 1
-        }.jpg`; // 이미지 경로와 개수 수정 필요
+        }.jpg`;
+        // 이미지 페이드 인 애니메이션
+        $(randomImage).css({ opacity: 0 }); // 페이드 인 전에 투명도 0으로 설정
+
+        // 이미지를 먼저 추가하고 페이드 인 애니메이션 실행
+        titleWrapRef.current.appendChild(randomImage);
+        setImages([...images, randomImage]);
 
         // .title-wrap 요소의 실제 위치 정보 가져오기
         const titleWrapRect = titleWrapRef.current.getBoundingClientRect();
-        // 이미지 스타일 설정 및 추가
-        const imageWidth = 128; // 이미지 너비
-        const imageHeight = 150; // 이미지 높이
-        $(randomImage)
-          .css({
-            position: "absolute",
-            left: event.clientX - imageWidth / 2 - titleWrapRect.left + "px",
-            top: event.clientY - imageHeight / 2 - titleWrapRect.top + "px",
-            width: imageWidth + "px",
-            height: imageHeight + "px",
-            objectFit: "cover",
-            zIndex: 1,
-            opacity: 0,
-          })
-          .animate(
-            {
-              opacity: 1,
-            },
-            300,
-            () => {
-              // 마우스 나가면 op 초기화
-              $(randomImage).animate(
-                {
-                  opacity: 0,
-                },
-                300
-              );
-            }
-          );
-        console.log(event.clientX, event.clientY);
-        titleWrapRef.current.appendChild(randomImage);
-        setImages([...images, randomImage]); // 이미지 배열에 추가
 
-        // 잠시 후 이미지 제거
+        // 이미지 스타일 설정 및 추가
+        const imageWidth = 128;
+        const imageHeight = 150;
+        $(randomImage).css({
+          position: "absolute",
+          left:
+            latestMouseEvent.clientX -
+            imageWidth / 2 -
+            titleWrapRect.left +
+            (Math.random() * 50 - 25) +
+            "px",
+          top:
+            latestMouseEvent.clientY -
+            imageHeight / 2 -
+            titleWrapRect.top +
+            (Math.random() * 50 - 25) +
+            "px",
+          width: imageWidth + "px",
+          height: imageHeight + "px",
+          objectFit: "cover",
+          zIndex: 1,
+        });
+        $(randomImage).animate({ opacity: 1 }, 100);
+
+        // 잠시 후 이미지 제거 (페이드 아웃 효과 추가)
         setTimeout(() => {
-          randomImage.remove();
-          setImages(images.filter((img) => img !== randomImage));
-        }, 1000); // 1초 후 제거 (시간 조절 가능)
-      }
+          $(randomImage).animate({ opacity: 0 }, 100, function () {
+            this.remove();
+            setImages(images.filter((img) => img !== randomImage));
+          });
+        }, 400);
+      } //if
+      // 다음 프레임 요청
+      animationFrameId = requestAnimationFrame(createRandomImage);
+    }; //createRandomImage
+    window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseEnter = () => {
+      isMouseOverTitleWrap = true;
+      createRandomImage(); // 마우스가 들어왔을 때 바로 첫 이미지 생성
     };
-    window.addEventListener("mousemove", (event) => handleMouseMove(event));
+
+    const handleMouseLeave = () => {
+      isMouseOverTitleWrap = false;
+      cancelAnimationFrame(animationFrameId); // requestAnimationFrame 중지
+    };
+
+    if (titleWrapRef.current) {
+      titleWrapRef.current.addEventListener("mouseenter", handleMouseEnter);
+      titleWrapRef.current.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     //코드 정리
     return () => {
+      // window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mousemove", handleMouseMove);
-      // 컴포넌트 언마운트 시 이미지들 제거
+      if (titleWrapRef.current) {
+        titleWrapRef.current.removeEventListener(
+          "mouseenter",
+          handleMouseEnter
+        );
+        titleWrapRef.current.removeEventListener(
+          "mouseleave",
+          handleMouseLeave
+        );
+      }
+      cancelAnimationFrame(animationFrameId); // 컴포넌트 언마운트 시 requestAnimationFrame 중지
       images.forEach((img) => img.remove());
     };
   }, [images]); // images 상태가 변경될 때마다 useEffect 실행
@@ -121,10 +175,18 @@ function Main() {
         {/* 3) works list 리스트 */}
         <div className="works-list-wrap fxbox">
           <div className="title">selected project</div>
-          <ul className="works-list fxbox">
+          <ul className="works-list fxbox" ref={sliderBtnRef}>
             {worksThumbs.map((v, i) => (
-              <li key={i}>
-                <a href="">
+              <li
+                key={i}
+                // onClick={}
+              >
+                <a
+                  href=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                  }}
+                >
                   <div className="imgbx">
                     <img src={process.env.PUBLIC_URL + v.isrc} alt={v.key} />
                   </div>
@@ -136,7 +198,11 @@ function Main() {
 
         {/* 4) works list 호버시 우측에서 등장하는 이미지 */}
         <div className="show-works-box" style={{ width: liWidth + "px" }}>
-          <ul className="fxbox">
+          <ul
+            className="fxbox"
+            ref={slideListRef}
+            style={{ transition: "left 0.2s ease" }}
+          >
             {worksData.map((v, i) => (
               <li key={i} ref={liRef}>
                 <a href="">

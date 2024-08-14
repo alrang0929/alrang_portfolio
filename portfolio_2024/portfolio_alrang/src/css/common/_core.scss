@@ -3,8 +3,8 @@
 // 마우스 숨기기
 body{
     // cursor: none; 
-    overflow-x: hidden
-}
+    overflow-x: hidden;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 // .flowmouse{
 // z-index: 9999999;
 // position: fixed;
@@ -19,7 +19,7 @@ body{
 // .flowmouse.on{
 //    background-color: #79797970;
 //    scale: 3;
-// }
+}
 
 // 폰트셋팅
 // 텍스트 기본 폰트: 프리텐다드
