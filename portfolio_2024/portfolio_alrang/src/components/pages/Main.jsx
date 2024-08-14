@@ -37,8 +37,7 @@ function Main() {
     if (liRef.current) {
       setLiWidth(liRef.current.offsetWidth);
     }
-
-    //슬라이더 기능구현
+    /*************************** 슬라이더 기능구현 ***************************/
     // 대상선정
     const $sliderBtns = $(sliderBtnRef.current).find("li"); // jQuery 객체로 변환
     const $slideList = $(slideListRef.current);
@@ -117,10 +116,12 @@ function Main() {
 
         // 잠시 후 이미지 제거 (페이드 아웃 효과 추가)
         setTimeout(() => {
-          $(randomImage).animate({ opacity: 0 }, 100, function () {
-            this.remove();
-            setImages(images.filter((img) => img !== randomImage));
-          });
+          $(randomImage)
+            .delay(50)
+            .animate({ opacity: 0 }, 100, function () {
+              this.remove();
+              setImages(images.filter((img) => img !== randomImage));
+            });
         }, 400);
       } //if
       // 다음 프레임 요청
@@ -168,9 +169,10 @@ function Main() {
       <div id="main-visual-area">
         {/* 1) 타이틀 박스 */}
         {/* 2) mouse leave시 등장하는 이미지 박스 : ref값에 배열 저장하여 액팅 */}
-        <div className="title-wrap gilda-display-regular" ref={titleWrapRef}>
-          <span>Alrang’s</span>
-          <span>Work Place</span>
+        <div className="title-wrap " ref={titleWrapRef}>
+          <span className="gilda-display-regular">Alrang’s</span>
+          <span className="gilda-display-regular">Work Place</span>
+          <div className="scroll-down">scroll down</div>
         </div>
         {/* 3) works list 리스트 */}
         <div className="works-list-wrap fxbox">
@@ -225,6 +227,17 @@ function Main() {
       </div>
       {/**************** 2. 프로필 영역: 인삿말, 스킬, 인포 ****************/}
       <div id="profile-area">
+        <div className="top-ani-text fxbox">
+          <div className="gilda-display-regular">
+            Alrang’s Work Place Alrang’s Work Place
+          </div>
+          <div className="gilda-display-regular">
+            Alrang’s Work Place Alrang’s Work Place
+          </div>
+          <div className="gilda-display-regular">
+            Alrang’s Work Place Alrang’s Work Place Alrang’s Work Place
+          </div>
+        </div>
         <div id="intro-area">
           {/* 1) 인삿말 */}
           <div className="hello-text-wrap">
@@ -257,14 +270,25 @@ function Main() {
                   </span>
                 </li>
               </ul>
-              <div className="introduction">
-                안녕하세요, 언제나 고민하는
+            </div>
+            <div className="introduction">
+              <span>안녕하세요, 언제나 고민하는</span>
+              <span>
                 <b>프론트앤드 개발자 김지현</b>입니다.
-              </div>
+              </span>
             </div>
             {/* 3)BG acting text */}
-            <div className="ani-text gilda-display-regular">
-              Alrang’s Work Place
+
+            <div className="bottom-ani-text fxbox">
+              <div className="gilda-display-regular">
+                Alrang’s Work Place Alrang’s Work Place
+              </div>
+              <div className="gilda-display-regular">
+                Alrang’s Work Place Alrang’s Work Place
+              </div>
+              <div className="gilda-display-regular">
+                Alrang’s Work Place Alrang’s Work Place Alrang’s Work Place
+              </div>
             </div>
           </div>
           {/* 2) 스킬트리 */}

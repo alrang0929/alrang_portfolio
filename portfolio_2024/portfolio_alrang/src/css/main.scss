@@ -1,18 +1,23 @@
 //Main.scss
 @import "../css/variables/variables";
 
-.works-list-wrap:hover ~ .show-works-box { 
+.works-list-wrap:hover ~ .show-works-box {
   left: 0 !important;
 }
-.show-works-box{
+.show-works-box {
   left: -100%;
   transition: left 1.5s ease;
 }
 
 #main-visual-area {
+  .scroll-down {
+    text-align: center;
+  }
+
   position: relative;
   height: 100vh;
   .title-wrap {
+    cursor: default;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,7 +26,7 @@
       text-align: center;
       display: block;
       font-weight: 200;
-      font-size: 6rem;
+      font-size: 10rem;
       &:nth-child(2) {
         font-weight: 600;
       }
@@ -32,20 +37,20 @@
     bottom: 0;
     right: 0;
     padding: 30px;
-    
-    .title{
+
+    .title {
       translate: 128%;
       padding-right: 20px;
     }
-    
-    .works-list{
+
+    .works-list {
       gap: 10px;
       justify-content: flex-end;
-      li{
+      li {
         width: 20%;
-        .imgbx{
+        .imgbx {
           width: 100%;
-          img{
+          img {
             width: 100%;
           }
         }
@@ -58,7 +63,7 @@
     // left: -100%;
     height: 100%;
 
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     ul {
       position: absolute;
@@ -68,19 +73,19 @@
         width: 70vh;
         .title {
           position: absolute;
-          
+
           padding: 50px;
           letter-spacing: -0.4px;
 
           color: #fff;
           font-size: 2.5rem;
-          span{
+          span {
             display: block;
           }
         }
-        .imgbx{
+        .imgbx {
           width: 100%;
-          img{
+          img {
             width: 100%;
           } //img
         } //imgbx
@@ -90,18 +95,70 @@
 } //main-visual-area
 
 #profile-area {
-  // 텍스트 애니
-  .ani-text {
-    overflow: hidden; /* 넘치는 부분 숨김 */
-    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-    animation: loopText 10s linear infinite;
-    @keyframes loopText {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-100%);
+
+.hello-text-wrap{
+  .imgbx{
+    margin: 0 auto;
+    max-width: 20vw;
+    img{
+      width: 100%;
+    }
+  }//imgbx
+  .introduction{
+    text-align: center;
+    font-size: 2rem;
+    span{
+      display: block;
+    }
+  }
+  .back-text-bubbles-wrap{
+    ul{
+      display: grid;
+
+      li{
+        width: calc(100%/8);
+        border-radius: 30px;
+        text-align: center;
+        padding: 20px 10px;
+        color: #fff;
+        background-color: #E8AF7D;
       }
     }
   }
-}
+}//hello-text-wrap
+
+
+
+
+
+  // 텍스트 애니
+  .top-ani-text {
+    color: #E8AF7D35;
+    // overflow: hidden; /* 넘치는 부분 숨김 */
+    position: relative;
+    left: 0;
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    animation: loopText 10s linear infinite;
+    font-size: 7rem;
+    @keyframes loopText {
+      0% {
+        left: -100%;
+      }
+    }//keyframes loopText
+  } //top-ani-text
+  .bottom-ani-text{
+    color: #E8AF7D35;
+ // overflow: hidden; /* 넘치는 부분 숨김 */
+ position: relative;
+ top: 0;
+ left: 0;
+ white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+ animation: loopText2 10s linear infinite reverse;
+ font-size: 7rem;
+ @keyframes loopText2 {
+   0% {
+     left: -100%;
+   }
+ }//keyframes loopText
+  }
+}//profile-area
