@@ -9,34 +9,66 @@ import { skillList } from "../data/skill";
 import { worksData, worksThumbs } from "../data/works";
 ///////////////////import area//////////////////
 function Main() {
+  // [참조변수]//////////////////////////////////
+  // 1. 이미지가 마우스 따라다니는 값을 저장하기 위한 참조변수
   const titleWrapRef = useRef(null);
+  // 2. li 가로값 저장을 위한 참조변수
+  const liRef = useRef(null);
+  // [상태관리변수]//////////////////////////////////
+  // 1. 리스트 넓이값을 알기위한 상태변수
+  const [liWidth, setLiWidth] = useState(0);
+  // 2. 마우스 이미지 따라다니는 효과의 이미지 배열 저장
   const [images, setImages] = useState([]);
+  // 대상선정
+  // show-works-box의 li 한개 넓이
+  // const liWidth = $('.show-works-box ul li').eq(1).width();
+  // console.log("target",target);
+  // console.log("liWidth",liWidth);
 
-  console.log("미친데이터", worksData);
+  // console.log("미친데이터", worksData);
 
   //화면 랜더링 구역/////////////////////////////////////////////////
+  // 한번만 실행
   useEffect(() => {
-    // 타이틀 상단 랜덤 이미지 등장
+    if (liRef.current) {
+      setLiWidth(liRef.current.offsetWidth);
+    }
+  }, []);
 
-    const handleMouseMove = (e) => {
-      if (titleWrapRef.current && titleWrapRef.current.contains(e.target)) {
+  //images 의존성
+  useEffect(() => {
+    // li의 가로값 구하기
+    // 타이틀 상단 랜덤 이미지 등장
+    const handleSlideMove = () => {
+      // 대상선정
+      const slideBox = $(".show-works-box");
+      const slider = $(".show-works-box ul");
+      const inner = $(".show-works-box ul li");
+      console.log("slider", slider, "\n inner", inner, "\n slideBox", slideBox);
+    };
+
+    const handleMouseMove = (event) => {
+      if (titleWrapRef.current && titleWrapRef.current.contains(event.target)) {
         // 이미지 배열에서 랜덤 이미지 선택
         const randomImage = new Image();
         randomImage.src = `/images/random_img/random_0${
           Math.floor(Math.random() * 4) + 1
         }.jpg`; // 이미지 경로와 개수 수정 필요
 
+        // .title-wrap 요소의 실제 위치 정보 가져오기
+        const titleWrapRect = titleWrapRef.current.getBoundingClientRect();
         // 이미지 스타일 설정 및 추가
+        const imageWidth = 128; // 이미지 너비
+        const imageHeight = 150; // 이미지 높이
         $(randomImage)
           .css({
             position: "absolute",
-            left: e.clientX + "px",
-            top: e.clientY + "px",
-            width: "128px",
-            height: "150px",
+            left: event.clientX - imageWidth / 2 - titleWrapRect.left + "px",
+            top: event.clientY - imageHeight / 2 - titleWrapRect.top + "px",
+            width: imageWidth + "px",
+            height: imageHeight + "px",
             objectFit: "cover",
             zIndex: 1,
-            // 애니를 위한 사전 설정
             opacity: 0,
           })
           .animate(
@@ -54,7 +86,7 @@ function Main() {
               );
             }
           );
-
+        console.log(event.clientX, event.clientY);
         titleWrapRef.current.appendChild(randomImage);
         setImages([...images, randomImage]); // 이미지 배열에 추가
 
@@ -65,8 +97,7 @@ function Main() {
         }, 1000); // 1초 후 제거 (시간 조절 가능)
       }
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", (event) => handleMouseMove(event));
 
     //코드 정리
     return () => {
@@ -104,12 +135,16 @@ function Main() {
         </div>
 
         {/* 4) works list 호버시 우측에서 등장하는 이미지 */}
-        <div className="show-works-box">
+        <div className="show-works-box" style={{ width: liWidth + "px" }}>
           <ul className="fxbox">
             {worksData.map((v, i) => (
-              <li key={i}>
+              <li key={i} ref={liRef}>
                 <a href="">
-                  <div className="title">{v.title}</div>
+                  <div className="title">
+                    {v.title.split("^").map((v, i) => (
+                      <span key={i}>{v}</span>
+                    ))}
+                  </div>
                   <div className="imgbx">
                     <img
                       src={process.env.PUBLIC_URL + v.isrc.mainlist}

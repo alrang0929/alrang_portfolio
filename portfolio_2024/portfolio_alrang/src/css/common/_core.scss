@@ -2,23 +2,24 @@
 
 // 마우스 숨기기
 body{
-    cursor: none; 
+    // cursor: none; 
+    overflow-x: hidden
 }
-.flowmouse{
-z-index: 9999999;
-position: fixed;
-width: 15px;
-height: 15px;
-border-radius: 50%;
-background-color: #fff;
-scale: 1;
-transition: scale .2s linear;
-pointer-events: none;
-}
-.flowmouse.on{
-   background-color: #79797970;
-   scale: 3;
-}
+// .flowmouse{
+// z-index: 9999999;
+// position: fixed;
+// width: 15px;
+// height: 15px;
+// border-radius: 50%;
+// background-color: #fff;
+// scale: 1;
+// transition: scale .2s linear;
+// pointer-events: none;
+// }
+// .flowmouse.on{
+//    background-color: #79797970;
+//    scale: 3;
+// }
 
 // 폰트셋팅
 // 텍스트 기본 폰트: 프리텐다드
