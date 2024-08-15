@@ -27,13 +27,23 @@ body{
 // font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 
 // 메인 타이틀 폰트 : gilda-display-regular
-@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Diphylleia&family=Gilda+Display&family=Lustria&family=Noto+Sans+KR&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Diphylleia&family=Gilda+Display&family=Lustria&family=Noto+Sans+KR&display=swap");
 
 .gilda-display-regular {
     font-family: "Gilda Display", serif;
     // font-weight: 400;
     // font-style: normal;
 }
+.ephesis-regular {
+    font-family: "Ephesis", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+// .nothing-you-could-do-regular {
+//     font-family: "Nothing You Could Do", cursive;
+//     font-weight: 400;
+//     font-style: normal;
+//   }
 
 //폰트 기본셋팅
 

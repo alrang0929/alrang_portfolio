@@ -25,6 +25,20 @@ function Main() {
   const [liWidth, setLiWidth] = useState(0);
   // 2. 마우스 이미지 따라다니는 효과의 이미지 배열 저장
   const [images, setImages] = useState([]);
+  // 3.호버된 li의 인덱스 상태 관리
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  // 4. bg 변경을 위한 상태변수
+  const [objectBg, setObjectBg] = useState(null);
+
+  /****************** 1. 호버시 li에 맞는 div 보이는 기능구현 ******************/
+  const handleObjectEnter = (index, listBg) => {
+    setHoveredIndex(index);
+    setObjectBg(listBg);
+  };
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+    setObjectBg(null);
+  };
 
   //화면 랜더링 구역/////////////////////////////////////////////////
   useEffect(() => {
@@ -63,19 +77,35 @@ function Main() {
   const handleMouseMove = (event) => {
     if (imageRef.current && titleWrapRef.current) {
       const titleWrapRect = titleWrapRef.current.getBoundingClientRect();
-      imageRef.current.style.top = `${event.clientY - titleWrapRect.top - imageRef.current.offsetHeight / 2}px`;
-      imageRef.current.style.left = `${event.clientX - titleWrapRect.left - imageRef.current.offsetWidth / 2}px`;
+
+      // 마우스 좌표가 title-wrap 박스 안에 있는지 확인
+      const isWithinTitleWrap =
+        event.clientX > titleWrapRect.left &&
+        event.clientX < titleWrapRect.right &&
+        event.clientY > titleWrapRect.top &&
+        event.clientY < titleWrapRect.bottom;
+
+      if (isWithinTitleWrap) {
+        // title-wrap 박스 안에 있을 때만 이미지 위치 업데이트
+        imageRef.current.style.top = `${
+          event.clientY - titleWrapRect.top - imageRef.current.offsetHeight / 2
+        }px`;
+        imageRef.current.style.left = `${
+          event.clientX - titleWrapRect.left - imageRef.current.offsetWidth / 2
+        }px`;
+      } else {
+        // title-wrap 박스 밖에 있을 때 이미지 숨기기 (선택 사항)
+        imageRef.current.style.display = "none";
+      }
     }
   };
 
-  
-
   useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []); 
+  }, []);
 
   ///코드 리턴구역 /////////////////////////////////////////////////////////
   return (
@@ -85,7 +115,7 @@ function Main() {
         {/* 1) 타이틀 박스 */}
         {/* 2) mouse leave시 등장하는 이미지 박스 : ref값에 배열 저장하여 액팅 */}
         <div
-          className="title-wrap "
+          className="title-wrap"
           ref={titleWrapRef}
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove} // title-wrap 내에서도 마우스 이동 추적
@@ -99,13 +129,16 @@ function Main() {
               <img
                 src={image}
                 alt={`Random Image ${index}`}
-                ref={index === images.length - 1 ? imageRef : null}// 가장 최근 이미지에 ref 연결
+                ref={index === images.length - 1 ? imageRef : null} // 가장 최근 이미지에 ref 연결
               />
             </div>
           ))}
           <span className="gilda-display-regular">Alrang’s</span>
           <span className="gilda-display-regular">Work Place</span>
-          <div className="scroll-down">scroll down</div>
+          <div className="scroll-down">scroll down
+          <div className="ani-bar"></div>
+
+          </div>
         </div>
         {/* 3) works list 리스트 */}
         <div className="works-list-wrap fxbox">
@@ -174,7 +207,7 @@ function Main() {
             {/* 1)hello-img */}
             <div className="imgbx">
               <img
-                src={process.env.PUBLIC_URL + "/images/main/PC_hello.jpg"}
+                src={process.env.PUBLIC_URL + "/images/main/PC_hello.png"}
                 alt="hello"
               />
             </div>
@@ -207,6 +240,23 @@ function Main() {
                 <b>프론트앤드 개발자 김지현</b>입니다.
               </span>
             </div>
+            {/* 2) 스킬트리 */}
+            <div className="skill-wrap">
+              <div className="title">Skill & Tool</div>
+              <ul className="skill-list fxbox">
+                {skillList.map((v, i) => (
+                  <li className="fxbox" key={i}>
+                    <div className="icon">
+                      <img
+                        src={process.env.PUBLIC_URL + v.isrc}
+                        alt={v.skillName}
+                      />
+                    </div>
+                    <div className="text">{v.skillName}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
             {/* 3)BG acting text */}
 
             <div className="bottom-ani-text fxbox">
@@ -221,28 +271,12 @@ function Main() {
               </div>
             </div>
           </div>
-          {/* 2) 스킬트리 */}
-          <div className="skill-wrap">
-            <div className="title"></div>
-            <ul className="skill-list fxbox">
-              {skillList.map((v, i) => (
-                <li className="fxbox" key={i}>
-                  <div className="icon">
-                    <img
-                      src={process.env.PUBLIC_URL + v.isrc}
-                      alt={v.skillName}
-                    />
-                  </div>
-                  <div className="text">{v.skillName}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
+
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
-            <div className="big-title">
+            <div className="big-title ephesis-regular">
               <span> connecting</span>
-              <span>the dots</span>
+              <span> the dots</span>
             </div>
             <div className="img-wrap fxbox">
               <div className="imgbx">
@@ -264,72 +298,104 @@ function Main() {
       </div>
       {/*********************** 2. 프로필영역 끝 ***********************/}
       {/* 3. works 영역: works list */}
-      <div id="works-list-area">
+      <div id="works-list-area" >
         {/* ul은 그리드로 구성, 12col, a는 각 프로젝트로 링크 */}
+        {worksData.map((v, i) => (
+          <>
+            <div
+              className="back-title-wrap"
+              key={i}
+              style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+            >
+              <div className="eng-title gilda-display-regular">
+                {v.engtitle.split("^").map((v, i) => (
+                  <span key={i}>{v}</span>
+                ))}
+              </div>
+              <div className="kor-title">
+                {v.title.split("^").map((v, i) => (
+                  <span key={i}>{v}</span>
+                ))}
+              </div>
+            </div>
+          </>
+        ))}
+
         <ul>
           {worksData.map((v, i) => (
-            <li key={i}>
-              <a href="">
-                <div className="img-wrap">
-                  <div className="eng-title gilda-display-regular">
-                    {v.engtitle}
+            <>
+              <li
+                key={i}
+                onMouseEnter={() => handleObjectEnter(i, `url(${process.env.PUBLIC_URL}${v.isrc.bg})`)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <a href="">
+                  <div className="img-wrap">
+                    <div className="kor-title">
+                      {v.title.split("^").map((v, i) => (
+                        <span key={i}>{v}</span>
+                      ))}
+                    </div>
+                    <div className="imgbx">
+                      <img
+                        src={process.env.PUBLIC_URL + v.isrc.workslist}
+                        alt={v.title}
+                      />
+                    </div>
                   </div>
-                  <div className="kor-title">{v.title}</div>
-                  <div className="imgbx">
-                    <img
-                      src={process.env.PUBLIC_URL + v.isrc.workslist}
-                      alt={v.title}
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
+                </a>
+              </li>
+            </>
           ))}
         </ul>
+        <div className="bg-wrap">
+          <div className="blurbx"></div>
+        <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
+        </div>
       </div>
       {/* 4. conect us */}
       <div id="conect-us-area">
         {/* 1) 얼굴 이미지 */}
         <div className="imgbx">
           <img
-            src={process.env.PUBLIC_URL + "/images/main/PC_conectus.jpg"}
+            src={process.env.PUBLIC_URL + "/images/main/PC_conectus.png"}
             alt="conect face"
           />
         </div>
         {/* 2) 타이틀 */}
-        <div className="title">CONTACT US</div>
+        <div className="title gilda-display-regular">CONTACT US</div>
         {/* 3) 정보 */}
         <ul>
           <li className="fxbox">
-            <div className="icon-box">
+            <div className="icon-box fxbox">
               <div className="icon">
                 <img
                   src={process.env.PUBLIC_URL + "/images/icon/icon_mail.png"}
                   alt="email"
                 />
               </div>
-              <div className="text">eMail</div>
+              <div className="topic">eMail</div>
             </div>
             <div className="text">sellbell0929@gmail.com</div>
           </li>
           <li className="fxbox">
-            <div className="icon-box">
+            <div className="icon-box fxbox">
               <div className="icon">
                 <img
                   src={process.env.PUBLIC_URL + "/images/icon/icon_git.png"}
                   alt="git"
                 />
               </div>
-              <div className="text">Github</div>
+              <div className="topic">Github</div>
             </div>
             <div className="text">
               https://github.com/alrang0929/alrang_portfolio
             </div>
           </li>
         </ul>
-      </div>
       {/* 저작권 표시 */}
       <div className="copy">© 2024 Alrang. All rights reserved.</div>
+      </div>
     </main>
   );
 }
