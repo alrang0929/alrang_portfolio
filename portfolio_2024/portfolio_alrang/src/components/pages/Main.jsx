@@ -7,8 +7,10 @@ import "../../css/main.scss";
 //data
 import { skillList } from "../data/skill";
 import { worksData, worksThumbs } from "../data/works";
+import SlidingText from "../func/SlideDownText";
 ///////////////////import area//////////////////
-function Main() {
+function Main({ text }) {
+  // 1. text: 텍스트 애니 컴포넌트 전달값
   // [참조변수]//////////////////////////////////
   // 1. 이미지가 마우스 따라다니는 값을 저장하기 위한 참조변수
   const titleWrapRef = useRef(null);
@@ -133,11 +135,13 @@ function Main() {
               />
             </div>
           ))}
-          <span className="gilda-display-regular">Alrang’s</span>
-          <span className="gilda-display-regular">Work Place</span>
-          <div className="scroll-down">scroll down
-          <div className="ani-bar"></div>
-
+          <SlidingText text={"Alrang’s"} font={"gilda-display-regular"} fontsize={10} delay={0}/>
+          <SlidingText text={"Work Place"} font={"gilda-display-regular"} fontsize={10} delay={.5} />
+          {/* <span className="gilda-display-regular">Alrang’s</span>
+          <span className="gilda-display-regular">Work Place</span> */}
+          <div className="scroll-down">
+            scroll down
+            <div className="ani-bar"></div>
           </div>
         </div>
         {/* 3) works list 리스트 */}
@@ -173,7 +177,7 @@ function Main() {
                 <a href="">
                   <div className="title">
                     {v.title.split("^").map((v, i) => (
-                      <span key={i}>{v}</span>
+                      <span key={`title-${i}`}>{v}</span>
                     ))}
                   </div>
                   <div className="imgbx">
@@ -275,8 +279,10 @@ function Main() {
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
             <div className="big-title ephesis-regular">
-              <span> connecting</span>
-              <span> the dots</span>
+              <SlidingText text={"connecting"} font={"ephesis-regular"} fontsize={14} delay={0}/>
+              <SlidingText text={"the dots"} font={"ephesis-regular"} fontsize={14} delay={.5}/>
+              {/* <span> connecting</span> */}
+              {/* <span> the dots</span> */}
             </div>
             <div className="img-wrap fxbox">
               <div className="imgbx">
@@ -298,7 +304,7 @@ function Main() {
       </div>
       {/*********************** 2. 프로필영역 끝 ***********************/}
       {/* 3. works 영역: works list */}
-      <div id="works-list-area" >
+      <div id="works-list-area">
         {/* ul은 그리드로 구성, 12col, a는 각 프로젝트로 링크 */}
         {worksData.map((v, i) => (
           <>
@@ -309,12 +315,12 @@ function Main() {
             >
               <div className="eng-title gilda-display-regular">
                 {v.engtitle.split("^").map((v, i) => (
-                  <span key={i}>{v}</span>
+                  <span key={"eng"+v + i}>{v}</span>
                 ))}
               </div>
-              <div className="kor-title">
+              <div className="kor-title" >
                 {v.title.split("^").map((v, i) => (
-                  <span key={i}>{v}</span>
+                  <span key={"kor"+ v + i}>{v}</span>
                 ))}
               </div>
             </div>
@@ -326,7 +332,12 @@ function Main() {
             <>
               <li
                 key={i}
-                onMouseEnter={() => handleObjectEnter(i, `url(${process.env.PUBLIC_URL}${v.isrc.bg})`)}
+                onMouseEnter={() =>
+                  handleObjectEnter(
+                    i,
+                    `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
+                  )
+                }
                 onMouseLeave={handleMouseLeave}
               >
                 <a href="">
@@ -350,7 +361,7 @@ function Main() {
         </ul>
         <div className="bg-wrap">
           <div className="blurbx"></div>
-        <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
+          <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
         </div>
       </div>
       {/* 4. conect us */}
@@ -393,8 +404,8 @@ function Main() {
             </div>
           </li>
         </ul>
-      {/* 저작권 표시 */}
-      <div className="copy">© 2024 Alrang. All rights reserved.</div>
+        {/* 저작권 표시 */}
+        <div className="copy">© 2024 Alrang. All rights reserved.</div>
       </div>
     </main>
   );
