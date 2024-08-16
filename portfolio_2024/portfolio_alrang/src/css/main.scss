@@ -357,9 +357,9 @@
 #works-list-area {
   padding: 130px 0;
   background-color: #000;
-  // height: 200vh;
   position: relative;
-  overflow: hidden;
+  height: 150vh;
+  // overflow: hidden;
   .bg-wrap {
     .blurbx {
       z-index: 1;
@@ -388,7 +388,7 @@
   }
 
   .back-title-wrap {
-    position: absolute;
+    position: sticky;
     opacity: 0; /* 기본적으로 숨김 */
     transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
 
@@ -399,8 +399,9 @@
 
     text-align: center;
     top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+    // left: 50%;
+    transform: translateY(-50%); 
+    // translate: -50% -50%;
 
     .eng-title {
       color: #fff;
@@ -419,9 +420,13 @@
   ul {
     z-index: 2;
     position: relative;
+    translate: -50% -50%;
+    left: 50%;
+    top: -10%;
     display: grid;
     grid-template-columns: repeat(40, 4fr);
     grid-template-rows: repeat(6, 2fr);
+    
     li {
       transition: .2s linear;
       &:first-child {
