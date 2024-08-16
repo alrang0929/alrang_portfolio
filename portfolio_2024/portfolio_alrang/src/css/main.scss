@@ -359,7 +359,7 @@
   background-color: #000;
   // height: 200vh;
   position: relative;
-
+  overflow: hidden;
   .bg-wrap {
     .blurbx {
       z-index: 1;
@@ -388,7 +388,7 @@
   }
 
   .back-title-wrap {
-    position: fixed;
+    position: absolute;
     opacity: 0; /* 기본적으로 숨김 */
     transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
 
@@ -500,6 +500,8 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+
+    text-align: center;
     font-size: 8rem;
     color: #e8af7d;
   }
