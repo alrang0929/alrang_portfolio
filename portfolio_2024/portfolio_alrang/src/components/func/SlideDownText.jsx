@@ -14,10 +14,6 @@ function SlidingText({ text, font, fontsize, delay }) {
   //1. 텍스트 박스 세로값 변화 감지용
   const [boxh, setBoxh] = useState(0);
   const [boxw, setBoxw] = useState(0);
-  // 2. 애니관리 상태변수
-  // const [isAni,setIsAni] = useState(false);
-
-  // console.log("boxh",boxh);
 
   useEffect(() => {
     // 스크롤 도달시 애니

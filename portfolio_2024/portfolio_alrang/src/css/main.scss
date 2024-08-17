@@ -52,7 +52,6 @@
     }
   }
 
-
   .title-wrap {
     cursor: default;
 
@@ -318,20 +317,17 @@
   } //skill-wrap
 
   .info-text-wrap {
+    
     position: relative;
-    height: 100vh;
-    // margin: 0 auto;
     padding: 100px 0;
+
     .big-title {
-      .sliding-wrap{
-        padding-bottom: 40px;
-      }
-      position: absolute;
-      max-width: 75rem;
+      position: relative;
       z-index: -1;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
+
+      margin: 0 auto;
+      padding-top: 100px;
+      max-width: 75rem;
 
       color: #000;
       text-align: center;
@@ -339,21 +335,16 @@
       line-height: 0.8;
     }
     .img-wrap {
-      // padding-top: 430px;
-      // 애니를 위한 초기셋팅
-      position: relative;
-      top: 70%;
-      left: 50%;
-      translate: -50% 10%;
-      opacity: 0;
-      max-width: 80%;
-      // margin: 0 auto;
-
-      background-color: #fff;
       
+      position: relative;
+      max-width: 80%;
+      margin: 0 auto;
 
       gap: 0 5rem;
       align-items: flex-end;
+
+      // 애니 초기셋팅
+      opacity: 0;
 
       .imgbx {
         max-width: 60%;
@@ -417,7 +408,7 @@
     text-align: center;
     top: 50%;
     // left: 50%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     // translate: -50% -50%;
 
     .eng-title {
@@ -443,9 +434,9 @@
     display: grid;
     grid-template-columns: repeat(40, 4fr);
     grid-template-rows: repeat(6, 2fr);
-    
+
     li {
-      transition: .2s linear;
+      transition: 0.2s linear;
       &:first-child {
         // 로시/컬시/로끝/컬끝
         grid-area: 1 / 6 / 4 / 15;
@@ -458,7 +449,7 @@
         // 로시/컬시/로끝/컬끝
         grid-area: 5/12/8/20;
       }
-      &:hover{
+      &:hover {
         scale: 1.2;
         filter: drop-shadow(40px 40px 20px #18152b50);
       }
@@ -533,10 +524,10 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      .icon-box{
+      .icon-box {
         align-items: center;
         gap: 5px;
-        img{
+        img {
           width: 100%;
         }
       } // icon-box
@@ -549,10 +540,10 @@
       }
     }
   }
-  .copy{
+  .copy {
     text-align: center;
     font-weight: 200;
-    font-size: .6rem;
+    font-size: 0.6rem;
     color: #fff;
   }
 } //conect-us-area

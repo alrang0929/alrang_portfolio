@@ -1,7 +1,7 @@
 //portfolio pj - Main컴포넌트
 import React, { useEffect, useRef, useState } from "react";
 import { Form, Link } from "react-router-dom";
-import $, { event } from "jquery";
+import $, { easing, event } from "jquery";
 //css
 import "../../css/main.scss";
 //data
@@ -20,7 +20,7 @@ function Main() {
   // 3. 슬라이더 기능 구현을 위한 참조변수
   const sliderBtnRef = useRef(null);
   const slideListRef = useRef(null);
-  
+
   // [상태관리변수]//////////////////////////////////
   // 1. 리스트 넓이값을 알기위한 상태변수
   const [liWidth, setLiWidth] = useState(0);
@@ -63,25 +63,35 @@ function Main() {
       }); //on
     }); //each
   }, []);
+
+  useEffect(() => {
+    const aniTg = $(".ani-target");
   
-  useEffect(()=>{
-    /////스크롤 애니 함수 //////////////////////////////////
-    const handleScroll = function () {
-      const scrollTop = $(window).scrollTop();
-        const windowHeight = $(window).height();
-        const triggerPoint = windowHeight / 2;
-     if (scrollTop > triggerPoint && !isAni) {
-      
-     }//if
-      
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => { // entries 배열 순회
+          if (entry.isIntersecting && !isAni) {
+            $(entry.target).animate({ opacity: 1 }, 1000);
+            setIsAni(true);
+          }
+        });
+      },
+      { threshold: 0.5 } 
+    );
+  
+    aniTg.each((index, element) => { // 각 엘리먼트를 관찰
+      observer.observe(element);
+      /* 
+      entries.forEach((entry) => { ... })를 사용하여 각 엘리먼트에 대한 entry 객체를 처리하고, entry.target을 사용하여 해당 엘리먼트에 애니메이션을 적용
+      */
+    });
+
+  
+    return () => {
+      observer.disconnect(); 
     };
-    $(window).on("scroll", handleScroll); // 이벤트 핸들러 등록 (한 번만)
-    
-    return()=>{
-      
-      $(window).off("scroll", handleScroll); // 이벤트 핸들러 등록 (한 번만)
-    };
-},[isAni]);
+  }, [isAni]);
+
   /********************* 마우스 엔터 이미지 기능 구현 *********************/
   // 마우스 엔터시 셋팅된 이미지 배열에 추가
   const handleMouseEnter = () => {
@@ -140,7 +150,7 @@ function Main() {
             <div
               className="random-img"
               key={index}
-              style={{zIndex: 9}}
+              style={{ zIndex: 9 }}
               // 이미지를 절대 위치로 설정
             >
               <img
@@ -319,7 +329,7 @@ function Main() {
               {/* <span> connecting</span> */}
               {/* <span> the dots</span> */}
             </div>
-            <div className="img-wrap fxbox">
+            <div className="img-wrap ani-target fxbox">
               <div className="imgbx">
                 <img
                   src={process.env.PUBLIC_URL + "/images/main/PC_main_jabs.jpg"}
@@ -327,10 +337,8 @@ function Main() {
                 />
               </div>
               <div className="text">
-              <b style={{fontSize:"2rem"}}>
-
-              connecting the dots
-              </b><br/>
+                <b style={{ fontSize: "2rem" }}>connecting the dots</b>
+                <br />
                 스티븐 잡스 유명한 격언이자 지금의 제가 있게 해준 격언입니다.
                 웹이 좋아 웹디자이너로 이 세계에 발을 들이고 팀 구성원들,
                 사용자들과 소통을 하다 생긴 물음표를 해결해나가다보니 사용자들과
