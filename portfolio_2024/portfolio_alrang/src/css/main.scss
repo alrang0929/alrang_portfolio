@@ -320,7 +320,7 @@
   .info-text-wrap {
     position: relative;
     height: 100vh;
-    margin: 0 auto;
+    // margin: 0 auto;
     padding: 100px 0;
     .big-title {
       .sliding-wrap{
@@ -339,11 +339,18 @@
       line-height: 0.8;
     }
     .img-wrap {
+      // padding-top: 430px;
       // 애니를 위한 초기셋팅
-      translate: 0 100%;
+      position: relative;
+      top: 70%;
+      left: 50%;
+      translate: -50% 10%;
       opacity: 0;
       max-width: 80%;
-      margin: 0 auto;
+      // margin: 0 auto;
+
+      background-color: #fff;
+      
 
       gap: 0 5rem;
       align-items: flex-end;
@@ -549,3 +556,10 @@
     color: #fff;
   }
 } //conect-us-area
+
+@keyframes slideUp {
+  to {
+    top: 50%; /* 최종 위치: 원래 위치 */
+    opacity: 1; /* 최종 투명도: 1 */
+  }
+}

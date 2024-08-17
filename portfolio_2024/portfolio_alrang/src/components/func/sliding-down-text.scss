@@ -1,7 +1,7 @@
 
 .sliding-wrap{
   margin: 0 auto;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative; /* transform 사용을 위해 필요 */
   .sliding-text {
     // text-align: center;
@@ -9,6 +9,7 @@
     top: -100%; /* 초기 위치: 위쪽으로 숨김 */
     opacity: 0; /* 초기 투명도: 0 */
     white-space: nowrap;
+    animation: none; 
   }
 }
   

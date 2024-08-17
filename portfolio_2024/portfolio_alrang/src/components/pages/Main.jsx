@@ -9,8 +9,7 @@ import { skillList } from "../data/skill";
 import { worksData, worksThumbs } from "../data/works";
 import SlidingText from "../func/SlideDownText";
 ///////////////////import area//////////////////
-function Main({ text }) {
-  // 1. text: 텍스트 애니 컴포넌트 전달값
+function Main() {
   // [참조변수]//////////////////////////////////
   // 1. 이미지가 마우스 따라다니는 값을 저장하기 위한 참조변수
   const titleWrapRef = useRef(null);
@@ -21,7 +20,7 @@ function Main({ text }) {
   // 3. 슬라이더 기능 구현을 위한 참조변수
   const sliderBtnRef = useRef(null);
   const slideListRef = useRef(null);
-
+  
   // [상태관리변수]//////////////////////////////////
   // 1. 리스트 넓이값을 알기위한 상태변수
   const [liWidth, setLiWidth] = useState(0);
@@ -31,6 +30,8 @@ function Main({ text }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   // 4. bg 변경을 위한 상태변수
   const [objectBg, setObjectBg] = useState(null);
+  // 4. 애니 상태 확인을 위한 상태관리변수
+  const [isAni, setIsAni] = useState(false);
 
   /****************** 1. 호버시 li에 맞는 div 보이는 기능구현 ******************/
   const handleObjectEnter = (index, listBg) => {
@@ -48,7 +49,7 @@ function Main({ text }) {
     if (liRef.current) {
       setLiWidth(liRef.current.offsetWidth);
     }
-    /*************************** 슬라이더 기능구현 ***************************/
+    /***************************메인 영역 슬라이더 기능구현 ***************************/
     // 대상선정
     const $sliderBtns = $(sliderBtnRef.current).find("li"); // jQuery 객체로 변환
     const $slideList = $(slideListRef.current);
@@ -61,12 +62,26 @@ function Main({ text }) {
         });
       }); //on
     }); //each
-
-    return () => {
-      $sliderBtns.off("click"); //컴포넌트 언마운트시 핸들러 제거
-    };
   }, []);
-
+  
+  useEffect(()=>{
+    /////스크롤 애니 함수 //////////////////////////////////
+    const handleScroll = function () {
+      const scrollTop = $(window).scrollTop();
+        const windowHeight = $(window).height();
+        const triggerPoint = windowHeight / 2;
+     if (scrollTop > triggerPoint && !isAni) {
+      
+     }//if
+      
+    };
+    $(window).on("scroll", handleScroll); // 이벤트 핸들러 등록 (한 번만)
+    
+    return()=>{
+      
+      $(window).off("scroll", handleScroll); // 이벤트 핸들러 등록 (한 번만)
+    };
+},[isAni]);
   /********************* 마우스 엔터 이미지 기능 구현 *********************/
   // 마우스 엔터시 셋팅된 이미지 배열에 추가
   const handleMouseEnter = () => {
@@ -101,7 +116,6 @@ function Main({ text }) {
       }
     }
   };
-
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
@@ -126,6 +140,7 @@ function Main({ text }) {
             <div
               className="random-img"
               key={index}
+              style={{zIndex: 9}}
               // 이미지를 절대 위치로 설정
             >
               <img
@@ -135,8 +150,18 @@ function Main({ text }) {
               />
             </div>
           ))}
-          <SlidingText text={"Alrang’s"} font={"gilda-display-regular"} fontsize={10} delay={0}/>
-          <SlidingText text={"Work Place"} font={"gilda-display-regular"} fontsize={10} delay={.5} />
+          <SlidingText
+            text={"Alrang’s"}
+            font={"gilda-display-regular"}
+            fontsize={10}
+            delay={0}
+          />
+          <SlidingText
+            text={"Work Place"}
+            font={"gilda-display-regular"}
+            fontsize={10}
+            delay={0.5}
+          />
           {/* <span className="gilda-display-regular">Alrang’s</span>
           <span className="gilda-display-regular">Work Place</span> */}
           <div className="scroll-down">
@@ -279,8 +304,18 @@ function Main({ text }) {
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
             <div className="big-title">
-              <SlidingText text={"connecting"} font={"ephesis-regular"} fontsize={14} delay={0} />
-              <SlidingText text={"the dots"} font={"ephesis-regular"} fontsize={14} delay={.5}/>
+              <SlidingText
+                text={"connecting"}
+                font={"ephesis-regular"}
+                fontsize={14}
+                delay={0}
+              />
+              <SlidingText
+                text={"the dots"}
+                font={"ephesis-regular"}
+                fontsize={14}
+                delay={0.5}
+              />
               {/* <span> connecting</span> */}
               {/* <span> the dots</span> */}
             </div>
@@ -292,6 +327,10 @@ function Main({ text }) {
                 />
               </div>
               <div className="text">
+              <b style={{fontSize:"2rem"}}>
+
+              connecting the dots
+              </b><br/>
                 스티븐 잡스 유명한 격언이자 지금의 제가 있게 해준 격언입니다.
                 웹이 좋아 웹디자이너로 이 세계에 발을 들이고 팀 구성원들,
                 사용자들과 소통을 하다 생긴 물음표를 해결해나가다보니 사용자들과
@@ -315,12 +354,12 @@ function Main({ text }) {
             >
               <div className="eng-title gilda-display-regular">
                 {v.engtitle.split("^").map((v, i) => (
-                  <span key={"eng"+v + i}>{v}</span>
+                  <span key={"eng" + v + i}>{v}</span>
                 ))}
               </div>
-              <div className="kor-title" >
+              <div className="kor-title">
                 {v.title.split("^").map((v, i) => (
-                  <span key={"kor"+ v + i}>{v}</span>
+                  <span key={"kor" + v + i}>{v}</span>
                 ))}
               </div>
             </div>

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./sliding-down-text.scss";
 import $ from "jquery";
-function SlidingText({ text, font, fontsize, delay, }) {
+function SlidingText({ text, font, fontsize, delay }) {
   //1. text 텍스트 저장을 위한 참조변수
   //2. font : 지정하고 싶은 폰트
   //3. fontsize: 지정하고 싶은 폰트 사이즈
@@ -23,33 +23,33 @@ function SlidingText({ text, font, fontsize, delay, }) {
     // 스크롤 도달시 애니
     // 대상선정
     if (textRef.current) {
-      textRef.current.style.animation = "slideDown 0.5s ease forwards";
-      
-  
+      // textRef.current.style.animation = "slideDown 0.5s ease forwards";
+      console.log("textRef.current",textRef.current);
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) { // 엘리먼트가 화면에 보일 때
-              // 애니메이션 재시작 (delay 적용)
-              textRef.current.style.animation = 'none';
-              void textRef.current.offsetWidth;
+            if (entry.isIntersecting) {
+              console.log("entry.isIntersecting",entry.isIntersecting)
+
+              // 엘리먼트가 화면에 보일 때 애니메이션 실행 (delay 적용)
               textRef.current.style.animation = `slideDown 0.5s ease forwards`;
               textRef.current.style.animationDelay = `${delay}s`;
-              observer.unobserve(entry.target); // 애니메이션 실행 후 관찰 해제
+              observer.unobserve(entry.target);
             }
           });
         },
-        { threshold: 0.5 } // 50% 이상 보일 때 감지
+        { threshold: 0.1 }, // 50% 이상 보일 때 감지
+        console.log("IntersectionObserver",IntersectionObserver),
       );
-  
+
       observer.observe(textRef.current);
-  
+
       return () => {
         observer.disconnect();
       };
     }
-    
-  }, [textRef.current]);
+  }, [delay, textRef.current]);
+
 
   useEffect(() => {
     if (textRef.current) {
