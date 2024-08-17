@@ -16,12 +16,31 @@ function SlidingText({ text, font, fontsize, delay }) {
 
   // console.log("boxh",boxh);
 
+//참조변수에 애니 스타일 셋팅중이므로 변경시 여기서
   useEffect(() => {
     if (textRef.current) {
-      textRef.current.style.animation = "slideDown 0.5s ease forwards"; // 애니메이션 적용
-      textRef.current.style.animationDelay = `${delay}s`;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+              // 스크롤 절반 이상 보일 때 애니메이션 실행
+              textRef.current.style.animation = `slideDown 0.5s ease forwards`;
+              textRef.current.style.animationDelay = `${delay}s`;
+              observer.unobserve(entry.target); // 애니메이션 실행 후 관찰 해제
+            }
+          });
+        },
+        { threshold: 0.5 } // 교차 비율 50% 이상 감지
+      );
+
+      observer.observe(textRef.current); // 텍스트 요소 관찰 시작
+
+      return () => {
+        observer.disconnect(); // 컴포넌트 언마운트 시 관찰 해제
+      };
     }
-  }, [delay]);
+  }, [delay, textRef.current]);
+  
   useEffect(() => {
     if (textRef.current) {
       setBoxh(textRef.current.offsetHeight);
