@@ -323,6 +323,9 @@
     margin: 0 auto;
     padding: 100px 0;
     .big-title {
+      .sliding-wrap{
+        padding-bottom: 40px;
+      }
       position: absolute;
       max-width: 75rem;
       z-index: -1;

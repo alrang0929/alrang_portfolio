@@ -278,8 +278,8 @@ function Main({ text }) {
 
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
-            <div className="big-title ephesis-regular">
-              <SlidingText text={"connecting"} font={"ephesis-regular"} fontsize={14} delay={0}/>
+            <div className="big-title">
+              <SlidingText text={"connecting"} font={"ephesis-regular"} fontsize={14} delay={0} />
               <SlidingText text={"the dots"} font={"ephesis-regular"} fontsize={14} delay={.5}/>
               {/* <span> connecting</span> */}
               {/* <span> the dots</span> */}
