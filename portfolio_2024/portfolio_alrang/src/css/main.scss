@@ -436,6 +436,7 @@
     grid-template-rows: repeat(6, 2fr);
 
     li {
+      opacity: 0;
       transition: 0.2s linear;
       &:first-child {
         // 로시/컬시/로끝/컬끝
@@ -454,6 +455,7 @@
         filter: drop-shadow(40px 40px 20px #18152b50);
       }
       .img-wrap {
+        
         position: relative;
         .kor-title {
           padding: 20px;

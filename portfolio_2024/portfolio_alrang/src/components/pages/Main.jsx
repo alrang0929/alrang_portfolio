@@ -1,7 +1,7 @@
 //portfolio pj - Main컴포넌트
 import React, { useEffect, useRef, useState } from "react";
-import { Form, Link } from "react-router-dom";
-import $, { easing, event } from "jquery";
+import $ from "jquery";
+import { Parallax } from "react-spring/parallax";
 //css
 import "../../css/main.scss";
 //data
@@ -49,7 +49,7 @@ function Main() {
     if (liRef.current) {
       setLiWidth(liRef.current.offsetWidth);
     }
-    /***************************메인 영역 슬라이더 기능구현 ***************************/
+    /***************************메인 비쥬얼 영역 슬라이더 기능구현 ***************************/
     // 대상선정
     const $sliderBtns = $(sliderBtnRef.current).find("li"); // jQuery 객체로 변환
     const $slideList = $(slideListRef.current);
@@ -66,31 +66,27 @@ function Main() {
 
   useEffect(() => {
     const aniTg = $(".ani-target");
-  
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => { // entries 배열 순회
+        entries.forEach((entry) => {
           if (entry.isIntersecting && !isAni) {
             $(entry.target).animate({ opacity: 1 }, 1000);
             setIsAni(true);
           }
         });
       },
-      { threshold: 0.5 } 
+      { threshold: 0.5 }
     );
-  
-    aniTg.each((index, element) => { // 각 엘리먼트를 관찰
+
+    aniTg.each((index, element) => {
       observer.observe(element);
-      /* 
-      entries.forEach((entry) => { ... })를 사용하여 각 엘리먼트에 대한 entry 객체를 처리하고, entry.target을 사용하여 해당 엘리먼트에 애니메이션을 적용
-      */
     });
 
-  
     return () => {
-      observer.disconnect(); 
+      observer.disconnect();
     };
-  }, [isAni]);
+  }, []); // 빈 배열 추가
 
   /********************* 마우스 엔터 이미지 기능 구현 *********************/
   // 마우스 엔터시 셋팅된 이미지 배열에 추가
@@ -353,63 +349,69 @@ function Main() {
       {/* 3. works 영역: works list */}
       <div id="works-list-area">
         {/* ul은 그리드로 구성, 12col, a는 각 프로젝트로 링크 */}
-        {worksData.map((v, i) => (
-          <>
-            <div
-              className="back-title-wrap"
-              key={i}
-              style={{ opacity: hoveredIndex === i ? 1 : 0 }}
-            >
-              <div className="eng-title gilda-display-regular">
-                {v.engtitle.split("^").map((v, i) => (
-                  <span key={"eng" + v + i}>{v}</span>
-                ))}
-              </div>
-              <div className="kor-title">
-                {v.title.split("^").map((v, i) => (
-                  <span key={"kor" + v + i}>{v}</span>
-                ))}
-              </div>
-            </div>
-          </>
-        ))}
-
-        <ul>
+        <Parallax strength={1000}>
           {worksData.map((v, i) => (
             <>
-              <li
+              <div
+                className="back-title-wrap"
                 key={i}
-                onMouseEnter={() =>
-                  handleObjectEnter(
-                    i,
-                    `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
-                  )
-                }
-                onMouseLeave={handleMouseLeave}
+                style={{ opacity: hoveredIndex === i ? 1 : 0 }}
               >
-                <a href="">
-                  <div className="img-wrap">
-                    <div className="kor-title">
-                      {v.title.split("^").map((v, i) => (
-                        <span key={i}>{v}</span>
-                      ))}
-                    </div>
-                    <div className="imgbx">
-                      <img
-                        src={process.env.PUBLIC_URL + v.isrc.workslist}
-                        alt={v.title}
-                      />
-                    </div>
-                  </div>
-                </a>
-              </li>
+                <div className="eng-title gilda-display-regular">
+                  {v.engtitle.split("^").map((v, i) => (
+                    <span key={"eng" + v + i}>{v}</span>
+                  ))}
+                </div>
+                <div className="kor-title">
+                  {v.title.split("^").map((v, i) => (
+                    <span key={"kor" + v + i}>{v}</span>
+                  ))}
+                </div>
+              </div>
             </>
           ))}
-        </ul>
-        <div className="bg-wrap">
-          <div className="blurbx"></div>
-          <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
-        </div>
+
+          {/* 1. parallax 대상 첫번째 상단 오브잭트 */}
+          {/* 2. parallax 대상 두번째 상단 오브잭트 */}
+          <ul>
+            {worksData.map((v, i) => (
+              <>
+                <li
+                  className="ani-target"
+                  key={i}
+                  onMouseEnter={() =>
+                    handleObjectEnter(
+                      i,
+                      `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
+                    )
+                  }
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <a href="">
+                    <div className="img-wrap">
+                      <div className="kor-title">
+                        {v.title.split("^").map((v, i) => (
+                          <span key={i}>{v}</span>
+                        ))}
+                      </div>
+                      <div className="imgbx ani-target">
+                        <img
+                          src={process.env.PUBLIC_URL + v.isrc.workslist}
+                          alt={v.title}
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </>
+            ))}
+          </ul>
+          {/* 3. parallax 배경요소 */}
+          <div className="bg-wrap">
+            <div className="blurbx"></div>
+            <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
+          </div>
+        </Parallax>
       </div>
       {/* 4. conect us */}
       <div id="conect-us-area">
