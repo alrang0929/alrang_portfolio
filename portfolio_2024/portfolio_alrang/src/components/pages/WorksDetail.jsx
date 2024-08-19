@@ -5,11 +5,9 @@ import "../../css/work_detail.scss";
 ////import area////////////////////////////
 
 function WorksDetail() {
-  
   const selData = useContext(SelectCon);
   console.log("데이터 잘 들고왔나?", selData.selProjectData);
   //selProjectData : 최상위 컴포넌트 context에서 불러오고 있는 상태변수
-
 
   // useContext로 들고온 값이 새로고침이 될때마다 휘발되서 useRef로 저장할까 했는데
   //그럼 리렌더링시 화면에 반영되지 않을 가능성이 있어 상태관리 변수로 대체
@@ -40,7 +38,10 @@ function WorksDetail() {
       </div>
       <div className="fixedbox">
         <div className="info-text-wrap">
-          <h3 className="title">{pdData.title}</h3>
+          {pdData.title.split("^").map((v, i) => (
+            <h3 className="title">{v}</h3>
+          ))}
+
           <div className="category-wrap">
             <span>{pdData.category}</span>
           </div>

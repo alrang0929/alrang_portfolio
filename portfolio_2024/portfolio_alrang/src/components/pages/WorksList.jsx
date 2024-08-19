@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //css
 import "../../css/work_list.scss";
 //data
@@ -11,10 +11,30 @@ function WorksList() {
     //1. 현재 main배경 이미지 상태체크
     const [mainBg, setMainBg] = useState(null);
 
+    const handleScroll = (event) => {
+        event.preventDefault(); // 스크롤 이벤트의 기본 동작 방지
+      };
+    
+      useEffect(() => {
+        window.addEventListener('wheel', handleScroll, { passive: false }); // 휠 이벤트에도 적용
+        window.addEventListener('touchmove', handleScroll, { passive: false }); // 터치 이동에도 적용
+    
+        return () => {
+          window.removeEventListener('wheel', handleScroll);
+          window.removeEventListener('touchmove', handleScroll);
+        };
+      }, []);
+    
+
     //코드리턴구역/////////////////
     return (
 
-        <section id="works-list-area" className="fxbox" >
+        <section 
+        id="works-pj-area" 
+        className="fxbox" 
+        onScroll={handleScroll}
+        style={{ overflow: 'auto'}}
+        >
             <div className="text-object-wrap fxbox">
             <div className="txt">WORKS LIST</div>
             <div className="ani-bar"></div>

@@ -10,13 +10,14 @@
 
   nav {
     button{
-
       border: 1px solid #000;
     }
     a{
-      font-weight: 200;
+      mix-blend-mode: difference;
+      font-weight: 300;
       margin-right: 20px;
-      color: #000;
+      // color: #fff;
+      font-size: 1.2rem;
       text-decoration: none;
       transition: .2s linear;
       &:hover{
@@ -25,4 +26,13 @@
     }
     padding: 2.25rem;
   }
+}
+
+#gnb-area nav a { /* 모든 링크 기본 색상 설정 */
+  color: white; 
+}
+
+#gnb-area nav a.active { /* 활성화된 링크 색상 설정 */
+  color: #E8AF70;
+  font-weight: 400;
 }

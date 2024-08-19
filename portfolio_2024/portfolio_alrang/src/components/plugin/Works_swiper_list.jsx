@@ -54,11 +54,11 @@ export default function WorksSwiper({ mainBg, setMainBg }) {
           },
 
           1620: {
-            slidesPerView: 2,
+            slidesPerView: 3,
           },
 
           1900: {
-            slidesPerView: 2,
+            slidesPerView: 3,
           },
         }}
         className="mySwiper"
@@ -90,7 +90,9 @@ export default function WorksSwiper({ mainBg, setMainBg }) {
                   onClick={handleClick}
                 >
                   <div className="info-text-wrap">
-                    <h3 className="title">{v.title}</h3>
+                      {v.title.split("^").map((v,i)=>
+                    <h3 key={i} className="title">{v}</h3>
+                      )}
                     <div className="category-wrap">
                       <span>{categoryData[0]}</span>
                       <span>{categoryData[1]}</span>

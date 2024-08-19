@@ -18,10 +18,10 @@ import { SelectCon } from "./SelectCon";
 import { Navigate, useNavigate } from "react-router-dom";
 ///////////////////import area//////////////////
 function Main() {
-    // useContext 사용
-    const { selProjectData, setSelProjectData } = useContext(SelectCon);
-    // navigate 사용
-    const navigate = useNavigate();
+  // useContext 사용
+  const { selProjectData, setSelProjectData } = useContext(SelectCon);
+  // navigate 사용
+  const navigate = useNavigate();
 
   // [참조변수]//////////////////////////////////
   // 1. 이미지가 마우스 따라다니는 값을 저장하기 위한 참조변수
@@ -33,7 +33,6 @@ function Main() {
   // 3. 슬라이더 기능 구현을 위한 참조변수
   const sliderBtnRef = useRef(null);
   const slideListRef = useRef(null);
-
 
   // [상태관리변수]//////////////////////////////////
   // 1. 리스트 넓이값을 알기위한 상태변수
@@ -58,20 +57,22 @@ function Main() {
   };
 
   /* 2. 클릭시 해당되는 디테일 페이지로 이동 */
-  const goLink = useCallback(() => {
-    navigate("/WorksDetail");
-  }, [navigate]);
-  //화면 랜더링 구역/////////////////////////////////////////////////
-  useEffect(() => {
-    if (selProjectData) { // selProjectData가 설정되었을 때만 페이지 이동
-      goLink();
-    }
-  }, [selProjectData]); // selProjectData 또는 goLink가 변경될 때만 useEffect 실행
+  // const goLink = useCallback(() => {
+  //   navigate("/WorksDetail");
+  // }, [navigate]);
+  // //화면 랜더링 구역/////////////////////////////////////////////////
+  // useEffect(() => {
+  //   if (selProjectData) { // selProjectData가 설정되었을 때만 페이지 이동
+  //     goLink();
+  //   }
+  // }, [selProjectData]); // selProjectData 또는 goLink가 변경될 때만 useEffect 실행
 
   const handleItemClick = useCallback(
     (item) => {
-      setSelProjectData(item); 
-      navigate("/WorksDetail"); // WorksDetail 페이지로 이동
+      setTimeout(() => {
+        setSelProjectData(item);
+        navigate("/WorksDetail"); // WorksDetail 페이지로 이동
+      }, 10);
     },
     [setSelProjectData, navigate]
   );
@@ -217,14 +218,17 @@ function Main() {
               <li key={i}>
                 <a
                   href=""
-                  onClick={(e,) => {
+                  onClick={(e) => {
                     e.preventDefault();
                     handleItemClick(v);
-                    console.log("item",v);
+                    console.log("item 1", v);
                   }}
                 >
                   <div className="imgbx">
-                    <img src={process.env.PUBLIC_URL + v.isrc.thumbs} alt={v.key} />
+                    <img
+                      src={process.env.PUBLIC_URL + v.isrc.thumbs}
+                      alt={v.key}
+                    />
                   </div>
                 </a>
               </li>
@@ -409,6 +413,7 @@ function Main() {
               <li
                 className="ani-target"
                 key={i}
+                
                 onMouseEnter={() =>
                   handleObjectEnter(
                     i,
@@ -417,7 +422,13 @@ function Main() {
                 }
                 onMouseLeave={handleMouseLeave}
               >
-                <a href="">
+                <a href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleItemClick(v);
+                  console.log("item 2", v);
+                }}
+                >
                   <div className="img-wrap">
                     <div className="kor-title">
                       {v.title.split("^").map((v, i) => (
