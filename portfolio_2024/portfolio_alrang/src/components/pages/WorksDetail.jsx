@@ -1,18 +1,22 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SelectCon } from "./SelectCon.jsx";
 import "../../css/work_detail.scss";
 
 ////import area////////////////////////////
 
 function WorksDetail() {
-  //1. workList컴포넌트에서 클릭된 li에서 전달받아오는 데이터
+  
   const selData = useContext(SelectCon);
   console.log("데이터 잘 들고왔나?", selData.selProjectData);
+  //selProjectData : 최상위 컴포넌트 context에서 불러오고 있는 상태변수
+
+
   // useContext로 들고온 값이 새로고침이 될때마다 휘발되서 useRef로 저장할까 했는데
   //그럼 리렌더링시 화면에 반영되지 않을 가능성이 있어 상태관리 변수로 대체
 
   //[상태관리변수]
   const [pdData, setPdData] = useState(selData.selProjectData);
+
   // 화면 리랜더링 구역/////////////////////////////////////
   useEffect(() => {
     setPdData(selData.selProjectData); // selData 변경될 때 마다 pdData 업데이트

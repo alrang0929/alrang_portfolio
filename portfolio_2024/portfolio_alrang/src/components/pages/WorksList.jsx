@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 //css
 import "../../css/work_list.scss";
 //data

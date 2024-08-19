@@ -344,6 +344,7 @@
       align-items: flex-end;
 
       // 애니 초기셋팅
+      translate: 0 0%;
       opacity: 0;
 
       .imgbx {
@@ -437,6 +438,7 @@
 
     li {
       opacity: 0;
+      translate: 0 0%;
       transition: 0.2s linear;
       &:first-child {
         // 로시/컬시/로끝/컬끝
@@ -552,7 +554,7 @@
 
 @keyframes slideUp {
   to {
-    top: 50%; /* 최종 위치: 원래 위치 */
+    translate: 0 -10%;
     opacity: 1; /* 최종 투명도: 1 */
   }
 }

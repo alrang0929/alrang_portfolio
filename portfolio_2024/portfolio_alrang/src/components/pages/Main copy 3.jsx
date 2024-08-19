@@ -15,14 +15,9 @@ import { skillList } from "../data/skill";
 import { worksData, worksThumbs } from "../data/works";
 import SlidingText from "../func/SlideDownText";
 import { SelectCon } from "./SelectCon";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 ///////////////////import area//////////////////
 function Main() {
-    // useContext 사용
-    const { selProjectData, setSelProjectData } = useContext(SelectCon);
-    // navigate 사용
-    const navigate = useNavigate();
-
   // [참조변수]//////////////////////////////////
   // 1. 이미지가 마우스 따라다니는 값을 저장하기 위한 참조변수
   const titleWrapRef = useRef(null);
@@ -33,7 +28,8 @@ function Main() {
   // 3. 슬라이더 기능 구현을 위한 참조변수
   const sliderBtnRef = useRef(null);
   const slideListRef = useRef(null);
-
+  // 4. useContext 사용
+  const { selProjectData, setSelProjectData } = useContext(SelectCon);
 
   // [상태관리변수]//////////////////////////////////
   // 1. 리스트 넓이값을 알기위한 상태변수
@@ -58,24 +54,18 @@ function Main() {
   };
 
   /* 2. 클릭시 해당되는 디테일 페이지로 이동 */
-  const goLink = useCallback(() => {
-    navigate("/WorksDetail");
-  }, [navigate]);
+  const goLink = () => {
+    Navigate("/WorksDetail");
+  };
+
+  // const handleItemClick = useCallback(
+  //   (item) => {
+  //     setSelProjectData(item);
+  //     goLink();
+  //   },
+  //   [setSelProjectData, goLink]
+  // ); // 의존성 배열 추가
   //화면 랜더링 구역/////////////////////////////////////////////////
-  useEffect(() => {
-    if (selProjectData) { // selProjectData가 설정되었을 때만 페이지 이동
-      goLink();
-    }
-  }, [selProjectData]); // selProjectData 또는 goLink가 변경될 때만 useEffect 실행
-
-  const handleItemClick = useCallback(
-    (item) => {
-      setSelProjectData(item); 
-      navigate("/WorksDetail"); // WorksDetail 페이지로 이동
-    },
-    [setSelProjectData, navigate]
-  );
-
   useEffect(() => {
     //ul 감싸고 있는 박스의 whith 값을 구하기 위함
     if (liRef.current) {
@@ -217,10 +207,9 @@ function Main() {
               <li key={i}>
                 <a
                   href=""
-                  onClick={(e,) => {
+                  onClick={(e, item) => {
                     e.preventDefault();
-                    handleItemClick(v);
-                    console.log("item",v);
+                    // handleItemClick(item);
                   }}
                 >
                   <div className="imgbx">
@@ -356,6 +345,8 @@ function Main() {
                 fontsize={14}
                 delay={0.5}
               />
+              {/* <span> connecting</span> */}
+              {/* <span> the dots</span> */}
             </div>
             <div className="img-wrap ani-target fxbox">
               <div className="imgbx">

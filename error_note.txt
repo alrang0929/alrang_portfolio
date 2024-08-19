@@ -6,3 +6,19 @@
 추후 코드 다시 살펴볼것
 
 - 여기저기ㅓ 이미지가 호출됨.. 영역설정 제대로 안된듯
+
+240819
+TopArea 컨포넌트 내
+isHome 상태가 말썽.. Main과 isHome 상태가 공유가 안되서
+메인 상단 li 버튼으로 WorksDetail 페이지로 넘어가면
+top의 home 버튼을 눌러도 worksDetail 과 works 페이지만 넘나들음..
+이를 해결하기 위해 전역변수에 home 초기값 설정 넣어줌..
+
+방법 1:
+    기존에 했던데로 최상단 컴포넌트에
+    함수선언 후 provider 로 앖 전달 하려 했는데
+    SelectCon context의 역할이 오염될 수 있음
+
+방법 2:
+    위와 같은 이유 때문에 Home Nav 역할만 하는 context를 생성(-> HomeNavCon.jsx)
+

@@ -28,6 +28,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
       mainlist: "/images/main/PC_project_side_amore.jpg",
       workslist: "/images/main/PC_main_list_amore.jpg",
       ipage: "/images/amr_pg.png",
+      thumbs: "/images/main/PC_project_thumb_amore.jpg", key: "amore"
     },
     url: {
       pdf: "https://drive.google.com/file/d/1J0x0dtpHVRxKqZ03WT9dPgYAteJ_-fqg/view?usp=sharing",
@@ -48,6 +49,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
       mainlist: "/images/main/PC_project_side_seumit.jpg",
       workslist: "/images/main/PC_main_list_seumit.jpg",
       ipage: "/images/seulmit_pg.png",
+      thumbs: "/images/main/PC_project_thumb_seumit.jpg", key: "seumit",
     },
     url: {
       pdf: "https://drive.google.com/file/d/1lTuTRm9JZ9qt6WGas2uKq6mgFRPUvaXX/view?usp=sharing",
@@ -68,6 +70,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
       mainlist: "/images/main/PC_project_side_star.jpg",
       workslist: "/images/main/PC_main_list_star.jpg",
       ipage: "/images/star_pg.png",
+      thumbs: "/images/main/PC_project_thumb_star.jpg", key: "star",
     },
     url: {
       pdf: "https://docs.google.com/presentation/d/1MibZw2WQNsFUq7TPcNIZ10EAOOt63oFwqapo76ChAvQ/edit?usp=sharing",
