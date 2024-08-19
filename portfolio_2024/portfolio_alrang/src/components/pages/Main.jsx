@@ -1,7 +1,7 @@
 //portfolio pj - Main컴포넌트
 import React, { useEffect, useRef, useState } from "react";
 import $ from "jquery";
-import { Parallax } from "react-spring/parallax";
+
 //css
 import "../../css/main.scss";
 //data
@@ -349,69 +349,66 @@ function Main() {
       {/* 3. works 영역: works list */}
       <div id="works-list-area">
         {/* ul은 그리드로 구성, 12col, a는 각 프로젝트로 링크 */}
-        <Parallax strength={1000}>
+
+        {worksData.map((v, i) => (
+          <>
+            <div
+              className="back-title-wrap"
+              key={i}
+              style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+            >
+              <div className="eng-title gilda-display-regular">
+                {v.engtitle.split("^").map((v, i) => (
+                  <span key={"eng" + v + i}>{v}</span>
+                ))}
+              </div>
+              <div className="kor-title">
+                {v.title.split("^").map((v, i) => (
+                  <span key={"kor" + v + i}>{v}</span>
+                ))}
+              </div>
+            </div>
+          </>
+        ))}
+
+        <ul>
           {worksData.map((v, i) => (
             <>
-              <div
-                className="back-title-wrap"
+              <li
+                className="ani-target"
                 key={i}
-                style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+                onMouseEnter={() =>
+                  handleObjectEnter(
+                    i,
+                    `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
+                  )
+                }
+                onMouseLeave={handleMouseLeave}
               >
-                <div className="eng-title gilda-display-regular">
-                  {v.engtitle.split("^").map((v, i) => (
-                    <span key={"eng" + v + i}>{v}</span>
-                  ))}
-                </div>
-                <div className="kor-title">
-                  {v.title.split("^").map((v, i) => (
-                    <span key={"kor" + v + i}>{v}</span>
-                  ))}
-                </div>
-              </div>
+                <a href="">
+                  <div className="img-wrap">
+                    <div className="kor-title">
+                      {v.title.split("^").map((v, i) => (
+                        <span key={i}>{v}</span>
+                      ))}
+                    </div>
+                    <div className="imgbx ">
+                      <img
+                        src={process.env.PUBLIC_URL + v.isrc.workslist}
+                        alt={v.title}
+                      />
+                    </div>
+                  </div>
+                </a>
+              </li>
             </>
           ))}
-
-          {/* 1. parallax 대상 첫번째 상단 오브잭트 */}
-          {/* 2. parallax 대상 두번째 상단 오브잭트 */}
-          <ul>
-            {worksData.map((v, i) => (
-              <>
-                <li
-                  className="ani-target"
-                  key={i}
-                  onMouseEnter={() =>
-                    handleObjectEnter(
-                      i,
-                      `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
-                    )
-                  }
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <a href="">
-                    <div className="img-wrap">
-                      <div className="kor-title">
-                        {v.title.split("^").map((v, i) => (
-                          <span key={i}>{v}</span>
-                        ))}
-                      </div>
-                      <div className="imgbx ani-target">
-                        <img
-                          src={process.env.PUBLIC_URL + v.isrc.workslist}
-                          alt={v.title}
-                        />
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </>
-            ))}
-          </ul>
-          {/* 3. parallax 배경요소 */}
-          <div className="bg-wrap">
-            <div className="blurbx"></div>
-            <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
-          </div>
-        </Parallax>
+        </ul>
+        {/* 3. parallax 배경요소 */}
+        <div className="bg-wrap">
+          <div className="blurbx"></div>
+          <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
+        </div>
       </div>
       {/* 4. conect us */}
       <div id="conect-us-area">
