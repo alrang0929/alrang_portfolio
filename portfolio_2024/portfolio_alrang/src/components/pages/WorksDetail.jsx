@@ -61,7 +61,7 @@ function WorksDetail() {
             <a href={pdData.url.pdf} target="_blank" rel="noopener noreferrer">
               <button className="line-button fxbox">
                 <div className="icon-box icon-file"></div>
-                <span>view gide pdf</span>
+                <span>view guide pdf</span>
               </button>
             </a>
             <a href={pdData.url.page} target="_blank" rel="noopener noreferrer">
