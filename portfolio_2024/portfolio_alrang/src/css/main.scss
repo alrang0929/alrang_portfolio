@@ -317,7 +317,6 @@
   } //skill-wrap
 
   .info-text-wrap {
-    
     position: relative;
     padding: 100px 0;
 
@@ -335,7 +334,6 @@
       line-height: 0.8;
     }
     .img-wrap {
-      
       position: relative;
       max-width: 80%;
       margin: 0 auto;
@@ -356,6 +354,9 @@
         }
       } //imgbx
       .text {
+        b{
+          margin-bottom: 20px;
+        }
         line-height: 1.6;
         max-width: 40%;
       }
@@ -457,7 +458,6 @@
         filter: drop-shadow(40px 40px 20px #18152b50);
       }
       .img-wrap {
-        
         position: relative;
         .kor-title {
           padding: 20px;
@@ -541,6 +541,10 @@
       }
       .text {
         font-weight: 200;
+        a{
+          color: #fff;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -558,3 +562,81 @@
     opacity: 1; /* 최종 투명도: 1 */
   }
 }
+
+// 미디어쿼리///////////////////////////////////
+@media screen and (max-width: 1534px){
+
+}//midea 1534px
+@media screen and (max-width: 1140px) {
+  #main-visual-area {
+    .scroll-down {
+      margin-bottom: 120px;
+    }
+    .show-works-box {
+      display: none;
+    }
+    .works-list-wrap {
+      .works-list {
+        padding-top: 20px;
+        justify-content: center;
+      }
+      .title {
+        margin: 0 auto;
+        translate: 0;
+        padding-right: 0;
+      }
+      flex-wrap: wrap;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  } //main-visual-area
+
+  #profile-area {
+    .hello-text-wrap {
+      .back-text-bubbles-wrap {
+        ul {
+          li {
+            &:first-child {
+              // 로시/컬시/로끝/컬끝
+              grid-area: 1/2/2/10;
+            }
+            &:nth-child(2) {
+              grid-area: 2/13/3/21;
+            }
+            &:nth-child(3) {
+              grid-area: 3/4/4/8;
+            }
+            &:nth-child(4) {
+              grid-area: 3/13/4/19;
+            }
+          }
+        } //ul
+      } //back-text-bubble
+    } //hello-text-wrap
+ 
+  .skill-wrap{
+    width: 60vw;
+    .title{
+      text-align: center;
+    }
+    ul{
+      justify-content: center;
+      li{
+        gap: 1px;
+      }
+    }
+  }//skill-wrap
+} // #profile-area
+
+#works-list-area{
+  height: 98vh;
+  ul{
+    top: -40%;
+  }
+}//works-list-area
+#conect-us-area{
+  .title{
+    top: 40%;
+  }
+}//conect-us-area
+} //media 1140

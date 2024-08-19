@@ -489,7 +489,9 @@ function Main() {
               <div className="topic">Github</div>
             </div>
             <div className="text">
-              https://github.com/alrang0929/alrang_portfolio
+              <a href="https://github.com/alrang0929" target='_blank'>
+              https://github.com/alrang0929
+              </a>
             </div>
           </li>
         </ul>
