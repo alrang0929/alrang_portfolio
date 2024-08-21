@@ -62,8 +62,8 @@ function SlidingText({ text, font, fontsize, delay }) {
       className="sliding-wrap"
       style={{
         width: boxw + "px",
-        // 절대값으로 들어가면 ios 환경에서 작동하는지 테스트
-        height: 200 + "px",
+        // 절대값으로 들어가면 ios 환경에서 작동하는지 테스트 >> 빙고 ㅠㅠㅠㅠ
+        height: 100 + "px",
         "--font-size": fontsize + "rem",
       }}
     >

@@ -7,6 +7,7 @@
 
 - 여기저기ㅓ 이미지가 호출됨.. 영역설정 제대로 안된듯
 
+____________________________________________________________________________________    
 240819
 TopArea 컨포넌트 내
 isHome 상태가 말썽.. Main과 isHome 상태가 공유가 안되서
@@ -26,11 +27,48 @@ top의 home 버튼을 눌러도 worksDetail 과 works 페이지만 넘나들음.
 1. #main-visual-area 내 show-works-box
     vw단위로 진행했는데 해상도별 옆 li가 삐죽 보이는 부분 발견
     px 단위로 변경
-    
+
+____________________________________________________________________________________    
 240821
-1. ios 환경에서 observer pattern 문제 발생
+[[ios 환경 문제발생]]
+
+1. observer 사용한 문제 발생
 
     1) slidingTextAni에 observer을 사용한 이유
         observer은 감시자 역할, object의 event를 감지했을때 observer의 update() 메서드 발동
         여기서는 object가 일정 화면({ threshold: 0.1 })에 도달하면 이벤트를 발생시키도록 함
-        
+    2) 컴포넌트 props로 값을 전달받아 오브젝트에 들어오는 내용에 따라 w, h값 설정하도록 해둠
+
+    slidingTextAni 컴포넌트:
+        <div
+      className="sliding-wrap"
+      style={{
+        width: boxw + "px",
+        height: boxh + "px",
+        "--font-size": fontsize + "rem",
+      }}
+    >
+      <div 
+      className={`sliding-text` + " " + font} 
+      // style={{fontSize: fontsize + "rem",}}
+      ref={textRef}>
+        {text}
+      </div>
+    </div>
+  );
+}
+
+    위 컴포넌트를 사용하고 있는 Main 컴포넌트:
+
+        <SlidingText
+                text={"connecting"}
+                font={"ephesis-regular"+" "+"fz-large"}
+                fontsize={12}
+                delay={0}
+              />
+    -------------------------------------------------------------
+    해결: height: boxh + "px", 부분을 절대값으로 변경, 임의로 200px 넣어둠
+    근데 이렇게 하니까 겔럭시에서 난리남 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+    
+
+2. 그리드 무너저 내림 발생 
