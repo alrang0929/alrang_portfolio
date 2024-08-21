@@ -27,3 +27,10 @@ top의 home 버튼을 눌러도 worksDetail 과 works 페이지만 넘나들음.
     vw단위로 진행했는데 해상도별 옆 li가 삐죽 보이는 부분 발견
     px 단위로 변경
     
+240821
+1. ios 환경에서 observer pattern 문제 발생
+
+    1) slidingTextAni에 observer을 사용한 이유
+        observer은 감시자 역할, object의 event를 감지했을때 observer의 update() 메서드 발동
+        여기서는 object가 일정 화면({ threshold: 0.1 })에 도달하면 이벤트를 발생시키도록 함
+        
