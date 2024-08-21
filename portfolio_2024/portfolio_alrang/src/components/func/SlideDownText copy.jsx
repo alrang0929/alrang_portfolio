@@ -24,7 +24,7 @@ function SlidingText({ text, font, fontsize, delay }) {
           entries.forEach((entry) => {
             if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
               // 스크롤 절반 이상 보일 때 애니메이션 실행
-              textRef.current.style.animation = `slideDown 0.5s ease forwards`;
+              textRef.current.style.animation = `slideDown 0.8s ease forwards`;
               textRef.current.style.animationDelay = `${delay}s`;
               observer.unobserve(entry.target); // 애니메이션 실행 후 관찰 해제
             }

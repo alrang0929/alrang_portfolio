@@ -14,8 +14,24 @@ import { useNavigate } from "react-router-dom";
 import { Pagination } from "swiper/modules";
 import { SelectCon } from "../pages/SelectCon";
 
-export default function WorksSwiper() {
-  
+export default function WorksSwiper({ mainBg, setMainBg }) {
+  //1. mainBg 호버시 데이터 변경을 위해 기본 셋팅해놓은 배경값
+  //2. setMainBg 호버시 변경되는 배경 이미지 주소
+  const myCon = useContext(SelectCon);
+
+  //마우스가 올라가면? 메인 BG를 li BG로 설정
+  const handleMouseEnter = (listBg) => {
+    setMainBg(listBg);
+  };
+  //마우스가 떠나면? 원래 main bg로 되돌림
+  const handleMouseLeave = () => {
+    setMainBg(null);
+  };
+  const navigate = useNavigate();
+  const goLink = () => {
+    navigate("/WorksDetail");
+  };
+  /////////코드리턴구역////////////
   return (
     <>
       <Swiper

@@ -194,13 +194,13 @@ function Main() {
           <SlidingText
             text={"Alrang’s"}
             font={"gilda-display-regular"}
-            fontsize={10}
+            fontsize={11}
             delay={0}
           />
           <SlidingText
             text={"Work Place"}
             font={"gilda-display-regular"}
-            fontsize={10}
+            fontsize={11}
             delay={0.5}
           />
           {/* <span className="gilda-display-regular">Alrang’s</span>
