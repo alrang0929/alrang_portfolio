@@ -63,7 +63,7 @@ function SlidingText({ text, font, fontsize, delay }) {
       style={{
         width: boxw + "px",
         // 절대값으로 들어가면 ios 환경에서 작동하는지 테스트 >> 빙고 ㅠㅠㅠㅠ
-        height: 6.25 + "rem",
+        height: 7.25 + "rem",
         "--font-size": fontsize + "rem",
       }}
     >
