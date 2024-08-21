@@ -350,14 +350,14 @@ function Main() {
             <div className="big-title">
               <SlidingText
                 text={"connecting"}
-                font={"ephesis-regular"}
-                fontsize={14}
+                font={"ephesis-regular"+" "+"fz-large"}
+                fontsize={12}
                 delay={0}
               />
               <SlidingText
                 text={"the dots"}
-                font={"ephesis-regular"}
-                fontsize={14}
+                font={"ephesis-regular"+" "+"fz-large"}
+                fontsize={12}
                 delay={0.5}
               />
             </div>
@@ -369,8 +369,7 @@ function Main() {
                 />
               </div>
               <div className="text">
-                <b style={{ fontSize: "2rem" }}>connecting the dots</b>
-                <br />
+                <b>connecting the dots</b>
                 스티븐 잡스 유명한 격언이자 지금의 제가 있게 해준 격언입니다.
                 웹이 좋아 웹디자이너로 이 세계에 발을 들이고 팀 구성원들,
                 사용자들과 소통을 하다 생긴 물음표를 해결해나가다보니 사용자들과
@@ -413,7 +412,6 @@ function Main() {
               <li
                 className="ani-target"
                 key={i}
-                
                 onMouseEnter={() =>
                   handleObjectEnter(
                     i,
@@ -422,12 +420,25 @@ function Main() {
                 }
                 onMouseLeave={handleMouseLeave}
               >
-                <a href=""
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleItemClick(v);
-                  console.log("item 2", v);
-                }}
+                <div className="mo-title">
+                  <div className="eng-title gilda-display-regular">
+                    {v.engtitle.split("^").map((v, i) => (
+                      <span key={"eng" + v + i}>{v}</span>
+                    ))}
+                  </div>
+                  <div className="kor-title">
+                    {v.title.split("^").map((v, i) => (
+                      <span key={"kor" + v + i}>{v}</span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleItemClick(v);
+                    console.log("item 2", v);
+                  }}
                 >
                   <div className="img-wrap">
                     <div className="kor-title">
@@ -489,8 +500,8 @@ function Main() {
               <div className="topic">Github</div>
             </div>
             <div className="text">
-              <a href="https://github.com/alrang0929" target='_blank'>
-              https://github.com/alrang0929
+              <a href="https://github.com/alrang0929" target="_blank">
+                https://github.com/alrang0929
               </a>
             </div>
           </li>

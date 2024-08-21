@@ -63,10 +63,13 @@ function SlidingText({ text, font, fontsize, delay }) {
       style={{
         width: boxw + "px",
         height: boxh + "px",
-        fontSize: fontsize + "rem",
+        "--font-size": fontsize + "rem",
       }}
     >
-      <div className={`sliding-text` + " " + font} ref={textRef}>
+      <div 
+      className={`sliding-text` + " " + font} 
+      // style={{fontSize: fontsize + "rem",}}
+      ref={textRef}>
         {text}
       </div>
     </div>

@@ -13,9 +13,25 @@ function TopArea() {
   return (
     <>
       <header id="gnb-area">
-      <nav> 
-          <Link style={{ color: location.pathname == '/' ? 'black' : 'white' }} to="/">Home</Link>
-          <Link style={{ color: location.pathname == '/' ? 'black' : 'white' }} to="/Works">Works</Link>
+        <nav>
+          <ul className="fxbox">
+            <li className="link-box2">
+              <Link
+                style={{ color: location.pathname == "/" ? "black" : "white" }}
+                to="/"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="link-box2">
+              <Link
+                style={{ color: location.pathname == "/" ? "black" : "white" }}
+                to="/Works"
+              >
+                Works
+              </Link>
+            </li>
+          </ul>
         </nav>
       </header>
     </>

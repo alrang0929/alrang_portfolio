@@ -22,3 +22,8 @@ top의 home 버튼을 눌러도 worksDetail 과 works 페이지만 넘나들음.
 방법 2:
     위와 같은 이유 때문에 Home Nav 역할만 하는 context를 생성(-> HomeNavCon.jsx)
 
+240820
+1. #main-visual-area 내 show-works-box
+    vw단위로 진행했는데 해상도별 옆 li가 삐죽 보이는 부분 발견
+    px 단위로 변경
+    

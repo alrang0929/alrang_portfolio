@@ -6,8 +6,6 @@ import TopArea from "./TopArea";
 import MainArea from "./MainArea";
 import FooterArea from "./FooterArea";
 import { SelectCon } from "../pages/SelectCon";
-import Flowmouse from "../func/flowmouse.jsx";
-
 
 /////import area/////////////////////////////
 
@@ -25,17 +23,21 @@ function Layout() {
 
   ///코드리턴구역 ////////////////////////
   return (
-  
+    
+      //[상태관리변수]//////////////////////////////////
       <SelectCon.Provider
-        value={{
-          selProjectData,
-          setSelProjectData,
-        }}
+      value={{
+        selProjectData,
+        setSelProjectData,
+      }}
       >
-        <Flowmouse />
+        <div>
+
+        {/* <Flowmouse /> */}
         <TopArea />
         <MainArea />
         <FooterArea />
+        </div>
       </SelectCon.Provider>
 
   );

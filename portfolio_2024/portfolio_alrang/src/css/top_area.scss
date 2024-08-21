@@ -9,30 +9,52 @@
   height: 6.25rem;
 
   nav {
-    button{
+    padding: 2.25rem;
+    button {
       border: 1px solid #000;
     }
-    a{
-      mix-blend-mode: difference;
-      font-weight: 300;
-      margin-right: 20px;
-      // color: #fff;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: .2s linear;
-      &:hover{
-        color: #E8AF70;
+    ul {
+      li {
+        position: relative;
+        margin-right: 40px;
+        a {
+          mix-blend-mode: difference;
+          font-weight: 300;
+          // color: #fff;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: 0.2s linear;
+          &:hover {
+            color: #e8af70;
+          }
+        }
       }
     }
-    padding: 2.25rem;
   }
 }
 
-#gnb-area nav a { /* 모든 링크 기본 색상 설정 */
-  color: white; 
+#gnb-area nav a {
+  /* 모든 링크 기본 색상 설정 */
+  color: white;
 }
 
-#gnb-area nav a.active { /* 활성화된 링크 색상 설정 */
-  color: #E8AF70;
+#gnb-area nav a.active {
+  /* 활성화된 링크 색상 설정 */
+  color: #e8af70;
   font-weight: 400;
 }
+@media screen and (max-width: 1024px) {
+  #gnb-area nav a {
+    font-size: 2rem;
+    margin-right: 40px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #gnb-area {
+    left: 45%;
+    translate: -50% 0;
+    top: 0;
+    padding: 0;
+  }
+} //390px
