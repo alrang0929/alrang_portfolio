@@ -72,8 +72,7 @@ body{
 
 // 버튼 기본셋팅
 
-//1. 채워진 버튼
-.fill-button {
+.fill-button2 {
     cursor: pointer;
     z-index: 1;
     position: relative; //after 부모요소
@@ -107,7 +106,40 @@ body{
     }
 }//fill-button 
 
-//2. 라인 버튼
+
+//1. 채워진 버튼
+.fill-button {
+    cursor: pointer;
+    z-index: 1;
+    position: relative; //after 부모요소
+    overflow: hidden; // after넘침 요소 가리기
+
+    // width: 7.25rem;
+    padding: 0.83rem 1rem;
+    border-radius: 1.25rem;
+    border: transparent;
+    background: #fff;
+
+    &::after {
+        content: "";
+        position: absolute;
+        //버튼 텍스트 글자 가려서 뒤로 보냄
+        z-index: -1;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #e8af7d;
+
+        transition: 0.2s ease-in-out;
+    }
+
+    &:hover::after {
+        left: 0;
+    }
+}//fill-button 
+
+//2. 채워진 버튼
 .line-button {
     cursor: pointer;
     z-index: 1;
@@ -118,7 +150,7 @@ body{
     padding: 0.83rem 1rem;
     border-radius: 1.25rem;
     border: 1px solid #fff;
-    color: #000;
+    color: #fff;
     background: transparent;
     transition: color 0.3s ease-in-out;
 

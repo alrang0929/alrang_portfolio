@@ -16,7 +16,7 @@ function WorksList() {
       <div className="title gilda-display-regular">
         <span>works List</span>
       </div>
-      <button className="fill-button">GO TO GITHUB</button>
+      <button className="fill-button2">GO TO GITHUB</button>
       </div>
       <div className="works-swiper-container">
         <WorksSwiper />
