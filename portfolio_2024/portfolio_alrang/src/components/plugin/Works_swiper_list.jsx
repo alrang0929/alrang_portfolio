@@ -15,37 +15,44 @@ import { Pagination } from "swiper/modules";
 import { SelectCon } from "../pages/SelectCon";
 
 export default function WorksSwiper() {
-  
+  // 콘텍스트 사용
+  const myCon = useContext(SelectCon);
+  // 클릭시 detail페이지 이동 셋팅
+  const navigate = useNavigate();
+  const goLink = () => {
+    navigate("/WorksDetail");
+  };
   return (
     <>
       <Swiper
-        // slidesPerView={2}
-        spaceBetween={50}
+        slidesPerView={4}
+        spaceBetween={20}
         // pagination={{
         //   clickable: true,
         // }}
         modules={[Pagination]}
         //반응형 처리
         direction={"horizontal"}
+        centeredSlides={true}
         // slidesPerView={'auto'}
-        breakpoints={{
-          500: {
-            slidesPerView: 1,
-            // spaceBetween: 40,
-          },
-          1600: {
-            slidesPerView: 2,
-          },
+        // breakpoints={{
+        //   500: {
+        //     slidesPerView: 1,
+        //     // spaceBetween: 40,
+        //   },
+        //   1600: {
+        //     slidesPerView: 2,
+        //   },
 
-          1620: {
-            slidesPerView: 3,
-          },
+        //   1620: {
+        //     slidesPerView: 3,
+        //   },
 
-          1900: {
-            slidesPerView: 3,
-          },
-        }}
-        className="mySwiper"
+        //   1900: {
+        //     slidesPerView: 3,
+        //   },
+        // }}
+        className="mySwiper-works"
       >
         {
           worksData.map((v, i) => {
@@ -60,17 +67,14 @@ export default function WorksSwiper() {
             // console.log("infoData", infoData[0]);
             // console.log("v.isrc.bg", v.isrc.bg);
             return (
-              <SwiperSlide key={i}>
+              <SwiperSlide 
+              key={i}
+              >
                 <li
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}${v.isrc.bg})`,
                   }}
-                  onMouseEnter={() =>
-                    handleMouseEnter(
-                      `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
-                    )
-                  }
-                  onMouseLeave={handleMouseLeave}
+        
                   onClick={handleClick}
                 >
                   <div className="info-text-wrap">
