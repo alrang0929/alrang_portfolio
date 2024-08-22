@@ -79,10 +79,10 @@ body{
     position: relative; //after 부모요소
     overflow: hidden; // after넘침 요소 가리기
 
-    width: 7.25rem;
+    // width: 7.25rem;
     padding: 0.83rem 1rem;
-    border-radius: 1.25rem;
-    border: transparent;
+    border-radius: 50px;
+    border: 1px solid #000;
     background: #fff;
 
     &::after {
@@ -94,28 +94,31 @@ body{
         left: -100%;
         width: 100%;
         height: 100%;
-        background: #e8af7d;
-
+        background: #000;
+        
         transition: 0.2s ease-in-out;
     }
-
+    
     &:hover::after {
         left: 0;
     }
+    &:hover{
+        color: #fff;
+    }
 }//fill-button 
 
-//2. 채워진 버튼
+//2. 라인 버튼
 .line-button {
     cursor: pointer;
     z-index: 1;
     position: relative; //after 부모요소
     overflow: hidden; // after넘침 요소 가리기
 
-    width: 7.25rem;
+    // width: 7.25rem;
     padding: 0.83rem 1rem;
     border-radius: 1.25rem;
     border: 1px solid #fff;
-    color: #fff;
+    color: #000;
     background: transparent;
     transition: color 0.3s ease-in-out;
 

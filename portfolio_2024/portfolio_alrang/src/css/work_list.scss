@@ -3,11 +3,29 @@
 /////import area//////////////////////////////
 
 #works-pj-area {
+  .top-wrap{
+    position: relative;
+    padding: 20px;
+    height: 10vh;
+    .title span{
+      display: block;
+      font-size: 4rem;
+  
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+    }
+    button{
+      top: 50%;
+      translate: 0 -50%;
+    }
+  } //top-wrap
   .works-swiper-container {
     /* Swiper를 감싸는 컨테이너에 적용 */
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
-    height: 100vh;
+    // height: 100vh;
   }
 }

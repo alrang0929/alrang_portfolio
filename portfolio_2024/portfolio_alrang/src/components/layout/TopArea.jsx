@@ -17,7 +17,10 @@ function TopArea() {
           <ul className="fxbox">
             <li className="link-box2">
               <Link
-                style={{ color: location.pathname == "/" ? "black" : "white" }}
+                style={{
+                  color:
+                    location.pathname == "/WorksDetail" ? "white" : "black",
+                }}
                 to="/"
               >
                 Home
@@ -25,7 +28,10 @@ function TopArea() {
             </li>
             <li className="link-box2">
               <Link
-                style={{ color: location.pathname == "/" ? "black" : "white" }}
+                style={{
+                  color:
+                    location.pathname == "/WorksDetail" ? "white" : "black",
+                }}
                 to="/Works"
               >
                 Works

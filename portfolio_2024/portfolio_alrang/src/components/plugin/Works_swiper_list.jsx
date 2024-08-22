@@ -1,10 +1,12 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+
+//my css
 import "./css/works_swiper_list.scss";
 
 //data
@@ -16,42 +18,42 @@ import { SelectCon } from "../pages/SelectCon";
 
 export default function WorksSwiper() {
   // 콘텍스트 사용
+  //selProjectData 선택된 프로젝트 데이터
   const myCon = useContext(SelectCon);
+  
   // 클릭시 detail페이지 이동 셋팅
   const navigate = useNavigate();
   const goLink = () => {
     navigate("/WorksDetail");
   };
+
+
+  const listItemsRef = useRef([]); // li 요소들의 참조를 저장할 배열
+
+  useEffect(() => {
+    // 각 li 요소에 순차적으로 애니메이션 적용
+    listItemsRef.current.forEach((li, index) => {
+      setTimeout(() => {
+        if (li) {
+          li.style.animation = `slideUp 0.3s ease-in forwards`;
+          li.style.animationDelay = `${index * 0.1}s`; // 0.2초 간격으로 딜레이 추가
+        }
+      }, index * 200); // 200ms 간격으로 애니메이션 실행 (시간 조절 가능)
+    });
+  }, []);
+
   return (
     <>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={3}
         spaceBetween={20}
-        // pagination={{
-        //   clickable: true,
-        // }}
         modules={[Pagination]}
+
         //반응형 처리
         direction={"horizontal"}
-        centeredSlides={true}
-        // slidesPerView={'auto'}
-        // breakpoints={{
-        //   500: {
-        //     slidesPerView: 1,
-        //     // spaceBetween: 40,
-        //   },
-        //   1600: {
-        //     slidesPerView: 2,
-        //   },
-
-        //   1620: {
-        //     slidesPerView: 3,
-        //   },
-
-        //   1900: {
-        //     slidesPerView: 3,
-        //   },
-        // }}
+        //슬라이드 중앙배치
+        centeredSlides={false}
+      
         className="mySwiper-works"
       >
         {
@@ -71,6 +73,8 @@ export default function WorksSwiper() {
               key={i}
               >
                 <li
+                className="ani-target"
+                ref={(el) => (listItemsRef.current[i] = el)} // li 요소 참조 저장
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}${v.isrc.bg})`,
                   }}
@@ -78,9 +82,12 @@ export default function WorksSwiper() {
                   onClick={handleClick}
                 >
                   <div className="info-text-wrap">
+                    <div className="title-wrap">
+
                       {v.title.split("^").map((v,i)=>
                     <h3 key={i} className="title">{v}</h3>
-                      )}
+                  )}
+                  </div>
                     <div className="category-wrap">
                       <span>{categoryData[0]}</span>
                       <span>{categoryData[1]}</span>
