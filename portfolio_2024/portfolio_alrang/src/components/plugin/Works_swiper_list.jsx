@@ -51,11 +51,12 @@ export default function WorksSwiper() {
         //반응형 처리
         direction={"horizontal"}
         //슬라이드 중앙배치
-        centeredSlides={false} 
-        centeredSlidesBounds={false} 
+        // centeredSlides={false} 
+        // centeredSlidesBounds={false} 
 
         breakpoints={{
           500: {
+            direction: "vertical",
             slidesPerView: 1,
           },
           720: {
