@@ -44,18 +44,27 @@ export default function WorksSwiper() {
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={"auto"}
         spaceBetween={20}
+        initialSlide={0} // 초기 활성 슬라이드 인덱스 설정
         modules={[Pagination]}
         //반응형 처리
-        // direction={"horizontal"}
+        direction={"horizontal"}
         //슬라이드 중앙배치
-        centeredSlides={false}
-        centeredSlidesBounds={true}
+        centeredSlides={false} 
+        centeredSlidesBounds={false} 
+
         breakpoints={{
+          500: {
+            slidesPerView: 1,
+          },
           720: {
             direction: "vertical",
             slidesPerView: 1,
+          },
+          // 1600px 이상 해상도에서 slidesPerView: 3 설정 추가
+          1600: {
+            slidesPerView: 3,
           },
         }}
         className="mySwiper-works"

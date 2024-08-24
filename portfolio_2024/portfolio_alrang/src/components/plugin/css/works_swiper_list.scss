@@ -140,3 +140,10 @@
   }
 } //1414
 
+@media (max-width: 768px) { /* 예시: 화면 폭이 768px 이하일 때 (모바일 해상도) */
+  .ani-target {
+    animation: none !important; /* 애니메이션 비활성화 */
+    opacity: 1 !important;      /* 텍스트 바로 보이도록 설정 */
+    transform: translateY(0) !important; /* 텍스트 위치 초기화 */
+  }
+}
