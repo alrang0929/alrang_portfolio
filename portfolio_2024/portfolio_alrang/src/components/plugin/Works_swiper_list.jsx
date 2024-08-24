@@ -20,13 +20,12 @@ export default function WorksSwiper() {
   // 콘텍스트 사용
   //selProjectData 선택된 프로젝트 데이터
   const myCon = useContext(SelectCon);
-  
+
   // 클릭시 detail페이지 이동 셋팅
   const navigate = useNavigate();
   const goLink = () => {
     navigate("/WorksDetail");
   };
-
 
   const listItemsRef = useRef([]); // li 요소들의 참조를 저장할 배열
 
@@ -48,12 +47,17 @@ export default function WorksSwiper() {
         slidesPerView={3}
         spaceBetween={20}
         modules={[Pagination]}
-
         //반응형 처리
-        direction={"horizontal"}
+        // direction={"horizontal"}
         //슬라이드 중앙배치
         centeredSlides={false}
-      
+        centeredSlidesBounds={true}
+        breakpoints={{
+          720: {
+            direction: "vertical",
+            slidesPerView: 1,
+          },
+        }}
         className="mySwiper-works"
       >
         {
@@ -69,25 +73,23 @@ export default function WorksSwiper() {
             // console.log("infoData", infoData[0]);
             // console.log("v.isrc.bg", v.isrc.bg);
             return (
-              <SwiperSlide 
-              key={i}
-              >
+              <SwiperSlide key={i}>
                 <li
-                className="ani-target"
-                ref={(el) => (listItemsRef.current[i] = el)} // li 요소 참조 저장
+                  className="ani-target"
+                  ref={(el) => (listItemsRef.current[i] = el)} // li 요소 참조 저장
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}${v.isrc.bg})`,
                   }}
-        
                   onClick={handleClick}
                 >
                   <div className="info-text-wrap">
                     <div className="title-wrap">
-
-                      {v.title.split("^").map((v,i)=>
-                    <h3 key={i} className="title">{v}</h3>
-                  )}
-                  </div>
+                      {v.title.split("^").map((v, i) => (
+                        <h3 key={i} className="title">
+                          {v}
+                        </h3>
+                      ))}
+                    </div>
                     <div className="category-wrap">
                       <span>{categoryData[0]}</span>
                       <span>{categoryData[1]}</span>
