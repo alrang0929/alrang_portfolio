@@ -44,7 +44,7 @@ export default function WorksSwiper() {
   return (
     <>
       <Swiper
-        slidesPerView={"auto"}
+        slidesPerView={3}
         spaceBetween={20}
         initialSlide={0} // 초기 활성 슬라이드 인덱스 설정
         modules={[Pagination]}
@@ -64,7 +64,7 @@ export default function WorksSwiper() {
             slidesPerView: 1,
           },
           // 1600px 이상 해상도에서 slidesPerView: 3 설정 추가
-          1600: {
+          1000: {
             slidesPerView: 3,
           },
         }}

@@ -28,4 +28,11 @@
     align-items: center; /* 수직 중앙 정렬 */
     // height: 100vh;
   }
+
 }
+
+@media screen and (max-width: 999px) {
+  .works-swiper-container {
+    display: none; /* WorksSwiper 컴포넌트 숨기기 */
+  }
+} //999

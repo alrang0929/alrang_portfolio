@@ -1,0 +1,36 @@
+ul{
+padding: 40px;
+  li {
+    .mo-title {
+      text-align: center;
+      display: block;
+      .eng-title {
+        word-break: break-all;
+        // display: block;
+        font-size: 2.4rem;
+      }
+      .kor-title {
+        font-size: 1.5rem;
+      }
+    }
+    .img-wrap {
+      position: relative;
+      .imgbx {
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
+      .kor-title {
+        position: absolute;
+        padding: 40px;
+        span{
+          display: block;
+          color: #fff;
+          font-size:2.5rem;
+          font-weight: 200;
+        }
+      } //kor-title
+    } //img-wrap
+  } //li
+}
