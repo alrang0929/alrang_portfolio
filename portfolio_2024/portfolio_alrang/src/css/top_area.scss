@@ -9,14 +9,17 @@
   height: 6.25rem;
 
   nav {
-    padding: 2.25rem;
+    position: relative;
+    right: 0;
+    padding: 20px;
     button {
       border: 1px solid #000;
     }
     ul {
+      gap: 30px;
       li {
         position: relative;
-        margin-right: 40px;
+        // margin-right: 40px;
         a {
           mix-blend-mode: difference;
           font-weight: 300;
@@ -44,11 +47,23 @@
   font-weight: 400;
 }
 @media screen and (max-width: 1024px) {
-  #gnb-area nav a {
-    font-size: 2rem;
-    margin-right: 40px;
-  }
-}
+  #gnb-area{
+
+    nav {
+
+      ul {
+        gap: 35px;
+        padding: 0px;
+        li {
+          // padding-bottom: 0px;
+          a {
+            font-size: 1.5rem;
+          } //a
+        } //li
+      } //ul
+    } //nav
+  }//#gnb-area
+  } //1024
 
 @media screen and (max-width: 390px) {
   #gnb-area {

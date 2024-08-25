@@ -43,7 +43,7 @@ function WorksPjList(props) {
   // 코드리턴구역//////////////////////////////////////
   return (
     <>
-      <ul className="pj-list-wrap">
+      <ul className="">
         {worksData.map((v, i) => (
           <>
             <li
