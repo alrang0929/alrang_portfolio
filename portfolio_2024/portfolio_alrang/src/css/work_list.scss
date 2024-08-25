@@ -24,6 +24,7 @@
     }
   } //top-wrap
   .works-swiper-container {
+    translate: 0 12%;
     /* Swiper를 감싸는 컨테이너에 적용 */
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
@@ -52,3 +53,25 @@
     } //top-wrap
   } //#works-pj-area
 } //682
+
+@media screen and (max-width: 554px) {
+  #works-pj-area {
+    .top-wrap {
+      button {
+        display: none;
+      }
+    } //top-wrap
+
+    ul {
+      li {
+        .mo-title {
+          .eng-title {
+            span {
+              font-size: 3.2rem;
+            }
+          } //eng-title
+        } //mo-title
+      } //li
+    } //ul
+  } //#works-pj-area
+} //554

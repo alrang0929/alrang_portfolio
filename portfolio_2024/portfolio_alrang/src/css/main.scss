@@ -379,7 +379,7 @@
     .eng-title {
       color: #fff;
       font-size: 3rem;
-      margin-bottom: 5px;
+      margin-bottom: 20px;
     }
     .kor-title {
       color: #fff;
@@ -926,18 +926,17 @@
 } //1020
 
 @media screen and (max-width: 820px) {
-  
   #main-visual-area {
     .scroll-down {
       margin-bottom: 120px;
       font-size: 1.5rem;
-    }//scroll-down
-} //main-visual-area
-.works-list-wrap{
-  .title{
-    font-size: 1rem;
+    } //scroll-down
+  } //main-visual-area
+  .works-list-wrap {
+    .title {
+      font-size: 1rem;
+    }
   }
-} 
   #works-list-area {
     .mo-title {
       display: block;
@@ -945,16 +944,92 @@
         word-break: break-all;
         // display: block;
         font-size: 3rem;
-        span{
+        span {
           display: block;
         }
       }
       .kor-title {
         font-size: 1.5rem;
       }
-    }//mo-title
-  }//works-list-area
+    } //mo-title
+  } //works-list-area
 } //820px
+
+@media screen and (max-width: 504px) {
+  #main-visual-area {
+    height: 80vh;
+    .title-wrap {
+      top: 55%;
+    } //title-wrap
+    .works-list-wrap {
+      top: 67%;
+      padding: 0;
+    }
+  } //#main-visual-area
+
+  #profile-area {
+    .top-ani-text {
+      display: none;
+    }
+    .bottom-ani-text {
+      display: none;
+    }
+    .hello-text-wrap {
+      .imgbx {
+        max-width: 84vw;
+      } //.imgbx
+
+      .back-text-bubbles-wrap {
+        ul {
+          width: 90%;
+          top: 22%;
+          li {
+            &:first-child {
+              grid-area: 1/2/2/10;
+            }
+            &:nth-child(2) {
+              grid-area: 2 / 15 / 3 / 21;
+            }
+            &:nth-child(3) {
+              grid-area: 3 / 2 / 4 / 6;
+            }
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+      } //back-text-bubbles-wrap
+      .introduction {
+        span {
+          font-size: 2.1rem;
+        }
+      }
+    } //hello-text-wrap
+    .skill-wrap {
+      width: 70vw;
+    } //skill-wrap
+    .info-text-wrap {
+      .img-wrap {
+        .imgbx {
+          max-width: 90%;
+        }
+        .text{
+          font-size: 1.2em;
+        }
+        max-width: 90%;
+      } //img-wrap
+    } //info-text-wrap
+  } //profile-area
+  #conect-us-area {
+    .imgbx {
+      max-width: 47vw;
+    }
+    .title {
+      font-size: 4rem;
+    }
+  }
+} //504px
+
 @media screen and (max-width: 390px) {
   #main-visual-area {
     .scroll-down {
