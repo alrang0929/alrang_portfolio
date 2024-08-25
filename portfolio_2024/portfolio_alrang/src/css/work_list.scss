@@ -9,14 +9,15 @@
     height: 10vh;
 
     border-bottom: 1px solid #000;
-    .title span {
-      display: block;
-      font-size: 4rem;
-
+    .title {
       position: absolute;
-      left: 50%;
       top: 50%;
+      left: 50%;
       translate: -50% -50%;
+      span {
+        display: block;
+        font-size: 4rem;
+      }
     }
     button {
       top: 50%;
@@ -38,40 +39,10 @@
     display: none; /* WorksSwiper 컴포넌트 숨기기 */
   }
 } //999
-@media screen and (max-width: 682px) {
-  #works-pj-area {
-    .top-wrap {
-      .title {
-        span {
-          top: 70%;
-          font-size: 2.6rem;
-        }
-      } //title
-      button {
-        top: 78%;
-      }
-    } //top-wrap
-  } //#works-pj-area
-} //682
 
-@media screen and (max-width: 554px) {
-  #works-pj-area {
-    .top-wrap {
-      button {
-        display: none;
-      }
-    } //top-wrap
+@media screen and (max-width: 580px) {
+  #works-pj-area .top-wrap .title span {
+    font-size: 2.2rem;
+  }
+} //580
 
-    ul {
-      li {
-        .mo-title {
-          .eng-title {
-            span {
-              font-size: 3.2rem;
-            }
-          } //eng-title
-        } //mo-title
-      } //li
-    } //ul
-  } //#works-pj-area
-} //554

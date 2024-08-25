@@ -38,7 +38,6 @@ function WorksList() {
       <div className="title gilda-display-regular">
         <span>works List</span>
       </div>
-      <button className="fill-button2">GO TO GITHUB</button>
       </div>
       {windowWidth > 999 ? (
         // 해상도가 999보다 크냐? 스와이퍼 보여줘!

@@ -1,6 +1,7 @@
 .pj-list-wrap {
+  width: 100vw;
   ul {
-    padding: 40px;
+    width: 100%;
     li {
       padding-bottom: 40px;
       .mo-title {
@@ -22,6 +23,8 @@
         }
       }
       .img-wrap {
+        margin: 0 auto;
+        width: 70%;
         position: relative;
         .imgbx {
           width: 100%;
@@ -43,3 +46,19 @@
     } //li
   }//ul
 }//pj-list-wrap
+
+
+/////////////미디어쿼리/////////////////////////
+@media screen and (max-width: 375px) {
+  .pj-list-wrap {
+    ul {
+      li {
+        .mo-title {
+          .eng-title {
+              font-size: 2rem;
+          } //.eng-title
+        } //.mo-title
+      } //li
+    } //ul
+  } //.pj-list-wrap
+} //375px
