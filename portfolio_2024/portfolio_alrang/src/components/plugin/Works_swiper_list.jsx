@@ -44,7 +44,7 @@ export default function WorksSwiper() {
   return (
     <>
       <Swiper
-        slidesPerView={"auto"}
+        // slidesPerView={"auto"}
         spaceBetween={20}
         initialSlide={0} // 초기 활성 슬라이드 인덱스 설정
         modules={[Pagination]}
@@ -53,15 +53,14 @@ export default function WorksSwiper() {
         //슬라이드 중앙배치
         // centeredSlides={false} 
         // centeredSlidesBounds={false} 
-
         breakpoints={{
           500: {
             direction: "vertical",
-            slidesPerView: 1,
+            slidesPerView: 3,
           },
           720: {
             direction: "vertical",
-            slidesPerView: 1,
+            slidesPerView: 3,
           },
           // 1600px 이상 해상도에서 slidesPerView: 3 설정 추가
           1600: {
