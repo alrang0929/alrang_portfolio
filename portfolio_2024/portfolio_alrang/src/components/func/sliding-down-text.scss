@@ -24,18 +24,43 @@
 }
 
 @media screen and (max-width: 820px) {
-  .sliding-wrap {
-    --font-size: 9rem !important;
-    --height-size: 13rem !important;
+  #main-visual-area {
+    .title-wrap {
+      .sliding-wrap {
+        --font-size: 9rem !important;
+        --height-size: 13rem !important;
+      }
+    }
   }
 } //820px
-@media screen and (max-width: 390px) {
-  .fz-large {
-    --font-size: 7.2rem !important;
+
+@media screen and (max-width: 504px) {
+  #profile-area .info-text-wrap .big-title{
+    --height-size: 8rem !important;
+    .fz-large {
+      --font-size: 9rem !important;
+      text-align: center;
+    }
   }
-  .sliding-wrap {
-    /* .sliding-text가 아닌 .sliding-wrap에 적용 */
-    --font-size: 4.2rem !important;
-    --height-size: 5rem !important;
+  #main-visual-area {
+    .title-wrap {
+      .sliding-wrap {
+        --font-size: 6rem !important;
+        --height-size: 8rem !important;
+      } //sliding-wrap
+    } //title-wrap
+  } //#main-visual-area
+} //504
+@media screen and (max-width: 390px) {
+
+  #main-visual-area {
+
+    .title-wrap {
+      .sliding-wrap {
+        /* .sliding-text가 아닌 .sliding-wrap에 적용 */
+        --font-size: 4.2rem !important;
+        --height-size: 5rem !important;
+      }
+    }
   }
 } //390px

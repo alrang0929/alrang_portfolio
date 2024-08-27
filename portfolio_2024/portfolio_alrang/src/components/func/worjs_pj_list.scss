@@ -1,0 +1,64 @@
+.pj-list-wrap {
+  width: 100vw;
+  ul {
+    width: 100%;
+    li {
+      padding-bottom: 40px;
+      .mo-title {
+        text-align: center;
+        display: block;
+        padding: 40px 0;
+        .eng-title {
+          word-break: break-all;
+          // display: block;
+          font-size: 3.4rem;
+          line-height: 1.2;
+          padding-bottom: 20px;
+          span {
+            display: block;
+          }
+        }
+        .kor-title {
+          font-size: 1.5rem;
+        }
+      }
+      .img-wrap {
+        margin: 0 auto;
+        width: 70%;
+        position: relative;
+        .imgbx {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        .kor-title {
+          position: absolute;
+          padding: 40px;
+          span {
+            display: block;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 200;
+          }
+        } //kor-title
+      } //img-wrap
+    } //li
+  }//ul
+}//pj-list-wrap
+
+
+/////////////미디어쿼리/////////////////////////
+@media screen and (max-width: 375px) {
+  .pj-list-wrap {
+    ul {
+      li {
+        .mo-title {
+          .eng-title {
+              font-size: 2rem;
+          } //.eng-title
+        } //.mo-title
+      } //li
+    } //ul
+  } //.pj-list-wrap
+} //375px

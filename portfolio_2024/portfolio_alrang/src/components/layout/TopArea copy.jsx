@@ -23,7 +23,7 @@ function TopArea() {
       <header id="gnb-area">
         <nav>
           {!isHome && <Link to="/Works">WORKS</Link>}
-          <button className="fill-button" onClick={goLink}>
+          <button className="fill-button2" onClick={goLink}>
             {isHome ? "Works" : "Home"}
           </button>
         </nav>
