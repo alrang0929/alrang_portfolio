@@ -19,9 +19,9 @@ const worksData = [
     engtitle: "Seulmit^UI/UX Recover",
     category: "UX / UI design, fe Development",
     info: "2024.07.28^React^jQuery, SCSS, HTML5",
-    text: `리액트SPA환경에서 작업한 프로젝트,
-리액트의 강점인 대량의 데이터처리, 데이터 재활용에 중점을 두고
-코드 설계를 했다. 검색, 로그인, 장바구니 기능은 레지스토리를 활용하여 구현`,
+    text: `React, SCSS 환경에서 작업하였으며,
+리액트의 강점인 대량의 데이터처리, 데이터 재활용에 중점을 두고 코드 설계를 했다.
+레지스토리지를 사용하여 "검색, 로그인, 장바구니" 기능을 구현하였으면 슬라이드는 swiper를 사용했다.`,
     isrc: {
       bg: "/images/sm_bg.jpg",
       mainlist: "/images/main/PC_project_side_seumit.jpg",
@@ -39,8 +39,10 @@ const worksData = [
     title: "아모레퍼시픽^UI/UX Recover",
     engtitle: "Amorepacific^UI/UX Recover",
     category: "UX / UI design, fe Development",
-    info: "2024.04.15^React, jQuery, SCSS, HTML5",
-    text: `아모레퍼시픽의 기존 사이트를 트랜드에 맞게 ui와 ux를 리디자인 했다.
+    info: "2024.04.15^jQuery, CSS, HTML5",
+    text: `
+HTML5 기본 환경에서 진행한 프로젝트, 첫 프로잭트인 만큼 베이직한 환경에서 기능을 구현하는 것에 중점을 두었으며
+    아모레퍼시픽의 기존 사이트를 트랜드에 맞게 ui와 ux를 리디자인 했다.
 cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장을 택했으며
 브랜드 소개 페이지 답게 기존의 사이트 보다 쉽고 직관적으로 브랜드 가치를 경험할 수 있도록 했으며
 대표 상품을 노출, 소개하여 아모레퍼시픽 내 각 브랜드들의 이미지를 부각시켰다`,
@@ -63,7 +65,9 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
     engtitle: "STAR WARS Team^Project Subpage^BAD BATCH",
     category: "UX / UI design, fe Development",
     info: "2024.04.22^React, jQuery, SCSS, HTML5",
-    text: `팀프로잭트이니 만큼 공통소스 설계에 중점을 뒀다.
+    text: `
+    HTML로 작업한 프로젝트를 React, SCSS환경으로 이식한 프로잭트이다.
+    팀프로잭트이니 만큼 공통소스 설계에 중점을 뒀다.
 공통으로 사용되는 소스로는 [컬러(포인트, 텍스트, 디사블) / 폰트(타이틀, 서브타이틀, 텍스트) / 버튼 디자인(노말, 엑티브, 디사블), 하단 타 서브타이틀 이동 배너 컴포넌트]가 있으며
 공통으로 사용되는 디자인은 회의를 통해 디자인 class 를 작성 후 공통으로 사용하도록 진행했다.`,
     isrc: {
