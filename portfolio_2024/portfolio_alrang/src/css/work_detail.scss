@@ -120,6 +120,12 @@
 } //1390
 @media screen and (max-width: 1266px) {
 } //1266
+
+@media screen and (max-width: 999px) {
+  #works-detail .fixedbox .info-text-wrap .title{
+    line-height: 1.2;
+  }
+}//999
 @media screen and (max-width: 700px) {
   #works-detail {
     flex-direction: column-reverse;

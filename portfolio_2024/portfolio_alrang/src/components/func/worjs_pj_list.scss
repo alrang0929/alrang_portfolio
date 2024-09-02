@@ -20,6 +20,7 @@
         }
         .kor-title {
           font-size: 1.5rem;
+          font-weight: 200;
         }
       }
       .img-wrap {
@@ -49,6 +50,36 @@
 
 
 /////////////미디어쿼리/////////////////////////
+@media screen and (max-width: 950px) {
+  .pj-list-wrap ul li .img-wrap {
+    width: 86.8%;
+}
+}
+@media screen and (max-width: 791px) {
+  .pj-list-wrap ul li .mo-title .eng-title{
+    font-size: 2.8rem;
+  }
+  .pj-list-wrap ul li .mo-title .kor-title {
+    font-size: 1.2rem;
+}
+}//791
+@media screen and (max-width: 580px) {
+  .pj-list-wrap ul li .mo-title .eng-title{
+    font-size: 2.6rem;
+  }
+  .pj-list-wrap ul li .img-wrap .kor-title{
+    padding: 20px;
+    span{
+      font-size: 1.7rem;
+    }
+  } 
+  .pj-list-wrap ul li .mo-title .kor-title {
+    font-size: 1.2rem;
+}
+}//580
+@media screen and (max-width: 390px) {
+
+}//390
 @media screen and (max-width: 375px) {
   .pj-list-wrap {
     ul {

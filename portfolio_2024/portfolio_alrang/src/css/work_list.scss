@@ -8,7 +8,7 @@
     padding: 20px;
     height: 10vh;
 
-    border-bottom: 1px solid #000;
+    // border-bottom: 1px solid #000;
     .title {
       position: absolute;
       top: 50%;
@@ -16,7 +16,10 @@
       translate: -50% -50%;
       span {
         display: block;
-        font-size: 4rem;
+        font-size:  4rem;
+        // clam() 함수: clam(최소값, 기본값, 최대값) 으로 셋팅, 동적으로 폰트 사이즈 처리 가능
+        // clamp(1rem, 2vw + 1rem, 5rem) 식으로 calc 함수와 함께 사용 가능
+        text-align: center;
       }
     }
     button {
@@ -25,7 +28,7 @@
     }
   } //top-wrap
   .works-swiper-container {
-    translate: 0 12%;
+    translate: 0 2%;
     /* Swiper를 감싸는 컨테이너에 적용 */
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
@@ -41,8 +44,19 @@
 } //999
 
 @media screen and (max-width: 580px) {
-  #works-pj-area .top-wrap .title span {
-    font-size: 2.2rem;
+  #works-pj-area .top-wrap .title span{
+    font-size: 3.3rem;
   }
+
+
+} //580
+
+@media screen and (max-width: 480px) {
+  #works-pj-area .top-wrap .title span{
+    font-size: 1.9rem;
+  }
+}
+@media screen and (max-width: 370px) {
+
 } //580
 
