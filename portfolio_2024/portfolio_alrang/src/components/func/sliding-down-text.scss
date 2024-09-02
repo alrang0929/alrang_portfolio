@@ -53,8 +53,16 @@
 } //504
 @media screen and (max-width: 390px) {
 
+  #profile-area .info-text-wrap .big-title{
+    .sliding-wrap{
+      --height-size: 6rem !important;
+    }
+    .fz-large {
+      --font-size: 6rem !important;
+      text-align: center;
+    }
+  }
   #main-visual-area {
-
     .title-wrap {
       .sliding-wrap {
         /* .sliding-text가 아닌 .sliding-wrap에 적용 */
