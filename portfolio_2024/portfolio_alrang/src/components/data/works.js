@@ -15,6 +15,27 @@ isrc: 배경이미지 링크 (ex:`url('/images/Rectangle_27.jpg')`)
 const worksData = [
   {
     idx: 1,
+    title: "슬밋^UI/UX Recover",
+    engtitle: "Seulmit^UI/UX Recover",
+    category: "UX / UI design, fe Development",
+    info: "2024.07.28^React^jQuery, SCSS, HTML5",
+    text: `리액트SPA환경에서 작업한 프로젝트,
+리액트의 강점인 대량의 데이터처리, 데이터 재활용에 중점을 두고
+코드 설계를 했다. 검색, 로그인, 장바구니 기능은 레지스토리를 활용하여 구현`,
+    isrc: {
+      bg: "/images/sm_bg.jpg",
+      mainlist: "/images/main/PC_project_side_seumit.jpg",
+      workslist: "/images/main/PC_main_list_seumit.jpg",
+      ipage: "/images/seulmit_pg.png",
+      thumbs: "/images/main/PC_project_thumb_seumit.jpg", key: "seumit",
+    },
+    url: {
+      pdf: "https://drive.google.com/file/d/1lTuTRm9JZ9qt6WGas2uKq6mgFRPUvaXX/view?usp=sharing",
+      page: "https://alrang0929.github.io/FED-RF-2th-PJ-jihyeon/2%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/seulmit-app/build/",
+    },
+  },
+  {
+    idx: 2,
     title: "아모레퍼시픽^UI/UX Recover",
     engtitle: "Amorepacific^UI/UX Recover",
     category: "UX / UI design, fe Development",
@@ -35,27 +56,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
       page: "https://alrang0929.github.io/FED-RF-2th-PJ-jihyeon/1%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/",
     },
   },
-  {
-    idx: 2,
-    title: "슬밋^UI/UX Recover",
-    engtitle: "Seulmit^UI/UX Recover",
-    category: "UX / UI design, fe Development",
-    info: "2024.07.28^React^jQuery, SCSS, HTML5",
-    text: `리액트SPA환경에서 작업한 프로젝트,
-리액트의 강점인 대량의 데이터처리, 데이터 재활용에 중점을 두고
-코드 설계를 했다. 검색, 로그인, 장바구니 기능은 레지스토리를 활용하여 구현`,
-    isrc: {
-      bg: "/images/sm_bg.jpg",
-      mainlist: "/images/main/PC_project_side_seumit.jpg",
-      workslist: "/images/main/PC_main_list_seumit.jpg",
-      ipage: "/images/seulmit_pg.png",
-      thumbs: "/images/main/PC_project_thumb_seumit.jpg", key: "seumit",
-    },
-    url: {
-      pdf: "https://drive.google.com/file/d/1lTuTRm9JZ9qt6WGas2uKq6mgFRPUvaXX/view?usp=sharing",
-      page: "https://alrang0929.github.io/FED-RF-2th-PJ-jihyeon/2%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/seulmit-app/build/",
-    },
-  },
+ 
   {
     idx: 3,
     title: "STAR WARS^팀 프로잭트 서브페이지^BAD BATCH",
@@ -80,8 +81,8 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
 ];
 
 const worksThumbs = [
-  { isrc: "/images/main/PC_project_thumb_amore.jpg", key: "amore" },
   { isrc: "/images/main/PC_project_thumb_seumit.jpg", key: "seumit" },
+  { isrc: "/images/main/PC_project_thumb_amore.jpg", key: "amore" },
   { isrc: "/images/main/PC_project_thumb_star.jpg", key: "star" },
 ];
 // export default worksData;
