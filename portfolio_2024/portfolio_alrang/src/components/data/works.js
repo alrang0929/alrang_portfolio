@@ -21,7 +21,7 @@ const worksData = [
     info: "2024.07.28^React^jQuery, SCSS, HTML5",
     text: `React, SCSS 환경에서 작업하였으며,
 리액트의 강점인 대량의 데이터처리, 데이터 재활용에 중점을 두고 코드 설계를 했다.
-레지스토리지를 사용하여 "검색, 로그인, 장바구니" 기능을 구현하였으면 슬라이드는 swiper를 사용했다.`,
+로컬 스토리지를 사용하여 "검색, 로그인, 장바구니" 기능을 구현하였으면 슬라이드는 swiper를 사용했다.`,
     isrc: {
       bg: "/images/sm_bg.jpg",
       mainlist: "/images/main/PC_project_side_seumit.jpg",
