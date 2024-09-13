@@ -55,7 +55,7 @@ cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장�
     },
     url: {
       pdf: "https://drive.google.com/file/d/1J0x0dtpHVRxKqZ03WT9dPgYAteJ_-fqg/view?usp=sharing",
-      page: "https://alrang0929.github.io/FED-RF-2th-PJ-jihyeon/1%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/",
+      page: "https://fed-rf-2th-pj-jihyeon.vercel.app/",
     },
   },
  
