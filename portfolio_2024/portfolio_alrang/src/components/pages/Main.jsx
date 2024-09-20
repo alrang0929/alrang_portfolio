@@ -258,7 +258,7 @@ function Main() {
       </div>
       {/**************** 2. 프로필 영역: 인삿말, 스킬, 인포 ****************/}
       <div id="profile-area">
-        <div className="top-ani-text fxbox">
+        {/* <div className="top-ani-text fxbox">
           <div className="gilda-display-regular">
             Alrang’s Work Place Alrang’s Work Place
           </div>
@@ -268,7 +268,7 @@ function Main() {
           <div className="gilda-display-regular">
             Alrang’s Work Place Alrang’s Work Place Alrang’s Work Place
           </div>
-        </div>
+        </div> */}
         <div id="intro-area">
           {/* 1) 인삿말 */}
           <div className="hello-text-wrap">
@@ -327,7 +327,7 @@ function Main() {
             </div>
             {/* 3)BG acting text */}
 
-            <div className="bottom-ani-text fxbox">
+            {/* <div className="bottom-ani-text fxbox">
               <div className="gilda-display-regular">
                 Alrang’s Work Place Alrang’s Work Place
               </div>
@@ -337,7 +337,7 @@ function Main() {
               <div className="gilda-display-regular">
                 Alrang’s Work Place Alrang’s Work Place Alrang’s Work Place
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* 3) 인포 텍스트 */}
