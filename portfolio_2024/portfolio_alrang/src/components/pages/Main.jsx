@@ -191,18 +191,13 @@ function Main() {
               />
             </div>
           ))}
-          <SlidingText
-            text={"Alrang’s"}
-            font={"gilda-display-regular"}
-            fontsize={11}
-            delay={0}
-          />
-          <SlidingText
-            text={"Work Place"}
-            font={"gilda-display-regular"}
-            fontsize={11}
-            delay={0.5}
-          />
+          {/* 텍스트애니 있던 자리.. */}
+          <SlidingText>
+            <span className="gilda-display-regular">Alrang’s</span>
+          </SlidingText>
+          <SlidingText>
+            <span className="gilda-display-regular">Work Place</span>
+          </SlidingText>
           {/* <span className="gilda-display-regular">Alrang’s</span>
           <span className="gilda-display-regular">Work Place</span> */}
           <div className="scroll-down">
@@ -347,20 +342,13 @@ function Main() {
 
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
-            <div className="big-title">
-              <SlidingText
-                text={"connecting"}
-                font={"ephesis-regular"+" "+"fz-large"}
-                fontsize={12}
-                delay={0}
-              />
-              <SlidingText
-                text={"the dots"}
-                font={"ephesis-regular"+" "+"fz-large"}
-                fontsize={12}
-                delay={0.5}
-              />
-            </div>
+            {/* 텍스트애니 있던 자리.. */}
+            <SlidingText>
+              <span className="slidetext02 ephesis-regular">connecting </span>
+              <span className="slidetext02 ephesis-regular">the dots</span>
+            </SlidingText>
+      
+            {/* 텍스트애니 있던 자리.. */}
             <div className="img-wrap ani-target fxbox">
               <div className="imgbx">
                 <img

@@ -1,6 +1,20 @@
 //Main.scss
 @import "../css/variables/variables";
+@import "../css/variables/interval_variable.scss";
 
+
+#main-area{
+  & > div:first-child {
+    padding-bottom: $padding-ragular;
+  }
+  & > div:not(:last-child) {
+    padding-bottom: $padding-ragular;
+  }
+  & > div + div {
+    padding-bottom: $padding-ragular;
+  }
+
+  
 .works-list-wrap:hover ~ .show-works-box {
   left: 0 !important;
 }
@@ -10,6 +24,8 @@
 }
 
 #main-visual-area {
+  //섹션간격 토탈 관리
+  
   position: relative;
   height: 100vh;
   .scroll-down {
@@ -60,10 +76,7 @@
     left: 50%;
     translate: -50% -50%;
 
-    .sliding-text {
-      translate: -50% -20%;
-      left: 50%;
-    }
+ 
     .random-img {
       position: relative;
       // overflow: hidden;
@@ -322,19 +335,18 @@
 
   .info-text-wrap {
     position: relative;
-    padding: 100px 0;
+    padding: $container-padding 0;
 
-    .big-title {
-      position: relative;
+    .slidetext02 {
+      // position: relative;
       z-index: -1;
-
+      padding: $container-padding 0;
       margin: 0 auto;
-      padding-top: 100px;
       max-width: 75rem;
 
       color: #000;
       text-align: center;
-      font-size: 14rem;
+      font-size: 8rem;
       line-height: 0.8;
     }
     .img-wrap {
@@ -584,6 +596,8 @@
     opacity: 1; /* 최종 투명도: 1 */
   }
 }
+}//main area
+
 
 // 미디어쿼리///////////////////////////////////
 @media screen and (max-width: 1623px) {
@@ -1013,7 +1027,7 @@
         .imgbx {
           max-width: 90%;
         }
-        .text{
+        .text {
           font-size: 1.2em;
         }
         max-width: 90%;

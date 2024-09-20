@@ -1,7 +1,7 @@
 .sliding-wrap {
   margin: 0 auto;
-  // overflow: hidden;
-  height: var(--height-size);
+  overflow: hidden;
+  // height: var(--height-size);
   position: relative; /* transform 사용을 위해 필요 */
   .sliding-text {
     // text-align: center;
@@ -11,8 +11,8 @@
     top: -100%; /* 초기 위치: 위쪽으로 숨김 */
     opacity: 0; /* 초기 투명도: 0 */
     white-space: nowrap;
-    animation: none;
-    font-size: var(--font-size);
+    animation: slideDown 0.5s ease forwards;
+    // font-size: var(--font-size);
   }
 }
 
@@ -22,53 +22,3 @@
     opacity: 1; /* 최종 투명도: 1 */
   }
 }
-
-@media screen and (max-width: 820px) {
-  #main-visual-area {
-    .title-wrap {
-      .sliding-wrap {
-        --font-size: 9rem !important;
-        --height-size: 13rem !important;
-      }
-    }
-  }
-} //820px
-
-@media screen and (max-width: 504px) {
-  #profile-area .info-text-wrap .big-title{
-    --height-size: 8rem !important;
-    .fz-large {
-      --font-size: 9rem !important;
-      text-align: center;
-    }
-  }
-  #main-visual-area {
-    .title-wrap {
-      .sliding-wrap {
-        --font-size: 6rem !important;
-        --height-size: 8rem !important;
-      } //sliding-wrap
-    } //title-wrap
-  } //#main-visual-area
-} //504
-@media screen and (max-width: 390px) {
-
-  #profile-area .info-text-wrap .big-title{
-    .sliding-wrap{
-      --height-size: 6rem !important;
-    }
-    .fz-large {
-      --font-size: 6rem !important;
-      text-align: center;
-    }
-  }
-  #main-visual-area {
-    .title-wrap {
-      .sliding-wrap {
-        /* .sliding-text가 아닌 .sliding-wrap에 적용 */
-        --font-size: 4.2rem !important;
-        --height-size: 5rem !important;
-      }
-    }
-  }
-} //390px
