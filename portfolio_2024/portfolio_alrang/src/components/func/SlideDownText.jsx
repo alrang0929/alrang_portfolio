@@ -25,10 +25,6 @@ function SlidingText({ children, threshold = 0.3, duration = 0.5 }) {
         ([entry]) => {
           if (entry.isIntersecting) {
             console.log("entry.isIntersecting", entry.isIntersecting);
-
-            // 엘리먼트가 화면에 보일 때 애니메이션 실행 (delay 적용)
-            // textRef.current.style.animation = `slideDown 0.5s ease forwards`;
-            // textRef.current.style.animationDelay = duration + "s";
             observer.unobserve(entry.target);
           } //if
         },

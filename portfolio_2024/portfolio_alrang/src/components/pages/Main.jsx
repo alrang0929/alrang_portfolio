@@ -14,8 +14,10 @@ import "../../css/main.scss";
 import { skillList } from "../data/skill";
 import { worksData, worksThumbs } from "../data/works";
 import SlidingText from "../func/SlideDownText";
+import ScrollFadeIn from "../func/scroll_fade_in";
 import { SelectCon } from "./SelectCon";
 import { Navigate, useNavigate } from "react-router-dom";
+
 ///////////////////import area//////////////////
 function Main() {
   // useContext 사용
@@ -272,13 +274,8 @@ function Main() {
         <div id="intro-area">
           {/* 1) 인삿말 */}
           <div className="hello-text-wrap">
-            {/* 1)hello-img */}
-            <div className="imgbx">
-              <img
-                src={process.env.PUBLIC_URL + "/images/main/PC_hello.png"}
-                alt="hello"
-              />
-            </div>
+            <div className="img-wrap">
+
             {/* 2)back-text-bubbles*/}
             <div className="back-text-bubbles-wrap">
               <ul>
@@ -301,6 +298,14 @@ function Main() {
                   </span>
                 </li>
               </ul>
+            </div>
+            {/* 1)hello-img */}
+            <div className="imgbx">
+              <img
+                src={process.env.PUBLIC_URL + "/images/main/PC_hello.png"}
+                alt="hello"
+              />
+            </div>
             </div>
             <div className="introduction">
               <span>안녕하세요, 언제나 고민하는</span>
@@ -343,10 +348,13 @@ function Main() {
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
             {/* 텍스트애니 있던 자리.. */}
-            <SlidingText>
-              <span className="slidetext02 ephesis-regular">connecting </span>
-              <span className="slidetext02 ephesis-regular">the dots</span>
-            </SlidingText>
+            <ScrollFadeIn >
+              <div className="ani-title-object">
+
+              <span className="ephesis-regular">connecting </span>
+              <span className="ephesis-regular">the dots</span>
+              </div>
+            </ScrollFadeIn>
       
             {/* 텍스트애니 있던 자리.. */}
             <div className="img-wrap ani-target fxbox">
@@ -357,7 +365,7 @@ function Main() {
                 />
               </div>
               <div className="text">
-                <b>connecting the dots</b>
+                {/* <b>connecting the dots</b> */}
                 스티븐 잡스 유명한 격언이자 지금의 제가 있게 해준 격언입니다.
                 웹이 좋아 웹디자이너로 이 세계에 발을 들이고 팀 구성원들,
                 사용자들과 소통을 하다 생긴 물음표를 해결해나가다보니 사용자들과
@@ -454,6 +462,8 @@ function Main() {
       </div>
       {/* 4. conect us */}
       <div id="conect-us-area">
+        <div className="img-wrap">
+
         {/* 1) 얼굴 이미지 */}
         <div className="imgbx">
           <img
@@ -463,6 +473,7 @@ function Main() {
         </div>
         {/* 2) 타이틀 */}
         <div className="title gilda-display-regular">CONTACT US</div>
+        </div>
         {/* 3) 정보 */}
         <ul>
           <li className="fxbox">

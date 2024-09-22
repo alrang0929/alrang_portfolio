@@ -20,7 +20,7 @@ function SlidingText({ text, font, fontsize, delay }) {
     // 대상선정
     if (textRef.current) {
       // textRef.current.style.animation = "slideDown 0.5s ease forwards";
-      console.log("textRef.current",textRef.current);
+      // console.log("textRef.current",textRef.current);
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
