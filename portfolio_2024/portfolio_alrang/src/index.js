@@ -1,5 +1,5 @@
 ///portfolio - index
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "../src/css/index.scss";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
