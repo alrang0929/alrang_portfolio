@@ -391,116 +391,129 @@
     background-color: #000;
     position: relative;
     height: 170vh;
-    // overflow: hidden;
-    .bg-wrap {
-      .blurbx {
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(20px);
-      }
-      .bg-box {
-        // z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url(../../public/images/works_bg.jpg);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        // backdrop-filter: blur(20px);
-        opacity: 0.6;
-        transition: background-image 0.3s ease, backdrop-filter 0.3s ease;
+    .pj-list-wrap{
+      padding: $container-padding 0;
+
+      .title{
+        padding-bottom: $container-padding;
+        ;
+        font-size: 5rem;
+        color: #fff;
+        text-align: center;
       }
     }
-
-    .back-title-wrap {
-      position: sticky;
-      opacity: 0; /* 기본적으로 숨김 */
-      transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
-
-      z-index: 9;
-
-      cursor: default;
-      pointer-events: none;
-
-      text-align: center;
-      top: 50%;
-      // left: 50%;
-      transform: translateY(-50%);
-      // translate: -50% -50%;
-
-      .eng-title {
-        color: #fff;
-        font-size: 5.5rem;
-        span {
-          display: block;
-        } //span
-      } //eng-title
-
-      .kor-title {
-        color: #fff;
-        font-weight: 200;
-        font-size: 1.5rem;
+    .pcList {
+      // overflow: hidden;
+      .bg-wrap {
+        .blurbx {
+          z-index: 1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          backdrop-filter: blur(20px);
+        }
+        .bg-box {
+          // z-index: 1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url(../../public/images/works_bg.jpg);
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          // backdrop-filter: blur(20px);
+          opacity: 0.6;
+          transition: background-image 0.3s ease, backdrop-filter 0.3s ease;
+        }
       }
-    } //eng-title-area
-    ul {
-      z-index: 2;
-      position: relative;
-      translate: -50% -50%;
-      left: 50%;
-      top: -10%;
-      display: grid;
-      grid-template-columns: repeat(40, 4fr);
-      grid-template-rows: repeat(6, 2fr);
 
-      li {
-        opacity: 0;
-        translate: 0 10%;
-        transition: 0.2s linear;
-        &:first-child {
-          // 로시/컬시/로끝/컬끝
-          grid-area: 1 / 6 / 4 / 15;
+      .back-title-wrap {
+        position: sticky;
+        opacity: 0; /* 기본적으로 숨김 */
+        transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
+
+        z-index: 9;
+
+        cursor: default;
+        pointer-events: none;
+
+        text-align: center;
+        top: 50%;
+        // left: 50%;
+        transform: translateY(-50%);
+        // translate: -50% -50%;
+
+        .eng-title {
+          color: #fff;
+          font-size: 5.5rem;
+          span {
+            display: block;
+          } //span
+        } //eng-title
+
+        .kor-title {
+          color: #fff;
+          font-weight: 200;
+          font-size: 1.5rem;
         }
-        &:nth-child(2) {
-          // 로시/컬시/로끝/컬끝
-          grid-area: 3 / 28 / 6 / 37;
-        }
-        &:nth-child(3) {
-          // 로시/컬시/로끝/컬끝
-          grid-area: 5/12/8/20;
-        }
-        &:hover {
-          scale: 1.2;
-          filter: drop-shadow(40px 40px 20px #18152b50);
-        }
-        .img-wrap {
-          position: relative;
-          .kor-title {
-            padding: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: #fff;
-            span {
-              display: block;
-            }
+      } //eng-title-area
+      ul {
+        z-index: 2;
+        position: relative;
+        translate: -50% -50%;
+        left: 50%;
+        top: -10%;
+        display: grid;
+        grid-template-columns: repeat(40, 4fr);
+        grid-template-rows: repeat(6, 2fr);
+
+        li {
+          opacity: 0;
+          translate: 0 10%;
+          transition: 0.2s linear;
+          &:first-child {
+            // 로시/컬시/로끝/컬끝
+            grid-area: 1 / 6 / 4 / 15;
           }
-          .imgbx {
-            width: 100%;
-            img {
-              aspect-ratio: 750 / 1099;
+          &:nth-child(2) {
+            // 로시/컬시/로끝/컬끝
+            grid-area: 3 / 28 / 6 / 37;
+          }
+          &:nth-child(3) {
+            // 로시/컬시/로끝/컬끝
+            grid-area: 5/12/8/20;
+          }
+          &:hover {
+            scale: 1.2;
+            filter: drop-shadow(40px 40px 20px #18152b50);
+          }
+          .img-wrap {
+            position: relative;
+            .kor-title {
+              padding: 20px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              color: #fff;
+              span {
+                display: block;
+              }
+            }
+            .imgbx {
               width: 100%;
-            } //img
-          } //imgbx
-        } //img-wrap
-      } //li
-    } //ul
+              img {
+                aspect-ratio: 750 / 1099;
+                width: 100%;
+              } //img
+            } //imgbx
+          } //img-wrap
+        } //li
+      } //ul
+    } //pcList
   } //works-area
 
   #conect-us-area {
@@ -596,8 +609,6 @@
   }
 } //main area
 
-
-
 /************************************************************ 
 
 [미디어쿼리]
@@ -608,7 +619,6 @@
 모바일 분기: 430, 375
 
 ************************************************************/
-
 
 // ipad air 세로
 @media screen and (max-width: 1180px) {
@@ -705,7 +715,7 @@
     }
   }
   #main-area #works-list-area {
-    height: 87vh;
+    height: 217vh;
   }
   #main-area #profile-area .info-text-wrap .ani-title-object {
     span {
@@ -736,40 +746,39 @@
       }
     }
   }
-  #main-area #works-list-area ul{
+  #main-area #works-list-area ul {
     top: -30%;
   }
 
-  #main-area #conect-us-area .img-wrap .title{
-    font-size: 6rem;
+  #main-area #conect-us-area .img-wrap .title {
+    font-size: 5rem;
   }
 } /////768/////////////////////////////////////////////////////
 
-
 @media screen and (max-width: 430px) {
-  #main-area #main-visual-area .title-wrap{
-    top: 45%;
+  #main-area #main-visual-area .title-wrap {
+    top: 41%;
   }
-  #main-area #main-visual-area .title-wrap .sliding-wrap .sliding-text span{
+  #main-area #main-visual-area .title-wrap .sliding-wrap .sliding-text span {
     font-size: 4rem;
   }
-  #main-area #main-visual-area .works-list-wrap{
+  #main-area #main-visual-area .works-list-wrap {
     width: 70vw;
   }
 
   #main-area #profile-area .hello-text-wrap .back-text-bubbles-wrap ul {
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-   width: 60%;
-   li:nth-child(odd){
-    translate: 20%;
-   }
-   li:nth-child(even){
-    translate: -20%;
-   }
+    display: none;
   }
-  #main-area #profile-area .hello-text-wrap .imgbx{
-    max-width: 48vw;
+  #main-area #profile-area .hello-text-wrap .introduction {
+    font-size: 1.7rem;
+  }
+  #main-area #profile-area .hello-text-wrap .imgbx {
+    max-width: 70vw;
+  }
+  #main-area #profile-area .info-text-wrap .ani-title-object {
+    font-size: 7rem;
+  }
+  #main-area #profile-area .info-text-wrap .img-wrap .imgbx {
+    max-width: 52vw;
   }
 } /////412/////////////////////////////////////////////////////

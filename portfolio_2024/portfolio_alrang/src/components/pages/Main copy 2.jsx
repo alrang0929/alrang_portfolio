@@ -12,17 +12,16 @@ import $ from "jquery";
 import "../../css/main.scss";
 //data
 import { skillList } from "../data/skill";
-import { worksData } from "../data/works";
+import { worksData, worksThumbs } from "../data/works";
 import SlidingText from "../func/SlideDownText";
 import ScrollFadeIn from "../func/scroll_fade_in";
 import { SelectCon } from "./SelectCon";
-import { useNavigate } from "react-router-dom";
-import WorksPjList from "../func/WorksPjList";
+import { Navigate, useNavigate } from "react-router-dom";
 
 ///////////////////import area//////////////////
 function Main() {
   // useContext 사용
-  const { setSelProjectData } = useContext(SelectCon);
+  const { selProjectData, setSelProjectData } = useContext(SelectCon);
   // navigate 사용
   const navigate = useNavigate();
 
@@ -48,20 +47,6 @@ function Main() {
   const [objectBg, setObjectBg] = useState(null);
   // 4. 애니 상태 확인을 위한 상태관리변수
   const [isAni, setIsAni] = useState(false);
-  // 5. 조건연상자를 사용하기 위한 가로값을 구해오는 상태관리변수
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   /****************** 1. 호버시 li에 맞는 div 보이는 기능구현 ******************/
   const handleObjectEnter = (index, listBg) => {
@@ -290,36 +275,37 @@ function Main() {
           {/* 1) 인삿말 */}
           <div className="hello-text-wrap">
             <div className="img-wrap">
-              {/* 2)back-text-bubbles*/}
-              <div className="back-text-bubbles-wrap">
-                <ul>
-                  <li>
-                    <span>
-                      오늘 <b>점심</b> 뭐먹지
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <b>commit</b> 하기 전에 생각했나요?
-                    </span>
-                  </li>
-                  <li>
-                    <span>저장저장..</span>
-                  </li>
-                  <li>
-                    <span>
-                      이 <b>에러</b>의 정체는...??^ㅠ
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              {/* 1)hello-img */}
-              <div className="imgbx">
-                <img
-                  src={process.env.PUBLIC_URL + "/images/main/PC_hello.png"}
-                  alt="hello"
-                />
-              </div>
+
+            {/* 2)back-text-bubbles*/}
+            <div className="back-text-bubbles-wrap">
+              <ul>
+                <li>
+                  <span>
+                    오늘 <b>점심</b> 뭐먹지
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <b>commit</b> 하기 전에 생각했나요?
+                  </span>
+                </li>
+                <li>
+                  <span>저장저장..</span>
+                </li>
+                <li>
+                  <span>
+                    이 <b>에러</b>의 정체는...??^ㅠ
+                  </span>
+                </li>
+              </ul>
+            </div>
+            {/* 1)hello-img */}
+            <div className="imgbx">
+              <img
+                src={process.env.PUBLIC_URL + "/images/main/PC_hello.png"}
+                alt="hello"
+              />
+            </div>
             </div>
             <div className="introduction">
               <span>안녕하세요, 언제나 고민하는</span>
@@ -362,13 +348,14 @@ function Main() {
           {/* 3) 인포 텍스트 */}
           <div className="info-text-wrap">
             {/* 텍스트애니 있던 자리.. */}
-            <ScrollFadeIn>
+            <ScrollFadeIn >
               <div className="ani-title-object">
-                <span className="ephesis-regular">connecting </span>
-                <span className="ephesis-regular">the dots</span>
+
+              <span className="ephesis-regular">connecting </span>
+              <span className="ephesis-regular">the dots</span>
               </div>
             </ScrollFadeIn>
-
+      
             {/* 텍스트애니 있던 자리.. */}
             <div className="img-wrap ani-target fxbox">
               <div className="imgbx">
@@ -393,15 +380,43 @@ function Main() {
       {/* 3. works 영역: works list */}
       <div id="works-list-area">
         {/* ul은 그리드로 구성, 12col, a는 각 프로젝트로 링크 */}
-        {windowWidth > 999 ? (
-          <div className="pcList">
-            {worksData.map((v, i) => (
-              <>
-                <div
-                  className="back-title-wrap"
-                  key={i}
-                  style={{ opacity: hoveredIndex === i ? 1 : 0 }}
-                >
+
+        {worksData.map((v, i) => (
+          <>
+            <div
+              className="back-title-wrap"
+              key={i}
+              style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+            >
+              <div className="eng-title gilda-display-regular">
+                {v.engtitle.split("^").map((v, i) => (
+                  <span key={"eng" + v + i}>{v}</span>
+                ))}
+              </div>
+              <div className="kor-title">
+                {v.title.split("^").map((v, i) => (
+                  <span key={"kor" + v + i}>{v}</span>
+                ))}
+              </div>
+            </div>
+          </>
+        ))}
+
+        <ul>
+          {worksData.map((v, i) => (
+            <>
+              <li
+                className="ani-target"
+                key={i}
+                onMouseEnter={() =>
+                  handleObjectEnter(
+                    i,
+                    `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
+                  )
+                }
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="mo-title">
                   <div className="eng-title gilda-display-regular">
                     {v.engtitle.split("^").map((v, i) => (
                       <span key={"eng" + v + i}>{v}</span>
@@ -413,88 +428,51 @@ function Main() {
                     ))}
                   </div>
                 </div>
-              </>
-            ))}
-            <ul>
-              {worksData.map((v, i) => (
-                <>
-                  <li
-                    className="ani-target"
-                    key={i}
-                    onMouseEnter={() =>
-                      handleObjectEnter(
-                        i,
-                        `url(${process.env.PUBLIC_URL}${v.isrc.bg})`
-                      )
-                    }
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="mo-title">
-                      <div className="eng-title gilda-display-regular">
-                        {v.engtitle.split("^").map((v, i) => (
-                          <span key={"eng" + v + i}>{v}</span>
-                        ))}
-                      </div>
-                      <div className="kor-title">
-                        {v.title.split("^").map((v, i) => (
-                          <span key={"kor" + v + i}>{v}</span>
-                        ))}
-                      </div>
+                <a
+                  href=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleItemClick(v);
+                    console.log("item 2", v);
+                  }}
+                >
+                  <div className="img-wrap">
+                    <div className="kor-title">
+                      {v.title.split("^").map((v, i) => (
+                        <span key={i}>{v}</span>
+                      ))}
                     </div>
-                    <a
-                      href=""
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleItemClick(v);
-                        console.log("item 2", v);
-                      }}
-                    >
-                      <div className="img-wrap">
-                        <div className="kor-title">
-                          {v.title.split("^").map((v, i) => (
-                            <span key={i}>{v}</span>
-                          ))}
-                        </div>
-                        <div className="imgbx ">
-                          <img
-                            src={process.env.PUBLIC_URL + v.isrc.workslist}
-                            alt={v.title}
-                          />
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </>
-              ))}
-            </ul>
-            {/* 3. parallax 배경요소 */}
-            <div className="bg-wrap">
-              <div className="blurbx"></div>
-              <div
-                className="bg-box"
-                style={{ backgroundImage: objectBg }}
-              ></div>
-            </div>
-          </div>
-        ) : (
-          <div className="pj-list-wrap">
-            <div className="title gilda-display-regular">WORKS LIST</div>
-          <WorksPjList />
-          </div>
-        )}
+                    <div className="imgbx ">
+                      <img
+                        src={process.env.PUBLIC_URL + v.isrc.workslist}
+                        alt={v.title}
+                      />
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </>
+          ))}
+        </ul>
+        {/* 3. parallax 배경요소 */}
+        <div className="bg-wrap">
+          <div className="blurbx"></div>
+          <div className="bg-box" style={{ backgroundImage: objectBg }}></div>
+        </div>
       </div>
       {/* 4. conect us */}
       <div id="conect-us-area">
         <div className="img-wrap">
-          {/* 1) 얼굴 이미지 */}
-          <div className="imgbx">
-            <img
-              src={process.env.PUBLIC_URL + "/images/main/PC_conectus.png"}
-              alt="conect face"
-            />
-          </div>
-          {/* 2) 타이틀 */}
-          <div className="title gilda-display-regular">CONTACT US</div>
+
+        {/* 1) 얼굴 이미지 */}
+        <div className="imgbx">
+          <img
+            src={process.env.PUBLIC_URL + "/images/main/PC_conectus.png"}
+            alt="conect face"
+          />
+        </div>
+        {/* 2) 타이틀 */}
+        <div className="title gilda-display-regular">CONTACT US</div>
         </div>
         {/* 3) 정보 */}
         <ul>
