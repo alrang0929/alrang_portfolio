@@ -390,7 +390,7 @@
     // padding: 130px 0;
     background-color: #000;
     position: relative;
-    height: 170vh;
+    // height: 170vh;
     .pj-list-wrap{
       padding: $container-padding 0;
 
@@ -403,6 +403,8 @@
       }
     }
     .pcList {
+      height: 160vh;
+
       // overflow: hidden;
       .bg-wrap {
         .blurbx {
