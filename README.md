@@ -1,4 +1,4 @@
-# Alrang's worksplace (2024)
+# Alrang's work place (2024)
 
 **✨ 안녕하세요! 프론트엔드 개발자를 꿈꾸는 알랑입니다. ✨**
 
