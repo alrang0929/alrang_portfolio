@@ -5,7 +5,7 @@
 이 포트폴리오는 React를 기반으로 구축되었으며,
 2024년 동안 제가 진행했던 다양한 프로젝트들을 선보이는 공간입니다. 
 
-Git: https://github.com/alrang0929/alrang_portfolio/tree/main/portfolio_2024/portfolio_alrang
+Git: https://github.com/alrang0929/alrang_portfolio/tree/main/portfolio_2024/portfolio_alrang<br/>
 link : https://alrang-portfolio.vercel.app/
 
 ## 📝 프로젝트 소개
