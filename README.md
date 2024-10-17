@@ -28,14 +28,14 @@ link : https://alrang-portfolio.vercel.app/
 
 ## 📁 프로젝트 구조
 
-src/
-├── components/          // 재사용 가능한 UI 컴포넌트
-│   ├── data/         // 공통적으로 사용하는 데이터(skill, works등)
-│   ├── func/        // 공통함수(스크롤애니 함수, WorksPJList 컴포넌트)
-│   ├── Layout/          // 레이아웃 컴포넌트 (Header, Footer 등)
-│   ├── Plugin/          // 플러그인 컴포넌트 관리(Swiper 등)
-│   └── Page/             // 페이지별 컴포넌트 (Home, Projects 등)
-├── CSS/              // 스타일 관련 파일
-│   └── common/         // 공통 CSS, 초기화 CSS
-│   └── variables/         // 일관성을 위한 변수셋팅
-├── index/              // Router 관리 js
+src/</br>
+├── components/          // 재사용 가능한 UI 컴포넌트</br>
+│   ├── data/         // 공통적으로 사용하는 데이터(skill, works등)</br>
+│   ├── func/        // 공통함수(스크롤애니 함수, WorksPJList 컴포넌트)</br>
+│   ├── Layout/          // 레이아웃 컴포넌트 (Header, Footer 등)</br>
+│   ├── Plugin/          // 플러그인 컴포넌트 관리(Swiper 등)</br>
+│   └── Page/             // 페이지별 컴포넌트 (Home, Projects 등)</br>
+├── CSS/              // 스타일 관련 파일</br>
+│   └── common/         // 공통 CSS, 초기화 CSS</br>
+│   └── variables/         // 일관성을 위한 변수셋팅</br>
+├── index/              // Router 관리 js</br>
