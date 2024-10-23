@@ -24,9 +24,9 @@ link : https://alrang-portfolio.vercel.app/
 * **마우스 인터랙션:**  useState, useEffect, useRef Hook을 사용하여 타이틀 영역에 마우스 hover시 따라 랜덤한 이미지가 마우스 포인터를 따라다니는 애니메이션 구현
 </br>
 * **랜덤 이미지 생성 및 추가(handleMouseEnter)**
-*  handleMouseEnter 함수는 마우스가 title-wrap 요소에 진입할 때 실행됩니다.
-* Math.random()을 사용하여 1부터 4까지의 랜덤한 숫자를 생성하고, 이를 이용하여 랜덤 이미지 파일 경로를 생성합니다.
-* setImages([...images, randomImage])를 사용하여 기존 images 배열에 새로운 랜덤 이미지를 추가합니다. useState Hook을 통해 images 배열이 업데이트되면 컴포넌트가 다시 렌더링되어 새로운 이미지가 화면에 나타납니다.</br>
+1)handleMouseEnter 함수는 마우스가 title-wrap 요소에 진입할 때 실행됩니다.</br>
+2)Math.random()을 사용하여 1부터 4까지의 랜덤한 숫자를 생성하고, 이를 이용하여 랜덤 이미지 파일 경로를 생성합니다.</br>
+3)setImages([...images, randomImage])를 사용하여 기존 images 배열에 새로운 랜덤 이미지를 추가합니다. useState Hook을 통해 images 배열이 업데이트되면 컴포넌트가 다시 렌더링되어 새로운 이미지가 화면에 나타납니다.</br>
 
 ```
  const handleMouseEnter = () => {
@@ -37,15 +37,16 @@ link : https://alrang-portfolio.vercel.app/
   };
 ```
 
-* **2. 마우스 위치 추적 및 이미지 이동**
-*1) handleMouseMove 함수는 마우스가 title-wrap 요소 내에서 움직일 때마다 실행됩니다.
-*2) titleWrapRef.current.getBoundingClientRect()를 사용하여 title-wrap 요소의 위치와 크기 정보를 가져옵니다.
-*3) isWithinTitleWrap 변수를 통해 마우스 좌표가 title-wrap 요소 내부에 있는지 확인합니다.
-*4) 마우스 좌표가 title-wrap 요소 내부에 있는 경우, imageRef.current.style.top과 imageRef.current.style.left 속성을 업데이트하여 이미지를 마우스 위치에 따라 이동시킵니다.
-*5) 마우스 좌표가 title-wrap 요소 외부에 있는 경우, imageRef.current.style.display = "none";을 사용하여 이미지를 숨깁니다.
+* **2. 마우스 위치 추적 및 이미지 이동**</br>
+1) handleMouseMove 함수는 마우스가 title-wrap 요소 내에서 움직일 때마다 실행됩니다.</br>
+2) titleWrapRef.current.getBoundingClientRect()를 사용하여 title-wrap 요소의 위치와 크기 정보를 가져옵니다.</br>
+3) isWithinTitleWrap 변수를 통해 마우스 좌표가 title-wrap 요소 내부에 있는지 확인합니다.</br>
+4) 마우스 좌표가 title-wrap 요소 내부에 있는 경우, imageRef.current.style.top과 imageRef.current.style.left 속성을 업데이트하여 이미지를 마우스 위치에 따라 이동시킵니다.</br>
+5) 마우스 좌표가 title-wrap 요소 외부에 있는 경우, imageRef.current.style.display = "none";을 사용하여 이미지를 숨깁니다.</br>
 
 **3. useEffect에서 이벤트 리스너를 등록 및 제거합니다.**
-*메모리 누수 방지와 불필요한 이벤트 처리를 막기 위하여 useEffect Hook에서 mousemove이벤트를 등록하고 컴포넌트가 언마운트 될때 이벤트 리스너를 제거합니다.
+</br>
+메모리 누수 방지와 불필요한 이벤트 처리를 막기 위하여 useEffect Hook에서 mousemove이벤트를 등록하고 컴포넌트가 언마운트 될때 이벤트 리스너를 제거합니다.</br>
 ```
   const handleMouseMove = (event) => {
     if (imageRef.current && titleWrapRef.current) {
@@ -78,9 +79,9 @@ link : https://alrang-portfolio.vercel.app/
       window.removeEventListener("mousemove", handleMouseMove);
     };
 ```
-**4. 이미지 렌더링 및 Ref 연결**
-* images 배열을 map 함수를 사용하여 순회하며 각 이미지를 렌더링합니다.
-*ref={index === images.length - 1 ? imageRef : null}를 사용하여 가장 최근에 추가된 이미지에만 imageRef를 연결합니다. 이를 통해 마지막 이미지만 마우스를 따라다니도록 구현했습니다.
+**4. 이미지 렌더링 및 Ref 연결**</br>
+images 배열을 map 함수를 사용하여 순회하며 각 이미지를 렌더링합니다.</br>
+ref={index === images.length - 1 ? imageRef : null}를 사용하여 가장 최근에 추가된 이미지에만 imageRef를 연결합니다. 이를 통해 마지막 이미지만 마우스를 따라다니도록 구현했습니다.</br>
 ```
    <div
           className="title-wrap"
