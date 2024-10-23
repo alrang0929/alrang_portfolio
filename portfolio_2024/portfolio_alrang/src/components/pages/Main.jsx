@@ -344,19 +344,6 @@ function Main() {
                 ))}
               </ul>
             </div>
-            {/* 3)BG acting text */}
-
-            {/* <div className="bottom-ani-text fxbox">
-              <div className="gilda-display-regular">
-                Alrang’s Work Place Alrang’s Work Place
-              </div>
-              <div className="gilda-display-regular">
-                Alrang’s Work Place Alrang’s Work Place
-              </div>
-              <div className="gilda-display-regular">
-                Alrang’s Work Place Alrang’s Work Place Alrang’s Work Place
-              </div>
-            </div> */}
           </div>
 
           {/* 3) 인포 텍스트 */}
