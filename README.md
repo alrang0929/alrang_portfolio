@@ -1,6 +1,6 @@
 # Alrang's work place (2024)
 
-## bash
+## Bash
 ```
 npm run build
 ```
