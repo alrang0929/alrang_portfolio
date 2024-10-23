@@ -142,6 +142,7 @@ link : https://alrang-portfolio.vercel.app/
 * 포트폴리오 피드백을 받는 중 Intersection Observer API를 사용하는 구간에서 ios와 android 환경 이용자의 화면이 다른 것을 발견.</br>
   구글링을 해봐도 별다른 해결책이 없어보여 props로 받아오던 width값과 height 값을 직접적으로 입력하니 문제가 해결됨</br>
   따라서 Intersection Observer API를 사용한 컴포넌트의 기존버전</br>
+  
   ```
           <SlidingText
                 text={"connecting"}
@@ -150,6 +151,7 @@ link : https://alrang-portfolio.vercel.app/
                 delay={0}
               />
   ```
+  
   에서 props로 받아오는 fontsize와 컴포넌트 네 사이즈에 관련된 코드를 제거하고, 사이즈는 컴포넌트를 사용하는 곳에서 직접적으로 관리하게 하여 해결함.</br>
   
 ## 📁 프로젝트 구조
