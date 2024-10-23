@@ -122,7 +122,7 @@ link : https://alrang-portfolio.vercel.app/
 * **1. TopArea의 home버튼의 이동기능 문제 발생**
  삼항연산자를 이용하여 isHome의 상태에 따라 Works와 Home의 링크, 버튼 내 텍스트와 링크 토글기능 구현</br>
  그러나 해당 버튼이 worksDetail 컴포넌트에 들어갈 경우 works와 worksDetail path를 토글하는 문제 발생</br>
- ```
+```
      <header id="gnb-area">
         <nav>
           {!isHome && <Link to="/Works">WORKS</Link>}
@@ -131,11 +131,11 @@ link : https://alrang-portfolio.vercel.app/
           </button>
         </nav>
       </header>
-  ```
+```
  당시 코드를 다시 보니 중복 라우팅으로 인한 충돌 때문에 해당 문제가 발생했을거라 판단하여</br>
- ```
+```
   {!isHome && <Link to="/Works">WORKS</Link>}
-  ```
+```
 해당 코드 제거하여 문제 해결</br>
 
 * **2. Intersection Observer API로 제작한 슬라이드 애니메이션의 오류**
