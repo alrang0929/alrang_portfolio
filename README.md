@@ -1,9 +1,9 @@
 # Alrang's work place (2024)
 
-##bash
-...
+## bash
+```
 npm run build
-...
+```
 
 **✨ 안녕하세요! 프론트엔드 개발자를 꿈꾸는 알랑입니다. ✨**
 
