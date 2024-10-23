@@ -24,10 +24,9 @@ link : https://alrang-portfolio.vercel.app/
 * **마우스 인터랙션:**  useState, useEffect, useRef Hook을 사용하여 타이틀 영역에 마우스 hover시 따라 랜덤한 이미지가 마우스 포인터를 따라다니는 애니메이션 구현
 </br>
 * **랜덤 이미지 생성 및 추가(handleMouseEnter)**
-* handleMouseEnter 함수는 마우스가 title-wrap 요소에 진입할 때 실행됩니다.</br>
-* Math.random()을 사용하여 1부터 4까지의 랜덤한 숫자를 생성하고, 이를 이용하여 랜덤 이미지 파일 경로를 생성합니다.</br>
-* setImages([...images, randomImage])를 사용하여 기존 images 배열에 새로운 랜덤 이미지를 추가합니다. useState Hook을 통해 images 배열이 업데이트되면 컴포넌트가 다시 렌더링되어 새로운 이미지가 화면에 나타납니다.</br>
-
+    * handleMouseEnter 함수는 마우스가 title-wrap 요소에 진입할 때 실행됩니다.
+    * `Math.random()`을 사용하여 1부터 4까지의 랜덤한 숫자를 생성하고, 이를 이용하여 랜덤 이미지 파일 경로를 생성합니다.
+    * `setImages([...images, randomImage])`를 사용하여 기존 images 배열에 새로운 랜덤 이미지를 추가합니다. useState Hook을 통해 images 배열이 업데이트되면 컴포넌트가 다시 렌더링되어 새로운 이미지가 화면에 나타납니다.
 ```
  const handleMouseEnter = () => {
     const randomImage = `/images/random_img/random_0${
