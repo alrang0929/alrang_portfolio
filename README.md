@@ -115,7 +115,7 @@ ref={index === images.length - 1 ? imageRef : null}를 사용하여 가장 최�
 * **SCSS:** CSS의 구조화와 변수, mixin을 통한 css 관리가 용이하여 해당 기술을 선택했습니다.
 
 ### 퍼포먼스 점수
-* **Lighthouse**를 통한 퍼포먼스 진단 결과
+* **Lighthouse**를 통한 퍼포먼스 진단 결과</br>
   ![화면 캡처 2024-10-24 022850](https://github.com/user-attachments/assets/51ad1603-cf0c-4bb8-9530-7dfcbe40acf0)
 * **성능 저하의 원인**: 불필요한 렌더링 요소와 이미지 관련 속도저하가 주된 원인으로 지적됐습니다.
   개선 방법으로는 이미지 용량의 최적화와, css와 JavaScript의 분할을 통한 필수 요소만 렌더링을 통하여 해결해나갈 예정입니다.
