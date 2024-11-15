@@ -30,30 +30,6 @@ function TopArea() {
         <button className="fill-button2" onClick={goLink}>
             {isHome ? "Works" : "Home"}
           </button>
-          {/* <ul className="fxbox">
-            <li className="link-box2">
-              <Link
-                style={{
-                  color:
-                    location.pathname == "/WorksDetail" ? "white" : "black",
-                }}
-                to="/"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="link-box2">
-              <Link
-                style={{
-                  color:
-                    location.pathname == "/WorksDetail" ? "white" : "black",
-                }}
-                to="/Works"
-              >
-                Works
-              </Link>
-            </li>
-          </ul> */}
         </nav>
       </header>
     </>

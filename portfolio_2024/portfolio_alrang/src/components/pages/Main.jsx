@@ -215,8 +215,6 @@ function Main() {
           <SlidingText>
             <span className="gilda-display-regular">Work Place</span>
           </SlidingText>
-          {/* <span className="gilda-display-regular">Alrang’s</span>
-          <span className="gilda-display-regular">Work Place</span> */}
           <div className="scroll-down">
             scroll down
             <div className="ani-bar"></div>
@@ -275,17 +273,6 @@ function Main() {
       </div>
       {/**************** 2. 프로필 영역: 인삿말, 스킬, 인포 ****************/}
       <div id="profile-area">
-        {/* <div className="top-ani-text fxbox">
-          <div className="gilda-display-regular">
-            Alrang’s Work Place Alrang’s Work Place
-          </div>
-          <div className="gilda-display-regular">
-            Alrang’s Work Place Alrang’s Work Place
-          </div>
-          <div className="gilda-display-regular">
-            Alrang’s Work Place Alrang’s Work Place Alrang’s Work Place
-          </div>
-        </div> */}
         <div id="intro-area">
           {/* 1) 인삿말 */}
           <div className="hello-text-wrap">
