@@ -1,68 +1,40 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import "./sliding-down-text.scss";
-import $ from "jquery";
-function SlidingText({ children, threshold = 0.3, duration = 0.5 }) {
-  //1. text 텍스트 저장을 위한 참조변수
-  //2. font : 지정하고 싶은 폰트
-  //3. fontsize: 지정하고 싶은 폰트 사이즈
-  //4. delay: 애니 딜레이 없을 시 x
+import { useState, useRef, useEffect } from "react";
 
-  const textRef = useRef(null);
-  // 2. 텍스트 박스 세로값 저장을 위한 참조변수
-  //   const boxhRef = useRef(null);
-  //상태관리변수
-  //1. 텍스트 박스 세로값 변화 감지용
-  const [boxh, setBoxh] = useState(0);
-  const [boxw, setBoxw] = useState(0);
+export default function ScrollFadeIn({ children, threshold = 0.3, duration = 0.5 }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const domRef = useRef(null);
 
   useEffect(() => {
-    // 스크롤 도달시 애니
-    // 대상선정
-    if (textRef.current) {
-      // textRef.current.style.animation = "slideDown 0.5s ease forwards";
-      console.log("textRef.current", textRef.current);
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            console.log("entry.isIntersecting", entry.isIntersecting);
-            observer.unobserve(entry.target);
-          } //if
-        },
-        { threshold: threshold } // 50% 이상 보일 때 감지
-        // console.log("IntersectionObserver",IntersectionObserver),
-      );
+    const handleScroll = () => {
+      if (domRef.current) {
+        const { top, bottom } = domRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-      observer.observe(textRef.current);
+        // 요소가 화면에 threshold 비율 이상 보이는 경우
+        if (bottom >= 0 && top <= windowHeight * (1 - threshold)) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      }
+    };
 
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [textRef.current]);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // 초기 렌더링 시에도 가시성 확인
 
-  useEffect(() => {
-    if (textRef.current) {
-      setBoxh(textRef.current.offsetHeight);
-    }
-    if (textRef.current) {
-      setBoxw(textRef.current.offsetWidth);
-    }
-  }, []);
-  console.log("boxh", boxh);
-  console.log("boxw", boxw);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [threshold]);
+
   return (
     <div
-      className="sliding-wrap"
+      ref={domRef}
       style={{
-        width: boxw + "px",
-        height: (boxh+40) + "px",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: `opacity ${duration}s ease-in-out, transform ${duration}s ease-in-out`,
       }}
     >
-      <div className={`sliding-text`} ref={textRef}>
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
-
-export default SlidingText;
