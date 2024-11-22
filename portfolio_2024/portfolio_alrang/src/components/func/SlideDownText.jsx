@@ -3,7 +3,18 @@ import { useState, useRef, useEffect } from "react";
 export default function ScrollFadeIn({ children, threshold = 0.3, duration = 0.5 }) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef(null);
-
+  const textRef = useRef(null);
+  const [boxh, setBoxh] = useState(0);
+  const [boxw, setBoxw] = useState(0);
+  
+  useEffect(() => {
+    if (textRef.current) {
+      setBoxh(textRef.current.offsetHeight);
+    }
+    if (textRef.current) {
+      setBoxw(textRef.current.offsetWidth);
+    }
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       if (domRef.current) {
@@ -27,14 +38,18 @@ export default function ScrollFadeIn({ children, threshold = 0.3, duration = 0.5
 
   return (
     <div
-      ref={domRef}
+      className="sliding-wrap"
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        // opacity: isVisible ? 1 : 0,
+        // transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `opacity ${duration}s ease-in-out, transform ${duration}s ease-in-out`,
+        width: boxw + "px",
+        height: (boxh+40) + "px",
       }}
     >
-      {children}
+      <div className={`sliding-text`} ref={textRef}>
+        {children}
+      </div>
     </div>
   );
 }
