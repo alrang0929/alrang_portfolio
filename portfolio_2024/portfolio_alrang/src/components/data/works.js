@@ -80,7 +80,7 @@ const worksData = [
 const worksThumbs = [
   { isrc: "/images/main/PC_project_thumb_seumit.jpg", key: "seumit" },
   { isrc: "/images/main/PC_project_thumb_amore.jpg", key: "amore" },
-  { isrc: "/images/main/PC_project_thumb_star.jpg", key: "star" },
+  { isrc: "/images/main/zm2_bg.png", key: "star" },
 ];
 // export default worksData;
 export { worksData, worksThumbs };
