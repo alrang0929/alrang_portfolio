@@ -55,27 +55,24 @@ const worksData = [
     },
   },
  
-  {
+  { 
     idx: 3,
-    title: "STAR WARS^팀 프로잭트 서브페이지^BAD BATCH",
-    engtitle: "STAR WARS Team^Project Subpage^BAD BATCH",
+    title: "쭈물 마켓",
+    engtitle: "Zumul Market",
     category: "UX / UI design, fe Development",
-    info: "2024.04.22^React, jQuery, SCSS, HTML5",
+    info: "2024.12 ~ 2025.1^React, React Hook Form, TanStack Query, Zustand, SCSS, Vite, yarn, styled-components,Supabase, Node.js",
     text: `
-    HTML로 작업한 프로젝트를 React, SCSS환경으로 이식한 프로잭트이다.
-    팀프로잭트이니 만큼 공통소스 설계에 중점을 뒀다.
-공통으로 사용되는 소스로는 [컬러(포인트, 텍스트, 디사블) / 폰트(타이틀, 서브타이틀, 텍스트) / 버튼 디자인(노말, 엑티브, 디사블), 하단 타 서브타이틀 이동 배너 컴포넌트]가 있으며
-공통으로 사용되는 디자인은 회의를 통해 디자인 class 를 작성 후 공통으로 사용하도록 진행했다.`,
+    창작자(판매자)가 자신의 작품(음원, 디지털 콘텐츠, 예술품 등)을 쉽게 판매하고, 팬과 직접 연결될 수 있는 오픈 마켓 플랫폼 입니다`,
     isrc: {
-      bg: "/images/starwars_bg.jpg",
-      mainlist: "/images/main/PC_project_side_star.jpg",
-      workslist: "/images/main/PC_main_list_star.jpg",
-      ipage: "/images/star_pg.png",
-      thumbs: "/images/main/PC_project_thumb_star.jpg", key: "star",
+      bg: "/images/zm2_bg.png",
+      mainlist: "/images/main/zm2_bg.png",
+      workslist: "/images/main/zm2_bg.png",
+      ipage: "/images/zm_pg.png",
+      thumbs:"/images/main/zm2_bg.png", key: "star",
     },
     url: {
       pdf: "https://docs.google.com/presentation/d/1MibZw2WQNsFUq7TPcNIZ10EAOOt63oFwqapo76ChAvQ/edit?usp=sharing",
-      page: "https://alrang0929.github.io/FED_2rd_star_wars/000_React_PJ/star-app/build",
+      page: "https://zumul-market-git-main-alrangs-projects.vercel.app/",
     },
   },
 ];
