@@ -89,12 +89,12 @@ function WorksDetail() {
           <div className="text-wrap">{pdData.text}</div>
           {/* 5. 버튼 박스(pdf다운, view demo) */}
           <div className="button-wrap fxbox">
-            <a href={pdData.url.pdf} target="_blank" rel="noopener noreferrer">
+            {/* <a href={pdData.url.pdf} target="_blank" rel="noopener noreferrer">
               <button className="line-button fxbox">
                 <div className="icon-box icon-file"></div>
                 <span>view guide pdf</span>
               </button>
-            </a>
+            </a> */}
             <a href={pdData.url.page} target="_blank" rel="noopener noreferrer">
               <button className="fill-button fxbox">
                 <div className="icon-box icon-page"></div>
