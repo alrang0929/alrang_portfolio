@@ -41,11 +41,7 @@ const worksData = [
     category: "UX / UI design, fe Development",
     info: "2024.04.15^jQuery, CSS, HTML5",
     text: `
-HTML5 기본 환경에서 진행한 프로젝트, 첫 프로잭트인 만큼 베이직한 환경에서 기능을 구현하는 것에 중점을 두었으며
-    아모레퍼시픽의 기존 사이트를 트랜드에 맞게 ui와 ux를 리디자인 했다.
-cross over한 사이트는 최근 리브랜딩 사이트를 공개한 정관장을 택했으며
-브랜드 소개 페이지 답게 기존의 사이트 보다 쉽고 직관적으로 브랜드 가치를 경험할 수 있도록 했으며
-대표 상품을 노출, 소개하여 아모레퍼시픽 내 각 브랜드들의 이미지를 부각시켰다`,
+이전에 개발한 HTML 기반 웹사이트를 React 환경으로 마이그레이션하여 코드 재활용성을 높이고 전반적 성능 개선했습니다`,
     isrc: {
       bg: "/images/amr_bg.jpg",
       mainlist: "/images/main/PC_project_side_amore.jpg",
